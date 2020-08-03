@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1058440591328-jh1ff789so5qqu73cf6pfj6110ujmd9a.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1058440591328-jh1ff789so5qqu73cf6pfj6110ujmd9a</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBALExjijclESQ0rmlQuVtNyOBhjInUv-I</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1058440591328</string>
+	<key>PLIST_VERSION</key>
+	<string>2</string>
+	<key>BUNDLE_ID</key>
+	<string>YaroslavTach.Developer.SolarProject</string>
+	<key>PROJECT_ID</key>
+	<string>solarproject-1593640724737</string>
+	<key>STORAGE_BUCKET</key>
+	<string>solarproject-1593640724737.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1058440591328:ios:2a694702b6be0282ecdd85</string>
+	<key>DATABASE_URL</key>
+	<string>https://solarproject-1593640724737.firebaseio.com</string>
+</dict>
+</plist>
