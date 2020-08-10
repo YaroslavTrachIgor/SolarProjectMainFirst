@@ -28,10 +28,8 @@ public extension UIButton {
 extension UIButton {
     public func addNotificationButtonPulse(view: UIView) {
         let pulse = Pulsing(numberOfPulses: 2, radius: 200, position: self.center)
-        
         pulse.animationDuration = 0.9
         pulse.backgroundColor = BasicProperties.color.cgColor
-        
         view.layer.insertSublayer(pulse, below: self.layer)
     }
     

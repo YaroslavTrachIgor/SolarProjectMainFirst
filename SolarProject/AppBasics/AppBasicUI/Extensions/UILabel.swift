@@ -20,7 +20,9 @@ public extension UILabel {
 
 
 //MARK: - UITextView public extension(change text with animation)
-public extension UILabel {
+extension UILabel: TextViewsContentApdateSetupProtocol {
+    typealias ContentView = UILabel
+    
     func setupContentWithAnimation(text: String) {
         UIView.transition(with: self,
              duration: 0.25,

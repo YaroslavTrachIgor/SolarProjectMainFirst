@@ -45,7 +45,7 @@ final class SunThemesMenuTableViewController: UITableViewController {
     
     
     //MARK: PlanetsMenuTableViewControllerPresenter
-    fileprivate var presenter: SunThemesMenuTBVCPresenter {
+    fileprivate var presenter: SunThemesMenuTBVCPresenterProtocol {
         return SunThemesMenuTBVCPresenter()
     }
     

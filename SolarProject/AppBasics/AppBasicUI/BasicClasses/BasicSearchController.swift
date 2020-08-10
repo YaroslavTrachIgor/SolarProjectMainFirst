@@ -52,7 +52,7 @@ extension BasicSearchController: BasicSearchControllerProtocol {
 
 //MARK: - Setup SearchBar UIFont
 func setupSearchBarFont() {
-    let searchTextAppearance      = UITextField.self.appearance(whenContainedInInstancesOf: [UISearchBar.self])
-    searchTextAppearance.font = UIFont(name: BasicFonts.mediumFont, size: 14)
+    let searchTextAppearance = UITextField.self.appearance(whenContainedInInstancesOf: [UISearchBar.self])
+    searchTextAppearance.font = UIFont(name: BasicProperties.BasicFonts.mediumFont, size: 14)
     searchTextAppearance.textColor = .white
 }

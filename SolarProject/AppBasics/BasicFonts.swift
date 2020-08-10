@@ -9,13 +9,17 @@
 import Foundation
 import UIKit
 
-//MARK: - BasicFonts struct
-struct BasicFonts {
+//MARK: - BasicProperties extension
+extension BasicProperties {
     
-    //MARK: Setup basic font names
-    static var mediumFont = "HelveticaNeue-Medium"
-    static var boldFont   = "HelveticaNeue-Bold"
-    
-    //MARK: Setup basic font size
-    static var appleFontSize = 14
+    //MARK: BasicFonts struct
+    public struct BasicFonts {
+        
+        //MARK: Setup basic font names
+        static var mediumFont = "HelveticaNeue-Medium"
+        static var boldFont   = "HelveticaNeue-Bold"
+        
+        //MARK: Setup basic font size
+        static var appleFontSize = 14
+    }
 }

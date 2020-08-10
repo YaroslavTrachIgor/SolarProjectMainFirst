@@ -23,11 +23,17 @@ final class PlanetsMenuTableViewController: UITableViewController {
     internal var searchedArticle = [String]()
     internal var isSearching: Bool = false
     
-    //MARK: Content
+    ///Content
     let titles = PlanetsMenuTableViewControllerModel.planetsTitles
     
-    //MARK: PlanetsMenuTableViewControllerPresenter
-    let presenter = PlanetsMenuTableViewControllerPresenter()
+    ///PlanetsMenuTableViewControllerPresenter
+    var presenter: PlanetsMenuTableViewControllerPresenterProtocol {
+        return PlanetsMenuTableViewControllerPresenter()
+    }
+    
+    ///Sections
+    let sections: [MainPlanetsMenuSections] = [.stars, .planets]
+    
     
     //UIRefreshControl
     private lazy var menuRefreshControl: UIRefreshControl = {
@@ -72,11 +78,11 @@ final class PlanetsMenuTableViewController: UITableViewController {
     
     //MARK: Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return presenter.numberOfSections()
+        return sections.count
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return setupHeaders(for: section)
+        return presenter.setupSectionHeaders(sections: sections, section: section)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -175,14 +181,16 @@ extension PlanetsMenuTableViewController {
         let row = indexPath.row
         
         ///Setup cell UI
-        guard let titleLabel            = cell.titleLablel else { return }
+        guard let titleLabel            = cell.titleLabel else { return }
         guard let descriptionTextView   = cell.descriptionTextView else { return }
         guard let detailButton          = cell.detailButton else { return }
+        guard let imageView             = cell.backImageView else { return }
         
         setupMoreCellBack(cell: cell, row: row)
         setupTitleLabel(label: titleLabel, row: row)
         setupDetailButton(button: detailButton, row: row)
         setupDescriptionTextView(textView: descriptionTextView, row: row)
+        setupMoreCellImageView(imageView: imageView, row: row)
     }
     
     
@@ -193,13 +201,16 @@ extension PlanetsMenuTableViewController {
     }
     
     private func setupPlanetsStandartContent(cell: PlanetsMenuTableViewCell, indexPath: IndexPath) {
-        cell.titleLabel.text = presenter.setupPlanetsTitlesContent(indexPath: indexPath)
-        cell.contentTextView.text = presenter.setupTextViewsContent(indexPath: indexPath)
-        cell.notificationButton.setTitle(presenter.setupNotificationButtonTitles(indexPath: indexPath), for: .normal)
+        let row = indexPath.row
+        let section = indexPath.section
+        
+        cell.titleLabel.text = presenter.setupPlanetsTitlesContent(sections: sections, row: row, section: section)
+        cell.contentTextView.text = presenter.setupTextViewsContent(sections: sections, row: row, section: section)
+        cell.notificationButton.setTitle(presenter.setupNotificationButtonTitles(sections: sections, row: row, section: section), for: .normal)
     }
     
     private func setupHeaders(for section: Int) -> String? {
-        return presenter.setupSectionHeaders(section: section)
+        return presenter.setupSectionHeaders(sections: sections, section: section)
     }
     
     
@@ -288,11 +299,12 @@ extension PlanetsMenuTableViewController {
     
     //MARK: Setup (moreCollectionView cell!) UI
     internal func setupDetailButton(button: UIButton, row: Int) {
-        button.backgroundColor = BasicProperties.color
+        button.isEnabled = false
+        button.backgroundColor = .systemGroupedBackground
         button.layer.cornerRadius = button.frame.height / 2
-        button.titleLabel?.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        button.setTitleColor(BasicProperties.color, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 12.5, weight: .bold)
-        button.buttonsShadows()
+        button.viewShadows()
         button.setTitle(presenter.setupMoreItemsButtonsTitles(row: row), for: .normal)
     }
     
@@ -302,7 +314,7 @@ extension PlanetsMenuTableViewController {
         label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         label.backgroundColor = .clear
         label.font = UIFont.systemFont(ofSize: 19, weight: .bold)
-        label.text = presenter.setupMoreItemsTitles(row: row)
+        label.text = NSLocalizedString(" " + presenter.setupMoreItemsTitles(row: row), comment: "")
     }
     
     private func setupDescriptionTextView(textView: UITextView, row: Int) {
@@ -338,6 +350,11 @@ extension PlanetsMenuTableViewController {
         cellLayer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: contentLayer.cornerRadius).cgPath
     }
     
+    private func setupMoreCellImageView(imageView: UIImageView, row: Int) {
+        imageView.contentMode = .scaleAspectFill
+        imageView.image = presenter.setupMoreCellBackImages(row: row)
+    }
+    
     
     //MARK: Setup (collectionView cell!) UI
     private func setupImageViewBlurView(imageViewBlurView: UIVisualEffectView) {
@@ -353,18 +370,20 @@ extension PlanetsMenuTableViewController {
     
     private func setupPlanetDetailLabel(detailLabel: UILabel, indexPath: IndexPath) {
         detailLabel.setupCollectionViewDetailLabelShadow()
-        detailLabel.text = presenter.setupImageCellPlanetDetailLabelContent(indexPath: indexPath)
+        detailLabel.text = presenter.setupImageCellPlanetDetailLabelContent(row: indexPath.row)
         detailLabel.labelShadow()
         detailLabel.layer.shadowColor = UIColor.white.cgColor
         detailLabel.textColor = .white
         detailLabel.clipsToBounds = false
         detailLabel.layer.masksToBounds = false
+        detailLabel.font = UIFont.systemFont(ofSize: 11, weight: .semibold)
     }
     
     private func setupSubDetailLabel(subDetailLabel: UILabel, indexPath: IndexPath) {
         subDetailLabel.textColor = .systemGroupedBackground
-        subDetailLabel.text = presenter.setupImageCellPlanetSubDetailLabelContent(indexPath: indexPath)
+        subDetailLabel.text = presenter.setupImageCellPlanetSubDetailLabelContent(row: indexPath.row)
         subDetailLabel.setupCollectionViewDetailLabelShadow()
+        subDetailLabel.font = UIFont.systemFont(ofSize: 8, weight: .regular)
     }
     
     private func setupImageViewBack(imageViewBack: UIView) {
@@ -408,7 +427,7 @@ extension PlanetsMenuTableViewController {
         if isSearching {
             return searchedArticle.count
         } else {
-            return presenter.setupSectionRows(section: section)
+            return presenter.setupSectionRows(sections: sections, section: section)
         }
     }
     

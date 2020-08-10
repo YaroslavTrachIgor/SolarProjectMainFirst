@@ -20,7 +20,7 @@ protocol PlanetsImagesCollectionViewControllerProtocol {
 final class PlanetsImagesCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     //MARK: Presenter
-    var presenter: PlanetsImagesCollectionViewControllerPresenter {
+    var presenter: PlanetsImagesCollectionViewControllerPresenterProtocol {
         return PlanetsImagesCollectionViewControllerPresenter()
     }
     

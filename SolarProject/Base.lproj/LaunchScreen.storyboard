@@ -67,7 +67,7 @@
                         <viewLayoutGuide key="safeArea" id="TZD-iR-gCp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="person" catalog="system" id="tp2-Cm-JmP"/>
+                    <tabBarItem key="tabBarItem" title="" image="gearshape.2" catalog="system" id="tp2-Cm-JmP"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kpj-dm-5nD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -100,7 +100,7 @@
         <image name="bookmark" catalog="system" width="112" height="128"/>
         <image name="circle" catalog="system" width="128" height="121"/>
         <image name="doc.plaintext" catalog="system" width="115" height="128"/>
-        <image name="person" catalog="system" width="128" height="117"/>
+        <image name="gearshape.2" catalog="system" width="128" height="100"/>
         <systemColor name="groupTableViewBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

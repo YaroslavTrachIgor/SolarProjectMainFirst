@@ -96,11 +96,13 @@
 		C457F92124D05902002C69A7 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457F92024D05902002C69A7 /* NewsModel.swift */; };
 		C457F92324D05927002C69A7 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457F92224D05927002C69A7 /* NewsCell.swift */; };
 		C457F92524D05950002C69A7 /* UISearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457F92424D05950002C69A7 /* UISearchBar.swift */; };
-		C457F92724D05CC2002C69A7 /* NewsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457F92624D05CC2002C69A7 /* NewsPresenter.swift */; };
 		C457F92A24D05D10002C69A7 /* NewsTVCSearchResultsUpdatingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457F92924D05D10002C69A7 /* NewsTVCSearchResultsUpdatingExtension.swift */; };
 		C457F92C24D0D7A9002C69A7 /* PlanetsImagesCollectionViewControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457F92B24D0D7A9002C69A7 /* PlanetsImagesCollectionViewControllerPresenter.swift */; };
 		C460010524C5DDBD0082F631 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C460010424C5DDBD0082F631 /* GoogleService-Info.plist */; };
 		C460010824C5DF740082F631 /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C460010724C5DF740082F631 /* NewsTableViewController.swift */; };
+		C460AD3E24DBF999003162E0 /* NotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C460AD3D24DBF999003162E0 /* NotificationsTableViewController.swift */; };
+		C460AD4024DC0C55003162E0 /* NotificationsSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C460AD3F24DC0C55003162E0 /* NotificationsSettings.swift */; };
+		C460AD4224E131F8003162E0 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C460AD4124E131F8003162E0 /* README.md */; };
 		C4704B1E24BD98390052E002 /* DeleteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4704B1D24BD98390052E002 /* DeleteVC.swift */; };
 		C4704B3924BDD7EC0052E002 /* SolarProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4704B3824BDD7EC0052E002 /* SolarProjectTests.swift */; };
 		C497CA5A24ACC20F009B90F3 /* PersonalAnalyticsTableViewControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C497CA5924ACC20D009B90F3 /* PersonalAnalyticsTableViewControllerPresenter.swift */; };
@@ -235,11 +237,13 @@
 		C457F92024D05902002C69A7 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		C457F92224D05927002C69A7 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		C457F92424D05950002C69A7 /* UISearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISearchBar.swift; sourceTree = "<group>"; };
-		C457F92624D05CC2002C69A7 /* NewsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPresenter.swift; sourceTree = "<group>"; };
 		C457F92924D05D10002C69A7 /* NewsTVCSearchResultsUpdatingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTVCSearchResultsUpdatingExtension.swift; sourceTree = "<group>"; };
 		C457F92B24D0D7A9002C69A7 /* PlanetsImagesCollectionViewControllerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsImagesCollectionViewControllerPresenter.swift; sourceTree = "<group>"; };
 		C460010424C5DDBD0082F631 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C460010724C5DF740082F631 /* NewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
+		C460AD3D24DBF999003162E0 /* NotificationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewController.swift; sourceTree = "<group>"; };
+		C460AD3F24DC0C55003162E0 /* NotificationsSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsSettings.swift; sourceTree = "<group>"; };
+		C460AD4124E131F8003162E0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../../Downloads/README.md; sourceTree = "<group>"; };
 		C4704B1D24BD98390052E002 /* DeleteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteVC.swift; sourceTree = "<group>"; };
 		C4704B3624BDD7EC0052E002 /* SolarProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SolarProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4704B3824BDD7EC0052E002 /* SolarProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarProjectTests.swift; sourceTree = "<group>"; };
@@ -324,6 +328,7 @@
 				84C717892486DE2B003B02B3 /* Profile */,
 				8463C8D4247FC9F20059A897 /* Info.plist */,
 				C460010424C5DDBD0082F631 /* GoogleService-Info.plist */,
+				C460AD4124E131F8003162E0 /* README.md */,
 				8463C8CF247FC9F20059A897 /* Assets.xcassets */,
 				8463C8D1247FC9F20059A897 /* LaunchScreen.storyboard */,
 			);
@@ -374,16 +379,16 @@
 			isa = PBXGroup;
 			children = (
 				84C7178F2486F387003B02B3 /* BasicViewController */,
-				84C71780248519EF003B02B3 /* LocalizedDate.swift */,
-				84C7179624898124003B02B3 /* ValidCheck.swift */,
-				8463C94D248075530059A897 /* BasicFonts.swift */,
-				84C7179424897DE5003B02B3 /* Device.swift */,
 				8463C944248068650059A897 /* ButtonsAnimations */,
 				8463C93F248067A00059A897 /* NotificationFunctions */,
 				8463C93C248025660059A897 /* AppBasicUI */,
 				8463C8E6248019D20059A897 /* Shadows */,
 				848A6875249C0DA0007F3E0F /* Gradient Extension */,
 				848A689224A61093007F3E0F /* BasicProperties.swift */,
+				8463C94D248075530059A897 /* BasicFonts.swift */,
+				84C7179424897DE5003B02B3 /* Device.swift */,
+				84C7179624898124003B02B3 /* ValidCheck.swift */,
+				84C71780248519EF003B02B3 /* LocalizedDate.swift */,
 			);
 			path = AppBasics;
 			sourceTree = "<group>";
@@ -737,6 +742,7 @@
 				84C717922487D486003B02B3 /* AccountVC.swift */,
 				848A68442497B79F007F3E0F /* PersonalAnalyticsTableViewController.swift */,
 				848EC0CF24A7FDD400EF7D62 /* AboutAppVC.swift */,
+				C460AD3D24DBF999003162E0 /* NotificationsTableViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -746,6 +752,7 @@
 			children = (
 				848EC0D124A7FF2700EF7D62 /* AboutAppVCModel.swift */,
 				848EC0D324A7FF5000EF7D62 /* PersonalAnalyticsModel.swift */,
+				C460AD3F24DC0C55003162E0 /* NotificationsSettings.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -857,14 +864,6 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
-		C457F91E24D058C9002C69A7 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				C457F92624D05CC2002C69A7 /* NewsPresenter.swift */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
 		C457F91F24D058DF002C69A7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -896,7 +895,6 @@
 			children = (
 				C457F91F24D058DF002C69A7 /* Model */,
 				C457F91C24D058A4002C69A7 /* View */,
-				C457F91E24D058C9002C69A7 /* Presenter */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -1013,6 +1011,7 @@
 			files = (
 				8463C8D3247FC9F20059A897 /* LaunchScreen.storyboard in Resources */,
 				8463C8D0247FC9F20059A897 /* Assets.xcassets in Resources */,
+				C460AD4224E131F8003162E0 /* README.md in Resources */,
 				C460010524C5DDBD0082F631 /* GoogleService-Info.plist in Resources */,
 				8463C8CE247FC9EC0059A897 /* Main.storyboard in Resources */,
 			);
@@ -1097,6 +1096,7 @@
 				8463C8DE247FD63E0059A897 /* Shadows.swift in Sources */,
 				84C7177C24831331003B02B3 /* StarsContent.swift in Sources */,
 				84C7174F24818FF6003B02B3 /* StarDeteailViewController.swift in Sources */,
+				C460AD4024DC0C55003162E0 /* NotificationsSettings.swift in Sources */,
 				848EC0D024A7FDD400EF7D62 /* AboutAppVC.swift in Sources */,
 				8463C8C7247FC9EC0059A897 /* AppDelegate.swift in Sources */,
 				84F055C42490FCEA008B9D06 /* MFMessageComposeViewController.swift in Sources */,
@@ -1112,7 +1112,6 @@
 				848A68482498237C007F3E0F /* MainTabBarController.swift in Sources */,
 				848A68432497A24F007F3E0F /* PlaceholderLabel.swift in Sources */,
 				C440A25924D80FED007EC12B /* MoreItemsContent.swift in Sources */,
-				C457F92724D05CC2002C69A7 /* NewsPresenter.swift in Sources */,
 				84F055B5248C49B1008B9D06 /* UIAlertController.swift in Sources */,
 				8463C94C248074AC0059A897 /* BasicSearchController.swift in Sources */,
 				C457F91B24CF7A4B002C69A7 /* MainProfileVCTableViewProtocolsExtension.swift in Sources */,
@@ -1167,6 +1166,7 @@
 				848EC0DA24A9F2B400EF7D62 /* PlanetImageViewController.swift in Sources */,
 				C4704B1E24BD98390052E002 /* DeleteVC.swift in Sources */,
 				84C717882485B333003B02B3 /* RemindersViewControllerPresenter.swift in Sources */,
+				C460AD3E24DBF999003162E0 /* NotificationsTableViewController.swift in Sources */,
 				84C717932487D486003B02B3 /* AccountVC.swift in Sources */,
 				84C7175B24824604003B02B3 /* UIBarButtonItem.swift in Sources */,
 				8463C93E248025790059A897 /* RefreshControl.swift in Sources */,

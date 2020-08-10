@@ -134,7 +134,6 @@ extension NewsViewController {
     
     private func setupTitleLabel() {
         titleLabel.textColor = .black
-        titleLabel.labelShadow()
         titleLabel.font = UIFont.systemFont(ofSize: 24.5, weight: .heavy)
         titleLabel.backgroundColor = .clear
         titleLabel.alpha = 0
@@ -143,7 +142,7 @@ extension NewsViewController {
     private func setupSubtitleLabel() {
         subtitleLabel.textColor = .darkGray
         subtitleLabel.labelShadow()
-        subtitleLabel.layer.shadowColor = UIColor.darkGray.cgColor
+        subtitleLabel.layer.shadowColor = subtitleLabel.textColor?.cgColor
         subtitleLabel.font = UIFont.systemFont(ofSize: 11, weight: .medium)
         subtitleLabel.backgroundColor = .clear
         subtitleLabel.alpha = 0
@@ -152,7 +151,7 @@ extension NewsViewController {
     private func setupDateLabel() {
         dateLabel.textColor = .lightGray
         dateLabel.labelShadow()
-        dateLabel.layer.shadowColor = UIColor.lightGray.cgColor
+        dateLabel.layer.shadowColor = dateLabel.textColor?.cgColor
         dateLabel.font = UIFont.italicSystemFont(ofSize: 10.5)
         dateLabel.backgroundColor = .clear
         dateLabel.alpha = 0

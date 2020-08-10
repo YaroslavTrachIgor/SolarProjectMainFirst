@@ -13,8 +13,8 @@ import UIKit
 final class MoreCollectionViewCell: UICollectionViewCell {
     
     //MARK: @IBOutlets
-    @IBOutlet weak var titleLablel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var detailButton: UIButton!
+    @IBOutlet weak var backImageView: UIImageView!
 }
-

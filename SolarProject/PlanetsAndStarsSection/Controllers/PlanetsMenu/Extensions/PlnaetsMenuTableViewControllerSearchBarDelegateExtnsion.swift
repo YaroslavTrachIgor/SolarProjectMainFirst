@@ -56,13 +56,8 @@ extension PlanetsMenuTableViewController: UISearchBarDelegate {
         mainQueue.async {
             semaphore.wait()
             
-            /// Stop doing the search stuff and clear the text in the search bar
             searchBar.text = ""
-            
-            /// Hide the cancel button
             searchBar.showsCancelButton = false
-            
-            // Remove focus from the search bar.
             searchBar.endEditing(true)
             
             semaphore.signal()

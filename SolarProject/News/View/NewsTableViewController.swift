@@ -17,20 +17,27 @@ protocol NewsTableViewControllerProtocol {
 }
 
 
+//MARK: - SectionType enum extension
+extension NewsTableViewController {
+    enum SectionType {
+        case site
+        case news
+    }
+}
+
+
 
 //MARK: - NewsTableViewController main class
 final class NewsTableViewController: UITableViewController {
 
-    //MARK: RemoteConfig
+    /// Sections
+    var sections: [SectionType] = [.site, .news]
+    
+    /// RemoteConfig
     var remoteConfig: RemoteConfig!
     
-    //MARK: Model
+    /// Model
     var model: NewsModel!
-    
-    //MARK: Presenter
-    var presenter: NewsPresenter {
-        return NewsPresenter()
-    }
     
     
     //MARK: Private
@@ -68,20 +75,34 @@ final class NewsTableViewController: UITableViewController {
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return presenter.setupNumberOfSections()
+        return sections.count
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return presenter.setupTitlesForHeaders(section: section)
+        let sectionType = sections[section]
+        switch sectionType {
+            case .news:
+                return "News"
+            case .site:
+                return "Website"
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return presenter.setupNumberOfRowsInSection(section: section)
+        let sectionType = sections[section]
+        switch sectionType {
+            case .news:
+                return 4
+            case .site:
+                return 1
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
+        let sectionType = sections[indexPath.section]
+        switch sectionType {
+        case .news:
             let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as! NewsCell
             let mainQueue = DispatchQueue.main
             let semaphore = DispatchSemaphore(value: 1)
@@ -122,7 +143,7 @@ final class NewsTableViewController: UITableViewController {
             tableView.rowHeight = 420
             
             return cell
-        } else {
+        case .site:
             let cell = tableView.dequeueReusableCell(withIdentifier: "SiteCell", for: indexPath)
             
             ///Setup label
@@ -141,8 +162,12 @@ final class NewsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 1 {
-            showSafariSite(stringURL: "https://spacenews.com")
+        let sectionType = sections[indexPath.section]
+        switch sectionType {
+            case .site:
+                showSafariSite(stringURL: "https://spacenews.com")
+            case .news:
+                break
         }
     }
     

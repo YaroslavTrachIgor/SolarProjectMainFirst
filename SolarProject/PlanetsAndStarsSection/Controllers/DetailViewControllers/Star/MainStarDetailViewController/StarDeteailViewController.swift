@@ -16,7 +16,7 @@ import SPFakeBar
 final class StarDeteailViewController: BasicViewController {
     
     //MARK: - Presenter
-    var presenter: StarDetailVCPresenter {
+    var presenter: StarDetailVCPresenterProtocol {
         return StarDetailVCPresenter()
     }
     

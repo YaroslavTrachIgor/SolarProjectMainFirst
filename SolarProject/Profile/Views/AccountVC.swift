@@ -89,7 +89,6 @@ final class AccountVC: UITableViewController {
         setupGSignInDelegate()
         setupSignInButton()
         setupGooglePreviewButton()
-        setupGoogleImageView()
         setupTextFields()
     }
 }
@@ -225,8 +224,6 @@ extension AccountVC: AccountVCProtocol {
 extension AccountVC {
     
     //MARK: Setup UI
-    private func setupGoogleImageView() {}
-    
     private func setupTextFields() {
         for textField in textFields {
             textField.setupBasicAccountTextField()
@@ -283,7 +280,7 @@ extension AccountVC {
         if data != nil {
             userPhotoImageView.image = UIImage(data: (data!) as Data)
         } else {
-            return
+            userPhotoImageView.image = UIImage(systemName: "person.crop.circle")
         }
     }
 }

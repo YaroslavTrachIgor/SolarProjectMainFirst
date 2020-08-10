@@ -9,22 +9,12 @@
 import UIKit
 import Charts
 
-//MARK: - PersonalAnalyticsTableViewControllerProtocol protocol
-protocol PersonalAnalyticsTableViewControllerProtocol {
-    func setupRefreshControl()
-    func setpSeparator()
-    func setupCell(cell: PersonalAnalyticsTableViewCell, indexPath: IndexPath)
-    func setupTitle()
-}
-
-
-
 //MARK: - PersonalAnalyticsTableViewController main class
 final class PersonalAnalyticsTableViewController: UITableViewController {
     
     //MARK: Private, Lazy Properties
     //Presenter
-    private var presenter: PersonalAnalyticsTableViewControllerPresenter {
+    private var presenter: PersonalAnalyticsTableViewControllerPresenterProtocol {
         return PersonalAnalyticsTableViewControllerPresenter()
     }
     
@@ -40,7 +30,7 @@ final class PersonalAnalyticsTableViewController: UITableViewController {
         super.viewDidLoad()
 
         setupRefreshControl()
-        setpSeparator()
+        setpTableView()
         setupTitle()
     }
 
@@ -94,25 +84,26 @@ final class PersonalAnalyticsTableViewController: UITableViewController {
 
 
 //MARK: - PersonalAnalyticsTableViewControllerProtocol extension
-extension PersonalAnalyticsTableViewController: PersonalAnalyticsTableViewControllerProtocol {
+extension PersonalAnalyticsTableViewController {
     
     //MARK: Setup UI
-    internal func setupTitle() {
+    private func setupTitle() {
         title = "Pesonal Analytics"
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
-    internal func setpSeparator() {
+    private func setpTableView() {
+        tableView.backgroundColor = .systemGroupedBackground
         tableView.separatorColor = #colorLiteral(red: 0.962546849, green: 0.962546849, blue: 0.962546849, alpha: 1)
     }
     
-    internal func setupRefreshControl() {
+    private func setupRefreshControl() {
         tableView.refreshControl = menuRefreshControl
         menuRefreshControl.addTarget(self, action: #selector(setupRefreshControlAction), for: .valueChanged)
     }
     
     
-    internal func setupCell(cell: PersonalAnalyticsTableViewCell, indexPath: IndexPath) {
+    private func setupCell(cell: PersonalAnalyticsTableViewCell, indexPath: IndexPath) {
         
         ///Setup content
         setupContent(cell: cell, indexPath: indexPath)
@@ -130,19 +121,9 @@ extension PersonalAnalyticsTableViewController: PersonalAnalyticsTableViewContro
         setupArrowImage(cell: cell)
         
         ///Set tableView rowHeight for section 1
-        tableView.rowHeight = 75
+        tableView.rowHeight = 65
     }
-    
-    
-    //MARK: @objc
-    @objc func setupRefreshControlAction() {
-        
-        ///Setup fast tableView data reload
-        tableView.reloadData()
-    }
-    
-    
-    //MARK: Private
+
     private func setupStatusBarView(with size: CGFloat) {
         let statusBarView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: size))
         statusBarView.backgroundColor = .black
@@ -204,15 +185,26 @@ extension PersonalAnalyticsTableViewController: PersonalAnalyticsTableViewContro
     }
     
     private func setupTitleLabel(titleLabel: UILabel) {
-        titleLabel.labelShadow()
+        titleLabel.textColor = .black
+        titleLabel.backgroundColor = .clear
+        titleLabel.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
     }
     
     private func setupSubtitleLabel(subtitleLabel: UILabel) {
-        subtitleLabel.labelShadow()
-        subtitleLabel.layer.shadowColor = subtitleLabel.textColor!.cgColor
+        subtitleLabel.textColor = .lightGray
+        subtitleLabel.backgroundColor = .clear
+        subtitleLabel.font = UIFont.systemFont(ofSize: 9.5, weight: .regular)
     }
     
     private func setupArrowImage(cell: PersonalAnalyticsTableViewCell) {
         cell.arrowImage.tintColor = cell.viewsCountLabel.textColor!
+    }
+    
+    
+    //MARK: @objc
+    @objc func setupRefreshControlAction() {
+        
+        ///Setup fast tableView data reload
+        tableView.reloadData()
     }
 }

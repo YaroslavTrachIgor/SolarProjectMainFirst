@@ -9,13 +9,26 @@
 import Foundation
 import UIKit
 
+//MARK: - PersonalAnalyticsTableViewControllerPresenterProtocol protocol
+protocol PersonalAnalyticsTableViewControllerPresenterProtocol {
+    func setupHeadersForSections(section: Int) -> String?
+    func setupNumberOfRowsInSection(section: Int) -> Int
+    func setupCell(red: () -> (), green: () -> (), normal: () -> (), zero: () -> (), indexPath: IndexPath)
+    func setupTitleLabelsContent(indexPath: IndexPath) -> String
+    func setupSubTitleLabelsContent(indexPath: IndexPath) -> String
+    func setupViews(indexPath: IndexPath) -> String
+    func setupChartColors() -> [UIColor]
+}
+
+
+
 //MARK: - PersonalAnalyticsTableViewControllerPresenter main class
 final class PersonalAnalyticsTableViewControllerPresenter {}
 
 
 
 //MARK: - PersonalAnalyticsTableViewControllerPresenterProtocol extension
-extension PersonalAnalyticsTableViewControllerPresenter {
+extension PersonalAnalyticsTableViewControllerPresenter: PersonalAnalyticsTableViewControllerPresenterProtocol {
     internal func setupHeadersForSections(section: Int) -> String? {
         if section == 1 {
             return "Charts"

@@ -14,7 +14,7 @@ import SPAlert
 final class PlanetsMenuTableViewCell: UITableViewCell {
     
     //MARK: PlanetsMenuTableViewCellPresenter
-    var presenter: PlanetsMenuTableViewCellPresenter {
+    private var presenter: PlanetsMenuTableViewCellPresenterProtocol {
         return PlanetsMenuTableViewCellPresenter()
     }
     
@@ -50,7 +50,11 @@ extension PlanetsMenuTableViewCell {
     private func presentNotificationAlert() {
         
         ///Present alertController
-        UIApplication.shared.keyWindow?.rootViewController?.present(setupAlertController(), animated: true, completion: nil)
+        if NotificationsSettings.shared.notificationsOn {
+            UIApplication.shared.keyWindow?.rootViewController?.present(setupAlertController(), animated: true, completion: nil)
+        } else {
+            setupNotificationsOffAlert()
+        }
     }
     
     private func setupAlertController() -> UIAlertController {
@@ -76,6 +80,10 @@ extension PlanetsMenuTableViewCell {
         alertController.view.addSubview(datePicker!)
         alertController.view.tintColor = BasicProperties.color
         return alertController
+    }
+    
+    private func setupNotificationsOffAlert() {
+        FastAlert.showBasic(title: "Notifications disabled.", message: "If you want to enable notifications go to settings.", vc: (UIApplication.shared.keyWindow?.rootViewController!)!)
     }
     
     private func setupNotificationAlert() {

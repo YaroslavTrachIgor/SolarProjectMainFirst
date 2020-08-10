@@ -9,6 +9,33 @@
 import Foundation
 import UIKit
 
+//MARK: - PlanetsMenuTableViewControllerPresenterMoreItemsProtocol protocol
+protocol PlanetsMenuTableViewControllerPresenterMoreItemsProtocol {
+    func setupMoreItemsNumberOfRows() -> Int
+    func setupCollectionViewCellImageDownloadsContent(indexPath: IndexPath) -> String
+    func setupMoreItemsBackColors(row: Int) -> UIColor
+    func setupMoreItemsTitles(row: Int) -> String
+    func setupMoreItemsButtonsTitles(row: Int) -> String
+    func setupMoreItemsDescriptions(row: Int) -> String
+    func setupSegues(row: Int) -> String
+    func setupMoreCellBackImages(row: Int) -> UIImage
+}
+
+
+
+//MARK: - PlanetsMenuTableViewControllerPresenterProtocol protocol
+protocol PlanetsMenuTableViewControllerPresenterProtocol: PlanetsMenuTableViewControllerPresenterMoreItemsProtocol {
+    func setupSectionHeaders(sections: [PlanetsMenuTableViewController.MainPlanetsMenuSections], section: Int) -> String
+    func setupPlanetsTitlesContent(sections: [PlanetsMenuTableViewController.MainPlanetsMenuSections], row: Int, section: Int) -> String
+    func setupTextViewsContent(sections: [PlanetsMenuTableViewController.MainPlanetsMenuSections], row: Int, section: Int) -> String
+    func setupNotificationButtonTitles(sections: [PlanetsMenuTableViewController.MainPlanetsMenuSections], row: Int, section: Int) -> String
+    func setupSectionRows(sections: [PlanetsMenuTableViewController.MainPlanetsMenuSections], section: Int) -> Int
+    func setupImageCellPlanetDetailLabelContent(row: Int) -> String
+    func setupImageCellPlanetSubDetailLabelContent(row: Int) -> String
+}
+
+
+
 //MARK: - PlanetDetailViewControllerPresenter main class
 final class PlanetsMenuTableViewControllerPresenter {
     
@@ -21,74 +48,94 @@ final class PlanetsMenuTableViewControllerPresenter {
 
 
 
+//MARK: PlanetsMenuTableViewController extension
+extension PlanetsMenuTableViewController {
+    
+    //MARK: MainPlanetsMenuSections enum
+    enum MainPlanetsMenuSections {
+        case planets
+        case stars
+    }
+}
+
+
+
 //MARK: - PlanetDetailViewControllerPresenter extension
-extension PlanetsMenuTableViewControllerPresenter {
+extension PlanetsMenuTableViewControllerPresenter: PlanetsMenuTableViewControllerPresenterProtocol {
     
     
     //MARK: Setup Main Articles Menu Section Content
-    internal func numberOfSections() -> Int {
-        return 2
-    }
-    
-    internal func setupSectionHeaders(section: Int) -> String {
-        if section == 0 {
+    internal func setupSectionHeaders(sections: [PlanetsMenuTableViewController.MainPlanetsMenuSections], section: Int) -> String {
+        let section = sections[section]
+        switch section {
+        case .stars:
             return "Stars"
-        } else {
+        case .planets:
             return "Planets"
         }
     }
     
-    internal func setupPlanetsTitlesContent(indexPath: IndexPath) -> String {
-        if indexPath.section == 0 {
+    internal func setupPlanetsTitlesContent(sections: [PlanetsMenuTableViewController.MainPlanetsMenuSections], row: Int, section: Int) -> String {
+        let section = sections[section]
+        switch section {
+        case .stars:
             return PlanetsMenuTableViewControllerModel.StarsContent.title
-        } else {
-            return " " + headers[indexPath.row]
+        case .planets:
+            return " " + headers[row]
         }
     }
     
-    internal func setupTextViewsContent(indexPath: IndexPath) -> String {
-        if indexPath.section == 0 {
+    internal func setupTextViewsContent(sections: [PlanetsMenuTableViewController.MainPlanetsMenuSections], row: Int, section: Int) -> String {
+        let section = sections[section]
+        switch section {
+        case .stars:
             return PlanetsMenuTableViewControllerModel.StarsContent.previewContent
-        } else {
-            return PlanetsMenuTableViewControllerModel.PreviewContent.planetsPreviewContent[indexPath.row]
+        case .planets:
+            return PlanetsMenuTableViewControllerModel.PreviewContent.planetsPreviewContent[row]
         }
     }
     
-    internal func setupNotificationButtonTitles(indexPath: IndexPath) -> String {
-        if indexPath.section == 0 {
+    internal func setupNotificationButtonTitles(sections: [PlanetsMenuTableViewController.MainPlanetsMenuSections], row: Int, section: Int) -> String {
+        let section = sections[section]
+        switch section {
+        case .stars:
             return "Put notification on Sun article"
-        } else {
-            return "Put notification on \(headers[indexPath.row]) article"
+        case .planets:
+            return "Put notification on \(headers[row]) article"
         }
     }
     
-    internal func setupSectionRows(section: Int) -> Int {
-        if(section == 0) {
+    internal func setupSectionRows(sections: [PlanetsMenuTableViewController.MainPlanetsMenuSections], section: Int) -> Int {
+        let section = sections[section]
+        switch section {
+        case .stars:
             return 1
-        } else {
+        case .planets:
             return headers.count
         }
     }
     
-    internal func setupImageCellPlanetDetailLabelContent(indexPath: IndexPath) -> String{
-        if indexPath.row == 9 {
+    internal func setupImageCellPlanetDetailLabelContent(row: Int) -> String {
+        switch row {
+        case 9:
             return "Sun"
-        } else {
-            return headers[indexPath.row]
+        default:
+            return headers[row]
         }
     }
     
-    internal func setupImageCellPlanetSubDetailLabelContent(indexPath: IndexPath) -> String {
-        if indexPath.row == 9 {
+    internal func setupImageCellPlanetSubDetailLabelContent(row: Int) -> String {
+        switch row {
+        case 9:
             return "Star Sun"
-        } else {
-            return "Plantet " + headers[indexPath.row]
+        default:
+            return "Plantet " + headers[row]
         }
     }
     
     
     //MARK: Setup MoreItems Content
-    internal func setupMoreItemsNumberOfRows() -> Int{
+    internal func setupMoreItemsNumberOfRows() -> Int {
         return PlanetsMenuTableViewControllerModel.MoreItemsContent.titles.count
     }
     
@@ -101,7 +148,7 @@ extension PlanetsMenuTableViewControllerPresenter {
     }
     
     internal func setupMoreItemsTitles(row: Int) -> String {
-        return " " + PlanetsMenuTableViewControllerModel.MoreItemsContent.titles[row]
+        return PlanetsMenuTableViewControllerModel.MoreItemsContent.titles[row]
     }
     
     internal func setupMoreItemsButtonsTitles(row: Int) -> String {
@@ -114,5 +161,9 @@ extension PlanetsMenuTableViewControllerPresenter {
     
     internal func setupSegues(row: Int) -> String {
         return PlanetsMenuTableViewControllerModel.MoreItemsContent.segues[row]
+    }
+    
+    internal func setupMoreCellBackImages(row: Int) -> UIImage {
+        return PlanetsMenuTableViewControllerModel.MoreItemsContent.images[row]
     }
 }

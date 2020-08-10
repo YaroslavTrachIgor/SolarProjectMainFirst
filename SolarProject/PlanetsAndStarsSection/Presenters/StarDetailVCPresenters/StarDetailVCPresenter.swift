@@ -13,8 +13,8 @@ protocol StarDetailVCPresenterContentSetupProtocol {
     func setupMostContent() -> String
     func setupBasicContent() -> String
     func setupHistoryContent() -> String
+    func setupSwitchedContent(with selectedIndex: Int) -> String
 }
-
 
 
 //MARK: - PlanetDetailViewControllerPresenterProtocol protocol

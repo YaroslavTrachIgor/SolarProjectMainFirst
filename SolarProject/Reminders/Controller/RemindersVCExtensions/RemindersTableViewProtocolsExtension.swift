@@ -15,19 +15,19 @@ extension RemindersViewController: UITableViewDelegate, UITableViewDataSource {
     internal func numberOfSections(in tableView: UITableView) -> Int {
         
         ///number Of Sections
-        return presenter.setupNumberOfSections()
+        return sections.count
     }
     
     internal func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
         ///Set header title
-        return presenter.setupHeaders(section: section)
+        return presenter.setupHeaders(sections: sections, section: section)
     }
     
     internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         ///Setup number Of Rows In Section
-        return presenter.setupNumperOfRows(isSearching: isSearching, searchedArticle: searchedArticle, section: section)
+        return presenter.setupNumperOfRows(sections: sections, isSearching: isSearching, searchedArticle: searchedArticle, section: section)
     }
     
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -43,13 +43,17 @@ extension RemindersViewController: UITableViewDelegate, UITableViewDataSource {
         setupTitleLabel(title: title)
         setupBackImageView(backImageView: cell.backImageView, section: indexPath.section)
         
+        ///Setup cell
+        cell.backgroundColor = .clear
+        
         return cell
     }
     
     internal func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            if indexPath.section == 0 {
-                
+            let section = sections[indexPath.section]
+            switch section {
+            case .reminders:
                 ///Set deleted indexes
                 deletedIndex = indexPath.row
                 deletedIndexPath = indexPath
@@ -67,8 +71,7 @@ extension RemindersViewController: UITableViewDelegate, UITableViewDataSource {
                 deletevc.modalPresentationCapturesStatusBarAppearance = true
                 
                 self.present(deletevc, animated: true, completion: nil)
-                
-            } else {
+            case .completed:
                 let row = indexPath.row
                 
                 ///Setup Semaphore

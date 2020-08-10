@@ -14,6 +14,7 @@ protocol PlanetDetailViewControllerPresenterContentSetupProtocol {
     func setupBasicContent() -> String
     func setupMostContent() -> String
     func setupSwitchedContent(with selectedIndex: Int) -> String
+    func setupContentTypeInfo(with selectedIndex: Int) -> String
     func addViewToAnalytics()
     func setupBasicAdUnitId() -> String
 }

@@ -33,7 +33,7 @@ protocol PlanetDetailViewControllerProtocol: PlanetDetailViewControllerContentSe
 final class PlanetDetailViewController: BasicViewController {
     
     //MARK: Presenter
-    var presenter: PlanetDetailViewControllerPresenter {
+    var presenter: PlanetDetailViewControllerPresenterContentSetupProtocol {
         return PlanetDetailViewControllerPresenter()
     }
     

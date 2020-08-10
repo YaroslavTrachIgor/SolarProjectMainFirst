@@ -13,11 +13,8 @@ import UIKit
 //MARK: - Setup ProfileImageView
 public extension UIImageView {
     func setupProfileImageView() {
-        layer.borderColor = BasicProperties.color.cgColor
-        layer.borderWidth = 5.5
         layer.cornerRadius = frame.width / 2
         tintColor = BasicProperties.color
-        imageViewShadow()
     }
 }
 

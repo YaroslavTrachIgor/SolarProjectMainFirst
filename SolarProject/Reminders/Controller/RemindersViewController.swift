@@ -24,11 +24,14 @@ final class RemindersViewController: BasicViewController {
         case remindersCompletedDatesSaveKey  = "remindersCompletedDatesSaveKey"
     }
     
-    //MARK: Presenter
-    var presenter: RemindersViewControllerPresenter {
+    ///Presenter
+    var presenter: RemindersViewControllerPresenterProtocol {
         return RemindersViewControllerPresenter()
     }
     
+    ///Sections
+    let sections: [RemindersMenuSectionType] = [.reminders, .completed]
+
     
     //MARK: @IBOutlets
     @IBOutlet weak var bunnerView: GADBannerView!
@@ -91,7 +94,6 @@ final class RemindersViewController: BasicViewController {
         setupRefreshControl()
         setupSearchBar()
         setupAddBunner()
-        setupEditorControlsBackView()
     }
 }
 
@@ -222,10 +224,6 @@ extension RemindersViewController {
     }
     
     //MARK: Private
-    private func setupEditorControlsBackView() {
-        editorControlsBackView.layer.cornerRadius = 55
-    }
-    
     private func setupSearchBar() {
         searchController.searchBar.delegate = self
         navigationItem.searchController = searchController
@@ -260,9 +258,9 @@ extension RemindersViewController {
         remindersMenuTableView.delegate = self
         remindersMenuTableView.dataSource = self
         remindersMenuTableView.separatorStyle = .singleLine
-        remindersMenuTableView.separatorColor = #colorLiteral(red: 0.948898427, green: 0.948898427, blue: 0.948898427, alpha: 1)
+        remindersMenuTableView.separatorColor = .clear
         remindersMenuTableView.setupBasicEditorTableView()
-        remindersMenuTableView.backgroundColor = .systemGroupedBackground
+        remindersMenuTableView.backgroundColor = .clear
     }
     
     private func setupInputTextField() {
@@ -311,11 +309,14 @@ extension RemindersViewController {
     
     //MARK: Internal
     internal func setupBackImageView(backImageView: UIImageView, section: Int) {
+        let section = sections[section]
+        
         backImageView.layer.cornerRadius = BasicProperties.cornerRadius
         
-        if section == 0 {
+        switch section {
+        case .reminders:
             backImageView.image = #imageLiteral(resourceName: "Снимок экрана 2020-07-29 в 16.20.16")
-        } else {
+        case .completed:
             backImageView.image = #imageLiteral(resourceName: "Снимок экрана 2020-07-29 в 16.10.25")
         }
     }
@@ -331,16 +332,18 @@ extension RemindersViewController {
     }
     
     internal func setupReminderViewContentBack(contentBack: UIView, section: Int) {
+        let section = sections[section]
+        
         contentBack.viewShadows()
         contentBack.layer.shadowRadius = 5
         contentBack.layer.shadowOffset = CGSize(width: 0, height: 2)
         contentBack.layer.cornerRadius = BasicProperties.cornerRadius
         
-        if section == 0 {
+        switch section {
+        case .reminders:
             contentBack.backgroundColor = BasicProperties.color
             contentBack.layer.shadowColor = contentBack.backgroundColor?.cgColor
-            
-        } else {
+        case .completed:
             let contentColor = #colorLiteral(red: 0.1460161237, green: 0.5163441999, blue: 1, alpha: 1)
             contentBack.backgroundColor = contentColor
             contentBack.layer.shadowColor = contentColor.cgColor
@@ -356,8 +359,8 @@ extension RemindersViewController {
         } else {
             
             ///Set default cell content
-            cell.titleLabel.text = presenter.setupRemindersContent(row: row, section: section)
-            cell.subtitleLabel.text = presenter.setupRemindersDatesContent(row: row, section: section)
+            cell.titleLabel.text = presenter.setupRemindersContent(sections: sections, row: row, section: section)
+            cell.subtitleLabel.text = presenter.setupRemindersDatesContent(sections: sections, row: row, section: section)
         }
     }
     

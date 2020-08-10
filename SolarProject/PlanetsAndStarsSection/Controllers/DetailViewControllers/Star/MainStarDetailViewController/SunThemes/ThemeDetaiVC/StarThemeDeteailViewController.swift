@@ -29,7 +29,7 @@ protocol StarThemeDeteailViewControllerProtocol: StarThemeDeteailViewControllerC
 class StarThemeDeteailViewController: BasicViewController {
     
     //MARK: Presenter
-    var presenter: StarThemeDeteailViewControllerPresenter {
+    var presenter: StarThemeDeteailViewControllerPresenterProtocol {
         return StarThemeDeteailViewControllerPresenter()
     }
     

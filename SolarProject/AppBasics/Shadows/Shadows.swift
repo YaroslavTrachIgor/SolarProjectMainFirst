@@ -9,13 +9,36 @@
 import UIKit
 import WebKit
 
+//MARK: - ShadowSetupProtocol protocol
+protocol ShadowSetupProtocol {
+    func viewShadows(opacity: Float, color: CGColor, radius: CGFloat, offset: CGSize)
+    func viewShadows()
+}
+
+
+
+//MARK: - UIView
+extension UIView: ShadowSetupProtocol {
+    
+    //MARK: ShadowSetupProtocol func
+    public func viewShadows(opacity: Float, color: CGColor, radius: CGFloat, offset: CGSize) {
+        layer.shadowRadius = radius
+        layer.shadowOpacity = opacity
+        layer.shadowOffset = offset
+        layer.shadowColor = color
+    }
+    
+    public func viewShadows() {
+        viewShadows(opacity: 1, color: UIColor(red: 223/255, green: 228/255, blue: 238/255, alpha: 0.5).cgColor, radius: 8, offset: CGSize(width: 0, height: 0.45))
+    }
+}
+
+
+
 //MARK: - UISlider
 extension UISlider {
     public func sliderShadow() {
-        layer.shadowOpacity = 0.7
-        layer.shadowColor   = BasicProperties.color.cgColor
-        layer.shadowRadius  = 4
-        layer.shadowOffset  = CGSize(width: 0, height: 0)
+        viewShadows(opacity: 0.7, color: BasicProperties.color.cgColor, radius: 4, offset: CGSize.zero)
     }
 }
 
@@ -24,10 +47,7 @@ extension UISlider {
 //MARK: - UIActivityIndicatorView
 extension UIActivityIndicatorView {
     public func activityIndicatorViewShadow() {
-        layer.shadowOpacity = 0.8
-        layer.shadowColor   = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-        layer.shadowRadius  = 11
-        layer.shadowOffset  = CGSize(width: 0, height: 0)
+        viewShadows(opacity: 0.8, color: #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), radius: 11, offset: CGSize.zero)
     }
 }
 
@@ -36,33 +56,15 @@ extension UIActivityIndicatorView {
 //MARK: - UIButton
 extension UIButton {
     public func buttonsShadows() {
-        layer.shadowOpacity = 1
-        layer.shadowColor  = BasicProperties.color.cgColor
-        layer.shadowRadius = 3.5
-        layer.shadowOffset  = CGSize(width: 0, height: 0.5)
+        viewShadows(opacity: 1, color: BasicProperties.color.cgColor, radius: 3.5, offset: CGSize(width: 0, height: 0.5))
     }
     
     public func testButtonsShadows() {
-        layer.shadowOpacity = 3
-        layer.shadowColor   = BasicProperties.color.cgColor
-        layer.shadowRadius  = 2.2
-        layer.shadowOffset  = CGSize(width: 0, height: 0)
+        viewShadows(opacity: 3, color: BasicProperties.color.cgColor, radius: 2.2, offset: CGSize.zero)
     }
     
     public func testFalseButtonsShadows() {
-        layer.shadowOpacity = 3
-        layer.shadowColor   = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
-        layer.shadowRadius  = 4
-        layer.shadowOffset  = CGSize(width: 0, height: 0)
-    }
-}
-
-
-
-//MARK: - UIView
-extension UIView {
-    public func viewShadows() {
-        addNeomorphicOneSideShadowColor()
+        viewShadows(opacity: 3, color: #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1), radius: 4, offset: CGSize.zero)
     }
 }
 
@@ -86,13 +88,6 @@ public extension UIView {
         shadowLayer.shadowOpacity = 1
         shadowLayer.shadowRadius = 8
         self.layer.insertSublayer(shadowLayer, at: 0)
-    }
-    
-    func addNeomorphicOneSideShadowColor() {
-        self.layer.shadowRadius = 8
-        self.layer.shadowOpacity = 1
-        self.layer.shadowOffset = CGSize(width: 0, height: 0.45)
-        self.layer.shadowColor = UIColor(red: 223/255, green: 228/255, blue: 238/255, alpha: 0.5).cgColor
     }
 }
 
@@ -163,10 +158,7 @@ extension UIButton {
 //MARK: - WKWebView
 extension WKWebView {
     public func webViewShadow() {
-        layer.shadowOpacity = 0.8
-        layer.shadowColor   = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
-        layer.shadowRadius  = 5
-        layer.shadowOffset  = CGSize(width: 0, height: 0)
+        viewShadows(opacity: 0.8, color: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), radius: 5, offset: CGSize.zero)
     }
 }
 
@@ -175,10 +167,7 @@ extension WKWebView {
 //MARK: - UIPickerView
 extension UIPickerView {
     public func pickerViewShadow() {
-        layer.shadowOpacity = 0.5
-        layer.shadowColor   = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
-        layer.shadowRadius  = 3
-        layer.shadowOffset  = CGSize(width: 0, height: 0)
+        viewShadows(opacity: 0.5, color: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), radius: 3, offset: CGSize.zero)
     }
 }
 
@@ -187,10 +176,7 @@ extension UIPickerView {
 //MARK: - UIDatePicker
 extension UIDatePicker {
     public func datePickerShadow() {
-        layer.shadowOpacity = 0.5
-        layer.shadowColor   = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
-        layer.shadowRadius  = 3
-        layer.shadowOffset  = CGSize(width: 0, height: 0)
+        viewShadows(opacity: 0.5, color: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), radius: 3, offset: CGSize.zero)
     }
 }
 
@@ -199,10 +185,7 @@ extension UIDatePicker {
 //MARK: - UISegmentedControl
 extension UISegmentedControl {
     public func segmentedControlShadow() {
-        layer.shadowOpacity = 0.5
-        layer.shadowColor   = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-        layer.shadowRadius  = 3
-        layer.shadowOffset  = CGSize(width: 0, height: 0)
+        viewShadows(opacity: 0.5, color: #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), radius: 3, offset: CGSize.zero)
     }
 }
 
@@ -211,10 +194,7 @@ extension UISegmentedControl {
 //MARK: - UIStepper
 extension UIStepper {
     public func stepperShadow() {
-        layer.shadowOpacity = 0.9
-        layer.shadowColor   = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-        layer.shadowRadius  = 4
-        layer.shadowOffset  = CGSize(width: 0, height: 0)
+        viewShadows(opacity: 0.9, color: #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), radius: 4, offset: CGSize.zero)
     }
 }
 
@@ -223,10 +203,7 @@ extension UIStepper {
 //MARK: - UISwitch
 extension UISwitch {
     public func switchShadow() {
-        layer.shadowOpacity = 0.7
-        layer.shadowColor   = UIColor.orange.cgColor
-        layer.shadowRadius  = 4
-        layer.shadowOffset  = CGSize(width: 0, height: 0)
+        viewShadows(opacity: 0.7, color: BasicProperties.color.cgColor, radius: 4, offset: CGSize.zero)
     }
 }
 
@@ -235,10 +212,7 @@ extension UISwitch {
 //MARK: - UITextView
 extension UITextView {
     public func textViewShadow() {
-        layer.shadowOpacity = 0.7
-        layer.shadowColor   = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-        layer.shadowRadius  = 9
-        layer.shadowOffset  = CGSize(width: 0, height: 0)
+        viewShadows(opacity: 0.7, color: #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), radius: 9, offset: CGSize.zero)
     }
 }
 
@@ -247,10 +221,7 @@ extension UITextView {
 //MARK: - UIImageView
 extension UIImageView {
     public func imageViewShadow() {
-        layer.shadowOpacity = 0.5
-        layer.shadowColor   = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
-        layer.shadowRadius  = 9
-        layer.shadowOffset  = CGSize(width: 0, height: 0)
+        viewShadows(opacity: 0.5, color: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), radius: 9, offset: CGSize.zero)
     }
 }
 
@@ -259,9 +230,6 @@ extension UIImageView {
 //MARK: - UILabel
 extension UILabel {
     public func labelShadow() {
-        layer.shadowOpacity = 0.5
-        layer.shadowColor   = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-        layer.shadowRadius  = 6
-        layer.shadowOffset  = CGSize(width: 0, height: 0)
+        viewShadows(opacity: 0.5, color: #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), radius: 6, offset: CGSize.zero)
     }
 }

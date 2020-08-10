@@ -13,6 +13,7 @@ protocol SunThemesMenuTBVCPresenterProtocol {
     func setupContentTitle(indexPath: IndexPath) -> String
     func setupPreviewContent(indexPath: IndexPath) -> String
     func setupNumberOfRowsInSection() -> Int
+    func setupStarThemeIndex(indexPath: IndexPath)
 }
 
 
