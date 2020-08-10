@@ -43,7 +43,7 @@ extension PlanetDetailViewControllerPresenter: PlanetDetailViewControllerPresent
     public func setupTitles() -> String {
         
         ///Setup Content
-        return titles[index]
+        return " " + titles[index]
     }
     
     public func setupBasicContent() -> String {
@@ -68,9 +68,9 @@ extension PlanetDetailViewControllerPresenter: PlanetDetailViewControllerPresent
     public func setupContentTypeInfo(with selectedIndex: Int) -> String {
         switch selectedIndex {
         case 0:
-            return "Most Information"
+            return " Most Information".uppercased()
         case 1:
-            return "Basic Information"
+            return " Basic Information".uppercased()
         default:
             return ""
         }
@@ -79,9 +79,9 @@ extension PlanetDetailViewControllerPresenter: PlanetDetailViewControllerPresent
     public func setupSwitchedTitlesContent(with selectedIndex: Int) -> String {
         switch selectedIndex {
         case 0:
-            return setupTitles()
+            return " " + setupTitles()
         case 1:
-            return setupTitles() + " Basics"
+            return " " + setupTitles() + " Basics"
         default:
             return ""
         }

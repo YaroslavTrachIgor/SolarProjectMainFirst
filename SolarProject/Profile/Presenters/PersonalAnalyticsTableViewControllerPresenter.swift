@@ -12,6 +12,7 @@ import UIKit
 //MARK: - PersonalAnalyticsTableViewControllerPresenterProtocol protocol
 protocol PersonalAnalyticsTableViewControllerPresenterProtocol {
     func setupHeadersForSections(section: Int) -> String?
+    func setupFootersForSections(section: Int) -> String?
     func setupNumberOfRowsInSection(section: Int) -> Int
     func setupCell(red: () -> (), green: () -> (), normal: () -> (), zero: () -> (), indexPath: IndexPath)
     func setupTitleLabelsContent(indexPath: IndexPath) -> String
@@ -23,24 +24,44 @@ protocol PersonalAnalyticsTableViewControllerPresenterProtocol {
 
 
 //MARK: - PersonalAnalyticsTableViewControllerPresenter main class
-final class PersonalAnalyticsTableViewControllerPresenter {}
+final class PersonalAnalyticsTableViewControllerPresenter {
+    let sections: [PersonalAnalyticsTableViewController.SectionType]
+    
+    init(sections: [PersonalAnalyticsTableViewController.SectionType]) {
+        self.sections = sections
+    }
+}
 
 
 
 //MARK: - PersonalAnalyticsTableViewControllerPresenterProtocol extension
 extension PersonalAnalyticsTableViewControllerPresenter: PersonalAnalyticsTableViewControllerPresenterProtocol {
     internal func setupHeadersForSections(section: Int) -> String? {
-        if section == 1 {
-            return "Charts"
-        } else {
+        let section = sections[section]
+        switch section {
+        case .chart:
+            return "Chart"
+        case .defaultCells:
             return "Views Count"
         }
     }
     
+    internal func setupFootersForSections(section: Int) -> String? {
+        let section = sections[section]
+        switch section {
+        case .chart:
+            return "In this section, you can view your analytics as chart."
+        case .defaultCells:
+            return "In this section, you can find the most interesting articles for you on views, which were typed from the very beginning of using the application."
+        }
+    }
+    
     internal func setupNumberOfRowsInSection(section: Int) -> Int {
-        if section == 1 {
+        let section = sections[section]
+        switch section {
+        case .chart:
             return 1
-        } else {
+        case .defaultCells:
             return PersonalAnalyticsModel.titles.count
         }
     }

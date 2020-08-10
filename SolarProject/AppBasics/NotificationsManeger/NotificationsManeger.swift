@@ -29,7 +29,14 @@ struct PushNotifications {
         let content = UNMutableNotificationContent()
         let header = PushNotificationsBasicWords.headers.randomElement()
         let categoryIdentifier = PushNotificationsBasicWords.userAction
-        content.body  = header! + body
+        
+        ///Setup notification body
+        if NotificationsSettings.shared.notificationsBody == "Message:" {
+            content.body = header! + body
+        } else {
+            content.body = NotificationsSettings.shared.notificationsBody + body
+        }
+        
         content.sound = UNNotificationSound.default
         content.categoryIdentifier = categoryIdentifier
         

@@ -20,7 +20,7 @@ final class NewsViewController: BasicViewController {
     
     
     //MARK: @IBOutlets
-    @IBOutlet weak var contentTextView: UITextView!
+    @IBOutlet weak var contentTextView: ContentTextView!
     @IBOutlet weak var contentBack: UIView!
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
@@ -112,7 +112,7 @@ extension NewsViewController {
     
     private func setupContent() {
         titleLabel.text = " " + mainTitle!
-        subtitleLabel.text = "  " + mainTitle!
+        subtitleLabel.text = "  " + mainTitle!.uppercased()
         dateLabel.text = " " + date!
         contentTextView.text = content!
         imageView.image = image!
@@ -125,23 +125,19 @@ extension NewsViewController {
     }
     
     private func setupContentTextView() {
-        contentTextView.isEditable = false
-        contentTextView.isSelectable = true
-        contentTextView.isScrollEnabled = true
-        contentTextView.backgroundColor = .clear
         contentTextView.alpha = 0
     }
     
     private func setupTitleLabel() {
         titleLabel.textColor = .black
-        titleLabel.font = UIFont.systemFont(ofSize: 24.5, weight: .heavy)
+        titleLabel.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         titleLabel.backgroundColor = .clear
         titleLabel.alpha = 0
     }
     
     private func setupSubtitleLabel() {
-        subtitleLabel.textColor = .darkGray
-        subtitleLabel.font = UIFont.systemFont(ofSize: 11, weight: .medium)
+        subtitleLabel.textColor = #colorLiteral(red: 0.6511782289, green: 0.6511782289, blue: 0.6511782289, alpha: 1)
+        subtitleLabel.font = UIFont.systemFont(ofSize: 13.5, weight: .semibold)
         subtitleLabel.backgroundColor = .clear
         subtitleLabel.alpha = 0
     }

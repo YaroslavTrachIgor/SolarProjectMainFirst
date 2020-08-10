@@ -35,7 +35,7 @@ class StarThemeDeteailViewController: BasicViewController {
     
     //MARK: @IBOutlets
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var contentTextView: UITextView!
+    @IBOutlet weak var contentTextView: ContentTextView!
     @IBOutlet weak var contentBack: ContentBack!
     @IBOutlet weak var slider: BasicFontChangeSlider!
     @IBOutlet weak var sliderBack: ContentBack!
@@ -78,7 +78,6 @@ class StarThemeDeteailViewController: BasicViewController {
         ///Setup UI
         setupContentTextViewBack()
         setupSliderBack()
-        setupContentTextView()
         setupContentTextViewBack()
         setupAddBunner()
         setupTitleLabel()
@@ -142,14 +141,6 @@ extension StarThemeDeteailViewController: StarThemeDeteailViewControllerProtocol
     private func setupSliderBack() {
         sliderBack.alpha = 0
         sliderBack.isHidden = true
-    }
-    
-    private func setupContentTextView() {
-        let fontSize: CGFloat = 18
-        contentTextView.font = UIFont.systemFont(ofSize: fontSize, weight: .light)
-        contentTextView.layer.cornerRadius = BasicProperties.cornerRadius
-        contentTextView.isEditable = false
-        contentTextView.isSelectable = true
     }
     
     private func setupContentTextViewBack() {

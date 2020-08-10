@@ -38,7 +38,7 @@ final class PlanetDetailViewController: BasicViewController {
     }
     
     //MARK: @IBOutlets
-    @IBOutlet weak var contentTextView: UITextView!
+    @IBOutlet weak var contentTextView: ContentTextView!
     @IBOutlet weak var contentBack: UIView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var sliderBack: ContentBack!
@@ -88,11 +88,12 @@ final class PlanetDetailViewController: BasicViewController {
         ///Setup UI
         setupContentTextViewBack()
         setupSegmentedControl()
-        setupContentTextView()
         setupSliderBack()
         setupImageButton()
         setupNavigationItem()
         setupAddBunner()
+        setupTitleLabel()
+        setupSubtitleLabel()
     }
 }
 
@@ -103,7 +104,6 @@ extension PlanetDetailViewController {
     @IBAction func changeContent(_ sender: UISegmentedControl) {
         contentTextView.setupContentWithAnimation(text: presenter.setupSwitchedContent(with: sender.selectedSegmentIndex))
         contentTypeLabel.setupContentWithAnimation(text: presenter.setupContentTypeInfo(with: sender.selectedSegmentIndex))
-
     }
     
     @IBAction func share(_ sender: Any) {
@@ -151,7 +151,7 @@ extension PlanetDetailViewController: PlanetDetailViewControllerProtocol {
     
     //MARK: Setup Animations
     internal func setupAnimation() {
-        let views = [contentBack, segmentedControl, imageButton]
+        let views = [planetTitleLabel, contentTypeLabel, contentBack, segmentedControl, imageButton]
         
         UIView.animate(withDuration: 0.4) {
             for view in views {
@@ -183,17 +183,21 @@ extension PlanetDetailViewController: PlanetDetailViewControllerProtocol {
         contentTextView.setupContentWithAnimation(text: presenter.setupMostContent())
         navigationItem.title = presenter.setupTitles()
         planetTitleLabel.text = presenter.setupTitles()
-        contentTypeLabel.text = "Most Information"
+        contentTypeLabel.text = " Most Information".uppercased()
     }
     
     
     //MARK: Private
-    fileprivate func setupContentTextView() {
-        let fontSize: CGFloat = 18
-        contentTextView.font = UIFont.systemFont(ofSize: fontSize, weight: .light)
-        contentTextView.isEditable = false
-        contentTextView.isSelectable = true
-        contentTextView.layer.cornerRadius = BasicProperties.cornerRadius
+    private func setupTitleLabel() {
+        planetTitleLabel.textColor = .black
+        planetTitleLabel.alpha = 0
+        planetTitleLabel.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+    }
+    
+    private func setupSubtitleLabel() {
+        contentTypeLabel.textColor = #colorLiteral(red: 0.6511782289, green: 0.6511782289, blue: 0.6511782289, alpha: 1)
+        contentTypeLabel.alpha = 0
+        contentTypeLabel.font = UIFont.systemFont(ofSize: 13.5, weight: .semibold)
     }
 
     fileprivate func setupSliderBack() {

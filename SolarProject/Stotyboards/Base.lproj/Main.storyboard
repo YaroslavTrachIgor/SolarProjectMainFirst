@@ -16,7 +16,7 @@
             <objects>
                 <tableViewController id="5uv-WS-MGJ" customClass="NewsTableViewController" customModule="SolarProject" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="TgZ-3m-azg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="NewsCell" rowHeight="390" id="y5k-Gw-k5f" customClass="NewsCell" customModule="SolarProject" customModuleProvider="target">
@@ -134,9 +134,7 @@
                             <outlet property="delegate" destination="5uv-WS-MGJ" id="dfP-b1-EfG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="News" largeTitleDisplayMode="always" id="2lA-96-NUA">
-                        <barButtonItem key="backBarButtonItem" title="  " id="FeH-bX-31J"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="News" largeTitleDisplayMode="always" id="2lA-96-NUA"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IaJ-ub-uX1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -147,11 +145,11 @@
             <objects>
                 <viewController storyboardIdentifier="NewsViewController" id="Sui-r5-wpT" customClass="NewsViewController" customModule="SolarProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yJj-1H-RxK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MFu-aR-Ph5">
-                                <rect key="frame" x="16" y="16" width="343" height="26.5"/>
+                                <rect key="frame" x="16" y="60" width="343" height="26.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="26.5" id="e7c-BL-jaf"/>
                                 </constraints>
@@ -160,7 +158,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbG-ir-8HJ">
-                                <rect key="frame" x="16" y="538" width="343" height="16"/>
+                                <rect key="frame" x="16" y="582" width="343" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="t8K-a4-YJk"/>
                                 </constraints>
@@ -169,7 +167,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z5n-a0-xFb">
-                                <rect key="frame" x="16" y="50.5" width="343" height="16"/>
+                                <rect key="frame" x="16" y="94.5" width="343" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="Tuu-PB-M0S"/>
                                 </constraints>
@@ -178,9 +176,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WfM-gp-u4Y">
-                                <rect key="frame" x="16" y="84.5" width="343" height="253.5"/>
+                                <rect key="frame" x="16" y="128.5" width="343" height="253.5"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oQH-xA-nXj">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oQH-xA-nXj" customClass="ContentTextView" customModule="SolarProject" customModuleProvider="target">
                                         <rect key="frame" x="20" y="20" width="303" height="213.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -198,7 +196,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BFu-eN-td8" customClass="ContentBack" customModule="SolarProject" customModuleProvider="target">
-                                <rect key="frame" x="79" y="16" width="280" height="62"/>
+                                <rect key="frame" x="79" y="60" width="280" height="62"/>
                                 <subviews>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="18" minValue="5" maxValue="30" translatesAutoresizingMaskIntoConstraints="NO" id="CLy-Ox-SsO" customClass="BasicFontChangeSlider" customModule="SolarProject" customModuleProvider="target">
                                         <rect key="frame" x="14" y="16" width="252" height="31"/>
@@ -221,8 +219,8 @@
                                     <constraint firstItem="CLy-Ox-SsO" firstAttribute="leading" secondItem="BFu-eN-td8" secondAttribute="leading" constant="16" id="yx9-i2-PI7"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GQo-eD-QkD">
-                                <rect key="frame" x="16" y="353" width="343" height="170"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Снимок экрана 2020-07-29 в 21.12.17" translatesAutoresizingMaskIntoConstraints="NO" id="GQo-eD-QkD">
+                                <rect key="frame" x="16" y="397" width="343" height="170"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="170" id="2nE-Mm-LzO"/>
                                 </constraints>
@@ -286,11 +284,10 @@
             <objects>
                 <navigationController id="nL9-BV-cUw" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="News" image="doc.plaintext" catalog="system" selectedImage="doc.plaintext.fill" id="H8X-ho-vOE"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" backIndicatorImage="arrow.left" catalog="system" largeTitles="YES" backIndicatorTransitionMaskImage="arrow.left" id="hSb-lM-gu4">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="hSb-lM-gu4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                        <color key="barTintColor" systemColor="systemGroupedBackgroundColor"/>
                     </navigationBar>
                     <connections>
                         <segue destination="5uv-WS-MGJ" kind="relationship" relationship="rootViewController" id="JWa-ME-1vG"/>
@@ -649,7 +646,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Menu" largeTitleDisplayMode="always" id="DJG-Rc-wak">
-                        <barButtonItem key="backBarButtonItem" title=" " id="f4b-Rz-BBv"/>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="online_support" id="ut2-Bu-XLE">
                             <connections>
                                 <action selector="showSupportVCWithAdd:" destination="l14-K9-gIn" id="7BN-r6-vJa"/>
@@ -860,7 +856,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cOz-9J-3RW" customClass="ContentBack" customModule="SolarProject" customModuleProvider="target">
                                 <rect key="frame" x="20" y="64" width="335" height="416"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Bww-7n-Fj8">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Bww-7n-Fj8" customClass="ContentTextView" customModule="SolarProject" customModuleProvider="target">
                                         <rect key="frame" x="20" y="20" width="295" height="376"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -908,7 +904,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mwc-xB-U1c">
-                                <rect key="frame" x="16" y="500" width="343" height="40"/>
+                                <rect key="frame" x="20" y="500" width="339" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="hIW-Cy-7iv"/>
                                 </constraints>
@@ -937,15 +933,15 @@
                             <constraint firstItem="qTD-w1-4j2" firstAttribute="trailing" secondItem="mwc-xB-U1c" secondAttribute="trailing" constant="16" id="3TM-Oh-vq1"/>
                             <constraint firstItem="1GT-1H-5LG" firstAttribute="top" secondItem="qTD-w1-4j2" secondAttribute="top" constant="15" id="6TF-8w-7d7"/>
                             <constraint firstItem="qTD-w1-4j2" firstAttribute="bottom" secondItem="Ul3-6X-pfg" secondAttribute="bottom" constant="15" id="9We-qn-eC8"/>
-                            <constraint firstItem="qTD-w1-4j2" firstAttribute="trailing" secondItem="Ul3-6X-pfg" secondAttribute="trailing" constant="20" id="G3W-wo-9EB"/>
                             <constraint firstItem="qTD-w1-4j2" firstAttribute="trailing" secondItem="Xnh-5B-QS9" secondAttribute="trailing" constant="20" id="GUW-VR-XOK"/>
                             <constraint firstItem="qTD-w1-4j2" firstAttribute="trailing" secondItem="1GT-1H-5LG" secondAttribute="trailing" constant="20" id="H7s-vL-saX"/>
                             <constraint firstItem="Ul3-6X-pfg" firstAttribute="top" secondItem="mwc-xB-U1c" secondAttribute="bottom" constant="13" id="XHx-8t-Oor"/>
                             <constraint firstItem="qTD-w1-4j2" firstAttribute="trailing" secondItem="cOz-9J-3RW" secondAttribute="trailing" constant="20" id="alT-3x-dAl"/>
-                            <constraint firstItem="Ul3-6X-pfg" firstAttribute="leading" secondItem="qTD-w1-4j2" secondAttribute="leading" constant="20" id="gui-ts-khj"/>
+                            <constraint firstItem="qTD-w1-4j2" firstAttribute="trailing" secondItem="Ul3-6X-pfg" secondAttribute="trailing" constant="20" id="dRt-hT-iey"/>
+                            <constraint firstItem="Ul3-6X-pfg" firstAttribute="leading" secondItem="qTD-w1-4j2" secondAttribute="leading" constant="20" id="eBI-Gq-kfN"/>
+                            <constraint firstItem="mwc-xB-U1c" firstAttribute="leading" secondItem="qTD-w1-4j2" secondAttribute="leading" constant="20" id="ipL-MJ-ulw"/>
                             <constraint firstItem="cOz-9J-3RW" firstAttribute="leading" secondItem="qTD-w1-4j2" secondAttribute="leading" constant="20" id="wrL-BX-HWv"/>
                             <constraint firstItem="qTD-w1-4j2" firstAttribute="trailing" secondItem="Xnh-5B-QS9" secondAttribute="trailing" constant="20" id="xad-N7-vpX"/>
-                            <constraint firstItem="mwc-xB-U1c" firstAttribute="leading" secondItem="qTD-w1-4j2" secondAttribute="leading" constant="16" id="zW1-tq-f3p"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Sun" largeTitleDisplayMode="never" id="7Qt-tt-4Nl">
@@ -1064,9 +1060,7 @@
                             <outlet property="delegate" destination="oc1-7l-udF" id="NcC-5j-IgP"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Themes" largeTitleDisplayMode="always" id="uri-gP-Hyh">
-                        <barButtonItem key="backBarButtonItem" title="  " id="tZQ-j8-skI"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Themes" largeTitleDisplayMode="always" id="uri-gP-Hyh"/>
                     <connections>
                         <segue destination="n6k-wj-HD7" kind="show" identifier="SunThemeSegue" id="1Pg-fJ-Yc5"/>
                     </connections>
@@ -1093,7 +1087,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pdZ-Fc-GPB" customClass="ContentBack" customModule="SolarProject" customModuleProvider="target">
                                 <rect key="frame" x="20" y="111" width="335" height="427"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0cO-62-d93">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0cO-62-d93" customClass="ContentTextView" customModule="SolarProject" customModuleProvider="target">
                                         <rect key="frame" x="20" y="20" width="295" height="387"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -1200,10 +1194,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i9s-IU-zn1">
-                                <rect key="frame" x="20" y="132" width="335" height="345"/>
+                                <rect key="frame" x="20" y="120" width="335" height="357"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="J5H-lw-ZpS">
-                                        <rect key="frame" x="20" y="20" width="295" height="305"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="J5H-lw-ZpS" customClass="ContentTextView" customModule="SolarProject" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="20" width="295" height="317"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1241,21 +1235,12 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fev-JE-LQh">
-                                <rect key="frame" x="20" y="90" width="335" height="30"/>
+                                <rect key="frame" x="20" y="52" width="335" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="2De-z9-2pT"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <color key="textColor" red="0.28610561861850248" green="0.28610561861850248" blue="0.28610561861850248" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCK-HV-AqV">
-                                <rect key="frame" x="20" y="56" width="335" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="XiV-bx-XTm"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V3x-58-RZF" customClass="ContentBack" customModule="SolarProject" customModuleProvider="target">
@@ -1282,6 +1267,15 @@
                                     <constraint firstAttribute="trailing" secondItem="lX3-xs-ICI" secondAttribute="trailing" constant="16" id="fe9-4v-Sw9"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCK-HV-AqV">
+                                <rect key="frame" x="20" y="82" width="335" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="XiV-bx-XTm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GS6-EB-MJ3"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1293,22 +1287,21 @@
                             <constraint firstItem="uCK-HV-AqV" firstAttribute="leading" secondItem="GS6-EB-MJ3" secondAttribute="leading" constant="20" id="9CK-vh-buk"/>
                             <constraint firstItem="GS6-EB-MJ3" firstAttribute="trailing" secondItem="uCK-HV-AqV" secondAttribute="trailing" constant="20" id="BLr-Ae-yKK"/>
                             <constraint firstItem="GS6-EB-MJ3" firstAttribute="trailing" secondItem="Fev-JE-LQh" secondAttribute="trailing" constant="20" id="FHC-qV-cDy"/>
-                            <constraint firstItem="Fev-JE-LQh" firstAttribute="top" secondItem="uCK-HV-AqV" secondAttribute="bottom" constant="4" id="HTc-Bz-enZ"/>
                             <constraint firstItem="EmA-d3-cx4" firstAttribute="top" secondItem="b3Y-24-bRT" secondAttribute="bottom" constant="15" id="JKf-9R-NP0"/>
                             <constraint firstItem="GS6-EB-MJ3" firstAttribute="bottom" secondItem="EmA-d3-cx4" secondAttribute="bottom" constant="15" id="MBk-e8-byU"/>
                             <constraint firstAttribute="trailing" secondItem="V3x-58-RZF" secondAttribute="trailing" constant="15" id="Mc7-L9-cUE"/>
+                            <constraint firstItem="i9s-IU-zn1" firstAttribute="top" secondItem="uCK-HV-AqV" secondAttribute="bottom" constant="8" id="RTw-IR-qGa"/>
                             <constraint firstItem="V3x-58-RZF" firstAttribute="top" secondItem="GS6-EB-MJ3" secondAttribute="top" constant="20" id="Vk8-1P-sdN"/>
                             <constraint firstItem="i9s-IU-zn1" firstAttribute="leading" secondItem="GS6-EB-MJ3" secondAttribute="leading" constant="20" id="Xj8-5k-8rM"/>
-                            <constraint firstItem="i9s-IU-zn1" firstAttribute="top" secondItem="Fev-JE-LQh" secondAttribute="bottom" constant="12" id="Yfy-Jm-Qhq"/>
                             <constraint firstItem="b3Y-24-bRT" firstAttribute="top" secondItem="i9s-IU-zn1" secondAttribute="bottom" constant="16" id="cRs-nd-SYY"/>
+                            <constraint firstItem="Fev-JE-LQh" firstAttribute="top" secondItem="GS6-EB-MJ3" secondAttribute="top" constant="8" id="heP-Y7-niw"/>
                             <constraint firstItem="GS6-EB-MJ3" firstAttribute="trailing" secondItem="b3Y-24-bRT" secondAttribute="trailing" constant="20" id="iSP-mO-8LR"/>
+                            <constraint firstItem="uCK-HV-AqV" firstAttribute="top" secondItem="Fev-JE-LQh" secondAttribute="bottom" id="jGV-cZ-Wff"/>
                             <constraint firstItem="Fev-JE-LQh" firstAttribute="leading" secondItem="GS6-EB-MJ3" secondAttribute="leading" constant="20" id="nZH-Uj-n9A"/>
-                            <constraint firstItem="uCK-HV-AqV" firstAttribute="top" secondItem="GS6-EB-MJ3" secondAttribute="top" constant="12" id="rXr-mt-UFA"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="quc-6R-llg">
                         <nil key="title"/>
-                        <barButtonItem key="backBarButtonItem" title=" " id="SZO-MG-umQ"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="1vV-ts-t8U">
                             <rect key="frame" x="128" y="6" width="119" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1512,7 +1505,7 @@
             <objects>
                 <navigationController id="ZsN-50-qQG" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Settings" image="gearshape.2" catalog="system" selectedImage="gearshape.2.fill" id="xKH-XI-GEH"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backIndicatorImage="arrow.left" catalog="system" largeTitles="YES" backIndicatorTransitionMaskImage="arrow.left" id="bfe-us-sOu">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="bfe-us-sOu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1673,9 +1666,7 @@
                             <constraint firstItem="OzP-vA-X0u" firstAttribute="leading" secondItem="AA2-oP-Pse" secondAttribute="leading" id="x0I-NE-0ji"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="More" id="dpB-hM-xJy">
-                        <barButtonItem key="backBarButtonItem" title=" " id="EjZ-tG-7Sj"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="More" id="dpB-hM-xJy"/>
                     <connections>
                         <outlet property="emailLabel" destination="SoO-7T-Z4r" id="wAy-FN-B0X"/>
                         <outlet property="fullNameLabel" destination="BPr-na-v8z" id="sCv-Bi-Tqe"/>
@@ -1901,6 +1892,57 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Content" footerTitle="Here you can choose which phrase the application will greet you when a notification appears." id="kIZ-eY-1ig">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Zkt-Ac-DEx">
+                                        <rect key="frame" x="0.0" y="153" width="375" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zkt-Ac-DEx" id="9la-Ax-diN">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tci-Sx-Xgv">
+                                                    <rect key="frame" x="16" y="0.0" width="343" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="kul-MO-Mas"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="Tci-Sx-Xgv" secondAttribute="bottom" id="Evh-qD-WZn"/>
+                                                <constraint firstItem="Tci-Sx-Xgv" firstAttribute="top" secondItem="9la-Ax-diN" secondAttribute="top" id="WfP-I1-YGu"/>
+                                                <constraint firstAttribute="trailing" secondItem="Tci-Sx-Xgv" secondAttribute="trailing" constant="16" id="ZYm-t8-VU9"/>
+                                                <constraint firstItem="Tci-Sx-Xgv" firstAttribute="leading" secondItem="9la-Ax-diN" secondAttribute="leading" constant="16" id="dTz-CP-4Uq"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="121" id="CdY-q7-xO2">
+                                        <rect key="frame" x="0.0" y="196.5" width="375" height="121"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CdY-q7-xO2" id="qWa-TG-0tv">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="121"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nof-VW-EhX">
+                                                    <rect key="frame" x="8" y="11" width="359" height="100"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="100" id="21W-Mn-69F"/>
+                                                    </constraints>
+                                                </pickerView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Nof-VW-EhX" firstAttribute="top" secondItem="qWa-TG-0tv" secondAttribute="top" constant="11" id="Rfx-ew-Cjz"/>
+                                                <constraint firstItem="Nof-VW-EhX" firstAttribute="leading" secondItem="qWa-TG-0tv" secondAttribute="leading" constant="8" id="bOQ-BL-HhK"/>
+                                                <constraint firstAttribute="bottom" secondItem="Nof-VW-EhX" secondAttribute="bottom" constant="11" id="bQo-dO-Ley"/>
+                                                <constraint firstAttribute="trailing" secondItem="Nof-VW-EhX" secondAttribute="trailing" constant="8" id="wl4-qu-g6W"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="pDt-C4-KMq" id="fsj-UO-XQC"/>
@@ -1909,6 +1951,8 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Notifications" largeTitleDisplayMode="never" id="8RK-no-FXZ"/>
                     <connections>
+                        <outlet property="messageLabel" destination="Tci-Sx-Xgv" id="BTf-NL-Fae"/>
+                        <outlet property="messagePickerView" destination="Nof-VW-EhX" id="JJf-zd-nuV"/>
                         <outlet property="notificationsOnLabel" destination="gAl-ZS-jR8" id="bea-8h-ZR8"/>
                         <outlet property="notificationsOnSwitch" destination="00e-tB-QMU" id="L3J-LN-14C"/>
                     </connections>
@@ -2563,7 +2607,7 @@
             <objects>
                 <navigationController id="58S-2D-XIf" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Menu" image="circle" catalog="system" selectedImage="circle.fill" id="NpC-B6-6eM"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backIndicatorImage="arrow.left" catalog="system" largeTitles="YES" backIndicatorTransitionMaskImage="arrow.left" id="NCl-Fr-xIS">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backIndicatorImage=" " largeTitles="YES" id="NCl-Fr-xIS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2579,12 +2623,12 @@
     <inferredMetricsTieBreakers>
         <segue reference="eDq-Eq-X7t"/>
         <segue reference="aZO-LN-e3j"/>
-        <segue reference="XvJ-4Y-hrh"/>
-        <segue reference="Whn-sZ-h8F"/>
+        <segue reference="ihM-Fd-vdM"/>
+        <segue reference="AlL-oV-LEH"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name=" " width="128" height="128"/>
         <image name="Character 151" width="2310" height="1400"/>
-        <image name="arrow.left" catalog="system" width="128" height="98"/>
         <image name="arrow.up" catalog="system" width="120" height="128"/>
         <image name="bookmark" catalog="system" width="112" height="128"/>
         <image name="bookmark.fill" catalog="system" width="112" height="128"/>

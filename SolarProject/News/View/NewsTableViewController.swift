@@ -65,10 +65,9 @@ final class NewsTableViewController: UITableViewController {
 
         ///Setup UI
         setupTableView()
-        setupNavBar()
         setupSearchController()
-        setupStatusBar()
         setupRefreshControl()
+        setupNavBar()
     }
     
     
@@ -81,10 +80,10 @@ final class NewsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let sectionType = sections[section]
         switch sectionType {
-            case .news:
-                return "News"
-            case .site:
-                return "Website"
+        case .news:
+            return "News"
+        case .site:
+            return "Website"
         }
     }
     
@@ -92,10 +91,10 @@ final class NewsTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         let sectionType = sections[section]
         switch sectionType {
-            case .news:
-                return 4
-            case .site:
-                return 1
+        case .news:
+            return 4
+        case .site:
+            return 1
         }
     }
     
@@ -103,72 +102,19 @@ final class NewsTableViewController: UITableViewController {
         let sectionType = sections[indexPath.section]
         switch sectionType {
         case .news:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as! NewsCell
-            let mainQueue = DispatchQueue.main
-            let semaphore = DispatchSemaphore(value: 1)
-            
-            mainQueue.async {
-                semaphore.wait()
-                
-                self.setupContent()
-                
-                semaphore.signal()
-            }
-            
-            mainQueue.async {
-                semaphore.wait()
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
-                    UIView.animate(withDuration: 0.4) {
-                        self.setupContent(cell: cell, row: indexPath.row)
-                    }
-                })
-                
-                semaphore.signal()
-            }
-            
-            mainQueue.async {
-                semaphore.wait()
-                
-                ///Setup Views
-                self.setupContentBack(contentBack: cell.contentBack)
-                self.setupContentTextView(contentTextView: cell.contentTextView)
-                self.setupTitleLabel(titleLabel: cell.titleLabel)
-                self.setupSubtitleLabel(subtitleLabel: cell.subtitleLabel)
-                self.setupSelectionBack(cell: cell)
-                
-                semaphore.signal()
-            }
-            
-            ///Set tableView rowHeight
-            tableView.rowHeight = 420
-            
-            return cell
+            return setupNewsCell(tableView: tableView, indexPath: indexPath)
         case .site:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "SiteCell", for: indexPath)
-            
-            ///Setup label
-            setupURLTextLabel(label: cell.textLabel)
-            setupSelectionBack(cell: cell)
-            
-            ///Set tableView rowHeight
-            tableView.rowHeight = 40
-            
-            cell.accessoryType = .detailButton
-            cell.tintColor = BasicProperties.color
-            cell.backgroundColor = .white
-            
-            return cell
+            return setupSiteCell(tableView: tableView, indexPath: indexPath)
         }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let sectionType = sections[indexPath.section]
         switch sectionType {
-            case .site:
-                showSafariSite(stringURL: "https://spacenews.com")
-            case .news:
-                break
+        case .site:
+            showSafariSite(stringURL: "https://spacenews.com")
+        case .news:
+            break
         }
     }
     
@@ -247,6 +193,68 @@ extension NewsTableViewController: NewsTableViewControllerProtocol {
     }
     
     //MARK: Private
+    private func setupNewsCell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as! NewsCell
+        let mainQueue = DispatchQueue.main
+        let semaphore = DispatchSemaphore(value: 1)
+        
+        mainQueue.async {
+            semaphore.wait()
+            
+            self.setupContent()
+            
+            semaphore.signal()
+        }
+        
+        mainQueue.async {
+            semaphore.wait()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+                UIView.animate(withDuration: 0.4) {
+                    self.setupContent(cell: cell, row: indexPath.row)
+                }
+            })
+            
+            semaphore.signal()
+        }
+        
+        mainQueue.async {
+            semaphore.wait()
+            
+            ///Setup Views
+            self.setupContentBack(contentBack: cell.contentBack)
+            self.setupContentTextView(contentTextView: cell.contentTextView)
+            self.setupTitleLabel(titleLabel: cell.titleLabel)
+            self.setupSubtitleLabel(subtitleLabel: cell.subtitleLabel)
+            self.setupSelectionBack(cell: cell)
+            self.setupImageView(imageView: cell.newsImageView)
+            
+            semaphore.signal()
+        }
+        
+        ///Set tableView rowHeight
+        tableView.rowHeight = 420
+        
+        return cell
+    }
+    
+    private func setupSiteCell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SiteCell", for: indexPath)
+        
+        ///Setup label
+        setupURLTextLabel(label: cell.textLabel)
+        setupSelectionBack(cell: cell)
+        
+        ///Set tableView rowHeight
+        tableView.rowHeight = 40
+        
+        cell.accessoryType = .detailButton
+        cell.tintColor = BasicProperties.color
+        cell.backgroundColor = .white
+        
+        return cell
+    }
+    
     private func showSafariSite(stringURL: String) {
         if let url = URL(string: stringURL) {
             let config = SFSafariViewController.Configuration()
@@ -270,6 +278,10 @@ extension NewsTableViewController: NewsTableViewControllerProtocol {
     private func setupRefreshControl() {
         tableView.refreshControl = menuRefreshControl
         menuRefreshControl.addTarget(self, action: #selector(setupRefreshControlAction), for: .valueChanged)
+    }
+    
+    private func setupImageView(imageView: UIImageView) {
+        imageView.contentMode = .scaleAspectFit
     }
     
     private func setupTitleLabel(titleLabel: UILabel) {
@@ -331,32 +343,15 @@ extension NewsTableViewController: NewsTableViewControllerProtocol {
         navigationItem.searchController = searchController
     }
     
-    private func setupStatusBar() {
-        if DeviceType.IS_IPHONE_5 || DeviceType.IS_IPHONE_7 || DeviceType.IS_IPHONE_7P || DeviceType.IS_IPAD {
-            setupBasicStatusBarView(with: 20)
-        } else {
-            setupBasicStatusBarView(with: 50)
-        }
-    }
-    
     private func setupNavBar() {
         guard let navBar = navigationController?.navigationBar else { return }
-        navBar.setupBasicShadow(color: #colorLiteral(red: 0.9072133845, green: 0.9072133845, blue: 0.9072133845, alpha: 1))
-        navBar.shadowImage = UIImage()
         navBar.backgroundColor = .systemGroupedBackground
-        navBar.barTintColor = .systemGroupedBackground
     }
     
     private func configureRemoteConfig() {
         let settings = RemoteConfigSettings()
         settings.minimumFetchInterval = 0
         remoteConfig.configSettings = settings
-    }
-    
-    private func setupBasicStatusBarView(with size: CGFloat) {
-        let statusBarView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: size))
-        statusBarView.backgroundColor = .systemGroupedBackground
-        navigationController?.view.addSubview(statusBarView)
     }
     
     

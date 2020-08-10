@@ -113,6 +113,7 @@
 		C4AEAE6424CF050900A6100A /* StarDetailMoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEAE6324CF050800A6100A /* StarDetailMoreVC.swift */; };
 		C4B2359324BE42A600E30E7D /* libPods-SolarProject.a in Resources */ = {isa = PBXBuildFile; fileRef = C4B2359124BE423D00E30E7D /* libPods-SolarProject.a */; };
 		C4B2359424BE42A600E30E7D /* libPods-SolarProject.a in Resources */ = {isa = PBXBuildFile; fileRef = 48BCC30B11006427AB1A0440 /* libPods-SolarProject.a */; };
+		C4FFDA7124E1FF5A00C95E0D /* ContentTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FFDA7024E1FF5A00C95E0D /* ContentTextView.swift */; };
 		F12FB0BCABA920A1B48EF170 /* libPods-SolarProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48BCC30B11006427AB1A0440 /* libPods-SolarProject.a */; };
 /* End PBXBuildFile section */
 
@@ -256,6 +257,7 @@
 		C49E5FF224AF59D900FDD522 /* PlnaetsMenuTableViewControllerSearchBarDelegateExtnsion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlnaetsMenuTableViewControllerSearchBarDelegateExtnsion.swift; sourceTree = "<group>"; };
 		C4AEAE6324CF050800A6100A /* StarDetailMoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarDetailMoreVC.swift; sourceTree = "<group>"; };
 		C4B2359124BE423D00E30E7D /* libPods-SolarProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libPods-SolarProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4FFDA7024E1FF5A00C95E0D /* ContentTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -591,6 +593,7 @@
 				8463C94B248074AC0059A897 /* BasicSearchController.swift */,
 				84C7175824819E5A003B02B3 /* UIApplictionExtensions.swift */,
 				84C7175E2482A788003B02B3 /* BasicFontChangeSlider.swift */,
+				C4FFDA7024E1FF5A00C95E0D /* ContentTextView.swift */,
 			);
 			path = BasicClasses;
 			sourceTree = "<group>";
@@ -1077,6 +1080,7 @@
 				84C7174F24818FF6003B02B3 /* StarDeteailViewController.swift in Sources */,
 				C460AD4024DC0C55003162E0 /* NotificationsSettings.swift in Sources */,
 				848EC0D024A7FDD400EF7D62 /* AboutAppVC.swift in Sources */,
+				C4FFDA7124E1FF5A00C95E0D /* ContentTextView.swift in Sources */,
 				8463C8C7247FC9EC0059A897 /* AppDelegate.swift in Sources */,
 				84F055C42490FCEA008B9D06 /* MFMessageComposeViewController.swift in Sources */,
 				8463C94E248075540059A897 /* BasicFonts.swift in Sources */,

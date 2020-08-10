@@ -14,6 +14,8 @@ final class NotificationsTableViewController: UITableViewController {
     //MARK: @IBOutlets
     @IBOutlet weak var notificationsOnLabel: UILabel!
     @IBOutlet weak var notificationsOnSwitch: UISwitch!
+    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var messagePickerView: UIPickerView!
     
     
     //MARK: Overrides
@@ -23,6 +25,8 @@ final class NotificationsTableViewController: UITableViewController {
         setupSwitch()
         setupNotificationsLabel()
         setupTitle()
+        setupMessagePickerView()
+        setupMessageLabel()
     }
 }
 
@@ -83,7 +87,56 @@ extension NotificationsTableViewController {
         notificationsOnSwitch.onTintColor = BasicProperties.color
     }
     
+    private func setupMessagePickerView() {
+        messagePickerView.delegate = self
+        messagePickerView.dataSource = self
+    }
+    
+    private func setupMessageLabel() {
+        messageLabel.text = NotificationsSettings.shared.notificationsBody
+        messageLabel.textColor = .black
+        messageLabel.backgroundColor = .clear
+    }
+    
     private func setupTitle() {
         title = "Articles Notifications"
+    }
+}
+
+
+
+//MARK: - UIPickerViewDataSource & UIPickerViewDelegate extension
+extension NotificationsTableViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return PushNotifications.PushNotificationsBasicWords.headers.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        messageLabel.text = "Message: " + PushNotifications.PushNotificationsBasicWords.headers[row] + "..."
+        NotificationsSettings.shared.notificationsBody = messageLabel.text!
+        defaults.setValue(NotificationsSettings.shared.notificationsBody, forKey: "NotificationMessageKey")
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        var titleLabel: UILabel
+        
+        ///Check the view
+        if let view = view as? UILabel {
+            titleLabel = view
+        } else {
+            titleLabel = UILabel()
+        }
+        
+        ///Setup titleLabel
+        titleLabel.textColor = .black
+        titleLabel.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        titleLabel.textAlignment = .center
+        titleLabel.text = PushNotifications.PushNotificationsBasicWords.headers[row] + "..."
+        
+        return titleLabel
     }
 }

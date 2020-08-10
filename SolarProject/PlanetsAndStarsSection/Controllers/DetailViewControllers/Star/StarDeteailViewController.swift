@@ -24,7 +24,7 @@ final class StarDeteailViewController: BasicViewController {
     //MARK: - @IBOutlets
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var contentBack: ContentBack!
-    @IBOutlet weak var contentTextView: UITextView!
+    @IBOutlet weak var contentTextView: ContentTextView!
     @IBOutlet weak var sliderBack: ContentBack!
     @IBOutlet weak var slider: BasicFontChangeSlider!
     @IBOutlet weak var sliderBackShowerButton: UIBarButtonItem!
@@ -189,12 +189,6 @@ extension StarDeteailViewController {
     }
     
     fileprivate func setupContentTextView() {
-        let fontSize: CGFloat = 18
-        let font = UIFont.systemFont(ofSize: fontSize, weight: .light)
-        contentTextView.font = font
-        contentTextView.isEditable = false
-        contentTextView.isSelectable = true
-        contentTextView.layer.cornerRadius = BasicProperties.cornerRadius
         contentTextView.text = presenter.setupMostContent()
     }
     

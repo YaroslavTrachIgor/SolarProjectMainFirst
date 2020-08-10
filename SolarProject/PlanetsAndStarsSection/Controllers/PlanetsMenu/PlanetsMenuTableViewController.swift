@@ -62,7 +62,6 @@ final class PlanetsMenuTableViewController: UITableViewController {
         setupNavBar()
         setupInterstitial()
         setupSeparator()
-        setupNavBarShadow()
         setupMoreCollectionView()
     }
     
@@ -281,12 +280,6 @@ extension PlanetsMenuTableViewController {
         
         ///Set title
         title = "Menu"
-    }
-    
-    private func setupNavBarShadow() {
-        guard let navBar = navigationController?.navigationBar else { return }
-        navBar.setupBasicShadow(color: #colorLiteral(red: 0.9072133845, green: 0.9072133845, blue: 0.9072133845, alpha: 1))
-        navBar.shadowImage = UIImage()
     }
     
     

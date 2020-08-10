@@ -20,4 +20,5 @@ final class NotificationsSettings {
     
     //MARK: Main Settings Varibles
     var notificationsOn: Bool = defaults.value(forKey: "NotificationsOnKey") as? Bool ?? true
+    var notificationsBody: String = defaults.value(forKey: "NotificationMessageKey") as? String ?? "Message:"
 }
