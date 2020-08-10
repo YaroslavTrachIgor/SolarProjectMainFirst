@@ -112,7 +112,7 @@ extension NewsViewController {
     
     private func setupContent() {
         titleLabel.text = " " + mainTitle!
-        subtitleLabel.text = " " + mainTitle!
+        subtitleLabel.text = "  " + mainTitle!
         dateLabel.text = " " + date!
         contentTextView.text = content!
         imageView.image = image!
@@ -141,8 +141,6 @@ extension NewsViewController {
     
     private func setupSubtitleLabel() {
         subtitleLabel.textColor = .darkGray
-        subtitleLabel.labelShadow()
-        subtitleLabel.layer.shadowColor = subtitleLabel.textColor?.cgColor
         subtitleLabel.font = UIFont.systemFont(ofSize: 11, weight: .medium)
         subtitleLabel.backgroundColor = .clear
         subtitleLabel.alpha = 0
@@ -150,8 +148,6 @@ extension NewsViewController {
     
     private func setupDateLabel() {
         dateLabel.textColor = .lightGray
-        dateLabel.labelShadow()
-        dateLabel.layer.shadowColor = dateLabel.textColor?.cgColor
         dateLabel.font = UIFont.italicSystemFont(ofSize: 10.5)
         dateLabel.backgroundColor = .clear
         dateLabel.alpha = 0

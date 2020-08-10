@@ -26,7 +26,7 @@ extension PlanetsMenuTableViewController: UICollectionViewDelegate, UICollection
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImagesCollectionViewCell", for: indexPath) as! ImagesCollectionViewCell
             
             ///Setup cell
-            setupCell(cell: cell, indexPath: indexPath)
+            setupImageCell(cell: cell, indexPath: indexPath)
             
             return cell
         } else {

@@ -134,6 +134,7 @@ final class NewsTableViewController: UITableViewController {
                 self.setupContentBack(contentBack: cell.contentBack)
                 self.setupContentTextView(contentTextView: cell.contentTextView)
                 self.setupTitleLabel(titleLabel: cell.titleLabel)
+                self.setupSubtitleLabel(subtitleLabel: cell.subtitleLabel)
                 self.setupSelectionBack(cell: cell)
                 
                 semaphore.signal()
@@ -257,11 +258,13 @@ extension NewsTableViewController: NewsTableViewControllerProtocol {
     }
     
     private func setupContent(cell: NewsCell, row: Int) {
-        cell.titleLabel.text         = model.newsTitles[row]
-        cell.subtitleLabel.text      = cell.titleLabel.text!
-        cell.contentTextView.text    = model.newsContents[row]
-        cell.dateLabel.text          = model.newsDates[row]
-        cell.newsImageView.downloaded(from: model.newsImagesStringURLs[row])
+        UIView.transition(with: view, duration: 0.4, options: .curveEaseIn, animations: {
+            cell.titleLabel.text         = self.model.newsTitles[row]
+            cell.subtitleLabel.text      = cell.titleLabel.text!
+            cell.contentTextView.text    = self.model.newsContents[row]
+            cell.dateLabel.text          = self.model.newsDates[row]
+            cell.newsImageView.downloaded(from: self.model.newsImagesStringURLs[row])
+        }, completion: nil)
     }
     
     private func setupRefreshControl() {
@@ -273,6 +276,14 @@ extension NewsTableViewController: NewsTableViewControllerProtocol {
         titleLabel.textColor = BasicProperties.color
         titleLabel.labelShadow()
         titleLabel.layer.shadowColor = BasicProperties.color.cgColor
+        titleLabel.numberOfLines = 1
+    }
+    
+    private func setupSubtitleLabel(subtitleLabel: UILabel) {
+        subtitleLabel.textColor = .secondaryLabel
+        subtitleLabel.alpha = 1
+        subtitleLabel.isHidden = false
+        subtitleLabel.numberOfLines = 1
     }
     
     private func setupContentBack(contentBack: UIView) {

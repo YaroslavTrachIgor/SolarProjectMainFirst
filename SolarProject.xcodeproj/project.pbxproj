@@ -345,10 +345,10 @@
 		8463C8E0248019120059A897 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
+				8463C8EE24801D880059A897 /* PlanetsMenuTableViewControllerPresenter.swift */,
+				8463C94F24807A690059A897 /* PlanetsMenuTableViewCellPresenter.swift */,
 				84C717792483123C003B02B3 /* PlanetDetailViewControllerPresenters */,
-				84C7177824831222003B02B3 /* PlanetsMenuTableViewPresenters */,
 				84C7177624831207003B02B3 /* StarDetailVCPresenters */,
-				84C71775248311F1003B02B3 /* StarThemePresenters */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -537,7 +537,9 @@
 		84C717512481902B003B02B3 /* Star */ = {
 			isa = PBXGroup;
 			children = (
-				84C717652482B0C4003B02B3 /* MainStarDetailViewController */,
+				C4FFDA6F24E15E8800C95E0D /* StarDetailsThemes */,
+				84C7174E24818FF6003B02B3 /* StarDeteailViewController.swift */,
+				C4AEAE6324CF050800A6100A /* StarDetailMoreVC.swift */,
 			);
 			path = Star;
 			sourceTree = "<group>";
@@ -593,17 +595,6 @@
 			path = BasicClasses;
 			sourceTree = "<group>";
 		};
-		84C717652482B0C4003B02B3 /* MainStarDetailViewController */ = {
-			isa = PBXGroup;
-			children = (
-				848A683324942939007F3E0F /* SunImages */,
-				84C717662482B0F1003B02B3 /* SunThemes */,
-				84C7174E24818FF6003B02B3 /* StarDeteailViewController.swift */,
-				C4AEAE6324CF050800A6100A /* StarDetailMoreVC.swift */,
-			);
-			path = MainStarDetailViewController;
-			sourceTree = "<group>";
-		};
 		84C717662482B0F1003B02B3 /* SunThemes */ = {
 			isa = PBXGroup;
 			children = (
@@ -651,18 +642,10 @@
 		84C7177624831207003B02B3 /* StarDetailVCPresenters */ = {
 			isa = PBXGroup;
 			children = (
+				84C71775248311F1003B02B3 /* StarThemePresenters */,
 				84C7175424819416003B02B3 /* StarDetailVCPresenter.swift */,
 			);
 			path = StarDetailVCPresenters;
-			sourceTree = "<group>";
-		};
-		84C7177824831222003B02B3 /* PlanetsMenuTableViewPresenters */ = {
-			isa = PBXGroup;
-			children = (
-				8463C8EE24801D880059A897 /* PlanetsMenuTableViewControllerPresenter.swift */,
-				8463C94F24807A690059A897 /* PlanetsMenuTableViewCellPresenter.swift */,
-			);
-			path = PlanetsMenuTableViewPresenters;
 			sourceTree = "<group>";
 		};
 		84C717792483123C003B02B3 /* PlanetDetailViewControllerPresenters */ = {
@@ -911,6 +894,15 @@
 				C49E5FF224AF59D900FDD522 /* PlnaetsMenuTableViewControllerSearchBarDelegateExtnsion.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C4FFDA6F24E15E8800C95E0D /* StarDetailsThemes */ = {
+			isa = PBXGroup;
+			children = (
+				848A683324942939007F3E0F /* SunImages */,
+				84C717662482B0F1003B02B3 /* SunThemes */,
+			);
+			path = StarDetailsThemes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

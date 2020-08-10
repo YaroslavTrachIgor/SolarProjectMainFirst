@@ -70,9 +70,9 @@ extension NotificationsTableViewController {
 extension NotificationsTableViewController {
     private func setupNotificationsLabel() {
         if NotificationsSettings.shared.notificationsOn {
-            notificationsOnLabel.text = "Notifications On"
+            notificationsOnLabel.text = "Notifications enabled"
         } else {
-            notificationsOnLabel.text = "Notifications Off"
+            notificationsOnLabel.text = "Notifications disabled"
         }
         notificationsOnLabel.textColor = .black
         notificationsOnLabel.backgroundColor = .clear

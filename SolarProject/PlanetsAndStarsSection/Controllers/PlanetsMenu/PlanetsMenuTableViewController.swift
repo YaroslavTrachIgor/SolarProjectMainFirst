@@ -93,20 +93,21 @@ final class PlanetsMenuTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PlanetCell", for: indexPath) as! PlanetsMenuTableViewCell
- 
-        UIView.animate(withDuration: 0.4) { 
-            if self.isSearching {
-                self.setupContentWhileSearching(cell: cell, indexPath: indexPath)
-            } else {
-                self.setupPlanetsStandartContent(cell: cell, indexPath: indexPath)
-            }
-            self.setupNotificationButton(cell.notificationButton)
-            self.setupSelectionBack(cell: cell)
-            self.setupContentTextView(cell.contentTextView!)
-            self.setupContentTextViewBack(cell.contentTextViewBackground!)
-            self.setupTitleLabel(cell: cell)
-            self.setupReminderButton(cell.reminderButton)
+        
+        ///Setup Content
+        if self.isSearching {
+            setupContentWhileSearching(cell: cell, indexPath: indexPath)
+        } else {
+            setupPlanetsStandartContent(cell: cell, indexPath: indexPath)
         }
+            
+        ///Setup UI
+        setupNotificationButton(cell.notificationButton)
+        setupSelectionBack(cell: cell)
+        setupContentTextView(cell.contentTextView!)
+        setupContentTextViewBack(cell.contentTextViewBackground!)
+        setupTitleLabel(cell: cell)
+        setupReminderButton(cell.reminderButton)
         
         return cell
     }
@@ -148,7 +149,7 @@ extension PlanetsMenuTableViewController {
         return PlanetsMenuTableViewControllerModel.images.count
     }
     
-    internal func setupCell(cell: ImagesCollectionViewCell, indexPath: IndexPath) {
+    internal func setupImageCell(cell: ImagesCollectionViewCell, indexPath: IndexPath) {
         
         ///Setup cell UI
         guard let activityIndView    = cell.activityIndicator else { return }
@@ -199,7 +200,6 @@ extension PlanetsMenuTableViewController {
     private func setupPlanetsStandartContent(cell: PlanetsMenuTableViewCell, indexPath: IndexPath) {
         let row = indexPath.row
         let section = indexPath.section
-        
         cell.titleLabel.text = presenter.setupPlanetsTitlesContent(sections: sections, row: row, section: section)
         cell.contentTextView.text = presenter.setupTextViewsContent(sections: sections, row: row, section: section)
         cell.notificationButton.setTitle(presenter.setupNotificationButtonTitles(sections: sections, row: row, section: section), for: .normal)
@@ -228,12 +228,11 @@ extension PlanetsMenuTableViewController {
     }
     
     private func setupContentTextView(_ textView: UITextView) {
-        textView.layer.cornerRadius = BasicProperties.cornerRadius + 13
-        
         let security = false
         textView.isScrollEnabled = security
         textView.isSelectable    = security
         textView.isEditable      = security
+        textView.layer.cornerRadius = BasicProperties.cornerRadius + 13
     }
     
     private func setupContentTextViewBack(_ view: UIView) {
@@ -265,8 +264,6 @@ extension PlanetsMenuTableViewController {
     }
     
     private func setupStatusBar() {
-        
-        ///Setup StatusBar
         if DeviceType.IS_IPHONE_5 || DeviceType.IS_IPHONE_7 || DeviceType.IS_IPHONE_7P || DeviceType.IS_IPAD {
             setupStatusBarView(with: 20)
         } else {
@@ -294,7 +291,7 @@ extension PlanetsMenuTableViewController {
     
     
     //MARK: Setup (moreCollectionView cell!) UI
-    internal func setupDetailButton(button: UIButton, row: Int) {
+    private func setupDetailButton(button: UIButton, row: Int) {
         button.isEnabled = false
         button.backgroundColor = .systemGroupedBackground
         button.layer.cornerRadius = button.frame.height / 2
@@ -386,9 +383,7 @@ extension PlanetsMenuTableViewController {
         imageViewBack.layer.cornerRadius = BasicProperties.cornerRadius
         imageViewBack.layer.masksToBounds = true
     }
-    
-    
-    //MARK: Private
+
     private func setupSearchBar(_ searchBar: UISearchBar) {
         let searchField = searchBar.value(forKey: "searchField") as? UITextField
 
