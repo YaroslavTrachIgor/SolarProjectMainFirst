@@ -102,7 +102,6 @@
 		C460010824C5DF740082F631 /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C460010724C5DF740082F631 /* NewsTableViewController.swift */; };
 		C460AD3E24DBF999003162E0 /* NotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C460AD3D24DBF999003162E0 /* NotificationsTableViewController.swift */; };
 		C460AD4024DC0C55003162E0 /* NotificationsSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C460AD3F24DC0C55003162E0 /* NotificationsSettings.swift */; };
-		C460AD4224E131F8003162E0 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C460AD4124E131F8003162E0 /* README.md */; };
 		C4704B1E24BD98390052E002 /* DeleteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4704B1D24BD98390052E002 /* DeleteVC.swift */; };
 		C4704B3924BDD7EC0052E002 /* SolarProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4704B3824BDD7EC0052E002 /* SolarProjectTests.swift */; };
 		C497CA5A24ACC20F009B90F3 /* PersonalAnalyticsTableViewControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C497CA5924ACC20D009B90F3 /* PersonalAnalyticsTableViewControllerPresenter.swift */; };
@@ -243,7 +242,7 @@
 		C460010724C5DF740082F631 /* NewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
 		C460AD3D24DBF999003162E0 /* NotificationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewController.swift; sourceTree = "<group>"; };
 		C460AD3F24DC0C55003162E0 /* NotificationsSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsSettings.swift; sourceTree = "<group>"; };
-		C460AD4124E131F8003162E0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../../Downloads/README.md; sourceTree = "<group>"; };
+		C460AD4324E132DE003162E0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C4704B1D24BD98390052E002 /* DeleteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteVC.swift; sourceTree = "<group>"; };
 		C4704B3624BDD7EC0052E002 /* SolarProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SolarProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4704B3824BDD7EC0052E002 /* SolarProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarProjectTests.swift; sourceTree = "<group>"; };
@@ -295,6 +294,7 @@
 		8463C8BA247FC9EC0059A897 = {
 			isa = PBXGroup;
 			children = (
+				C460AD4324E132DE003162E0 /* README.md */,
 				848A684B249A1C84007F3E0F /* Podfile */,
 				8463C8C5247FC9EC0059A897 /* SolarProject */,
 				C4704B3724BDD7EC0052E002 /* SolarProjectTests */,
@@ -328,7 +328,6 @@
 				84C717892486DE2B003B02B3 /* Profile */,
 				8463C8D4247FC9F20059A897 /* Info.plist */,
 				C460010424C5DDBD0082F631 /* GoogleService-Info.plist */,
-				C460AD4124E131F8003162E0 /* README.md */,
 				8463C8CF247FC9F20059A897 /* Assets.xcassets */,
 				8463C8D1247FC9F20059A897 /* LaunchScreen.storyboard */,
 			);
@@ -1011,7 +1010,6 @@
 			files = (
 				8463C8D3247FC9F20059A897 /* LaunchScreen.storyboard in Resources */,
 				8463C8D0247FC9F20059A897 /* Assets.xcassets in Resources */,
-				C460AD4224E131F8003162E0 /* README.md in Resources */,
 				C460010524C5DDBD0082F631 /* GoogleService-Info.plist in Resources */,
 				8463C8CE247FC9EC0059A897 /* Main.storyboard in Resources */,
 			);
