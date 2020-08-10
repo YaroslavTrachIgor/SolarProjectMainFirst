@@ -94,16 +94,12 @@ final class PlanetsMenuTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PlanetCell", for: indexPath) as! PlanetsMenuTableViewCell
  
-        UIView.animate(withDuration: 0.4) {
-            
-            ///Setup Content
+        UIView.animate(withDuration: 0.4) { 
             if self.isSearching {
                 self.setupContentWhileSearching(cell: cell, indexPath: indexPath)
             } else {
                 self.setupPlanetsStandartContent(cell: cell, indexPath: indexPath)
             }
-
-            ///Setup UI
             self.setupNotificationButton(cell.notificationButton)
             self.setupSelectionBack(cell: cell)
             self.setupContentTextView(cell.contentTextView!)

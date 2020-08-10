@@ -9,20 +9,6 @@
 import UIKit
 import GoogleMobileAds
 
-//MARK: - SunThemesMenuTableViewControllerContentSetupProtocol protocol
-protocol SunThemesMenuTableViewControllerContentSetupProtocol {
-    func setupContent(cell: SunThemesMenuTableViewCell, indexPath: IndexPath)
-}
-
-
-
-//MARK: - SunThemesMenuTableViewControllerProtocol protocol
-protocol SunThemesMenuTableViewControllerProtocol: SunThemesMenuTableViewControllerContentSetupProtocol {
-    func setupNumberOfRowsInSection() -> Int
-}
-
-
-
 //MARK: - SunThemesMenuTableViewController main class
 final class SunThemesMenuTableViewController: UITableViewController {
     
@@ -54,6 +40,7 @@ final class SunThemesMenuTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupTableView()
         setupSearchController()
         setupRefreshControl()
         setupInterstitial()
@@ -100,35 +87,31 @@ final class SunThemesMenuTableViewController: UITableViewController {
         presenter.setupStarThemeIndex(indexPath: indexPath)
         
         ///Setup Segue
-        if interstitial.isReady {
+        if interstitial.isReady && ((indexPath.row % 2) == 0) {
             interstitial.present(fromRootViewController: self)
-            setupSegue()
-        } else {
-            setupSegue()
         }
+        setupSegue()
     }
 }
 
 
 
 //MARK: - SunThemesMenuTableViewControllerProtocol extension
-extension SunThemesMenuTableViewController: SunThemesMenuTableViewControllerProtocol {
+extension SunThemesMenuTableViewController {
     
-    //MARK: Internal
-    internal func setupContent(cell: SunThemesMenuTableViewCell, indexPath: IndexPath) {
+    //MARK: Private
+    private func setupContent(cell: SunThemesMenuTableViewCell, indexPath: IndexPath) {
         if isSearching {
 
             ///Setup when searching
-            setupFastContent(cell: cell, title: searchedArticle[indexPath.row], content: " " + searchedArticle[indexPath.row] + " theme")
+            setupFastContent(cell: cell, title: searchedArticle[indexPath.row], content: searchedArticle[indexPath.row] + " theme")
         } else {
             
             ///Setup basic content
             setupFastContent(cell: cell, title: presenter.setupContentTitle(indexPath: indexPath), content: presenter.setupPreviewContent(indexPath: indexPath))
         }
     }
-    
-    
-    //MARK: Private
+
     private func setupFastContent(cell: SunThemesMenuTableViewCell, title: String, content: String) {
         cell.titleLabel?.text = title
         cell.previewTextView?.text = content
@@ -150,12 +133,18 @@ extension SunThemesMenuTableViewController: SunThemesMenuTableViewControllerProt
         tableView.refreshControl = menuRefreshControl
     }
     
-    internal func setupNumberOfRowsInSection() -> Int {
+    private func setupNumberOfRowsInSection() -> Int {
         if isSearching {
             return searchedArticle.count
         } else {
             return presenter.setupNumberOfRowsInSection()
         }
+    }
+    
+    private func setupTableView() {
+        tableView.rowHeight = 105
+        tableView.backgroundColor = .systemGroupedBackground
+        tableView.alpha = 1
     }
     
     private func setupSelectionBack(cell: SunThemesMenuTableViewCell) {

@@ -9,6 +9,14 @@
 import Foundation
 import UIKit
 
+//MARK: - CollectionViewCellBasicsProtocol
+protocol CollectionViewCellBasicsProtocol {
+    func setupShadow()
+    func setupContentView()
+}
+
+
+
 //MARK: - ImagesCollectionViewCell main class
 final class ImagesCollectionViewCell: UICollectionViewCell {
     

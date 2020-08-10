@@ -32,13 +32,13 @@ extension SunThemesMenuTBVCPresenter: SunThemesMenuTBVCPresenterProtocol {
     internal func setupContentTitle(indexPath: IndexPath) -> String {
         
         ///Setup basic content
-        return titles[indexPath.row]
+        return " " + titles[indexPath.row]
     }
     
     internal func setupPreviewContent(indexPath: IndexPath) -> String {
         
         ///Setup basic content
-        return " " + PlanetsMenuTableViewControllerModel.StarsContent.themesContent[indexPath.row]
+        return PlanetsMenuTableViewControllerModel.StarsContent.themesContent[indexPath.row]
     }
     
     internal func setupNumberOfRowsInSection() -> Int {

@@ -168,6 +168,7 @@ extension PersonalAnalyticsTableViewController {
         }, indexPath: indexPath)
     
         cell.viewsCountBackView.viewShadows()
+        cell.viewsCountBackView.layer.shadowRadius = 5
         cell.viewsCountBackView.layer.shadowColor = cell.viewsCountBackView.backgroundColor!.cgColor
         cell.viewsCountBackView.layer.cornerRadius = BasicProperties.cornerRadius
         

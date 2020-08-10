@@ -1003,31 +1003,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="separatorColor" red="0.89925788774990956" green="0.90566971860050327" blue="0.9249052111522843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SunThemeTableViewCell" rowHeight="116" id="HcB-Ii-re1" customClass="SunThemesMenuTableViewCell" customModule="SolarProject" customModuleProvider="target">
-                                <rect key="frame" x="16" y="55.5" width="343" height="116"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SunThemeTableViewCell" rowHeight="136" id="HcB-Ii-re1" customClass="SunThemesMenuTableViewCell" customModule="SolarProject" customModuleProvider="target">
+                                <rect key="frame" x="16" y="55.5" width="343" height="136"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HcB-Ii-re1" id="VXr-Qn-2bB">
-                                    <rect key="frame" x="0.0" y="0.0" width="316" height="116"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="316" height="136"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oNN-Sp-qVI" customClass="ContentBack" customModule="SolarProject" customModuleProvider="target">
-                                            <rect key="frame" x="16" y="16" width="280" height="84"/>
+                                            <rect key="frame" x="16" y="16" width="280" height="104"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7RM-dT-Elc">
-                                                    <rect key="frame" x="12" y="8" width="268" height="29"/>
+                                                    <rect key="frame" x="12" y="8" width="260" height="25"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="29" id="yRL-Pn-lii"/>
+                                                        <constraint firstAttribute="height" constant="25" id="FXU-Dk-Gv1"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZM5-c8-YAi">
-                                                    <rect key="frame" x="8" y="37" width="272" height="47"/>
+                                                    <rect key="frame" x="12" y="33" width="260" height="59"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="47" id="v9p-aV-WbW"/>
-                                                    </constraints>
                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                     <color key="textColor" systemColor="systemGrayColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -1036,22 +1033,22 @@
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
-                                                <constraint firstItem="7RM-dT-Elc" firstAttribute="top" secondItem="oNN-Sp-qVI" secondAttribute="top" constant="8" id="1kh-tt-FHS"/>
-                                                <constraint firstItem="ZM5-c8-YAi" firstAttribute="top" secondItem="7RM-dT-Elc" secondAttribute="bottom" id="P4T-eQ-7h2"/>
-                                                <constraint firstItem="ZM5-c8-YAi" firstAttribute="leading" secondItem="oNN-Sp-qVI" secondAttribute="leading" constant="8" id="Ski-Ig-a6V"/>
-                                                <constraint firstAttribute="trailing" secondItem="ZM5-c8-YAi" secondAttribute="trailing" id="Wcn-lh-q5u"/>
-                                                <constraint firstAttribute="trailing" secondItem="7RM-dT-Elc" secondAttribute="trailing" id="YHO-3j-p1s"/>
+                                                <constraint firstAttribute="bottom" secondItem="ZM5-c8-YAi" secondAttribute="bottom" constant="12" id="5HH-9e-LID"/>
+                                                <constraint firstItem="7RM-dT-Elc" firstAttribute="top" secondItem="oNN-Sp-qVI" secondAttribute="top" constant="8" id="E4Z-1U-DGt"/>
+                                                <constraint firstAttribute="trailing" secondItem="7RM-dT-Elc" secondAttribute="trailing" constant="8" id="Fhz-eu-zTK"/>
+                                                <constraint firstAttribute="trailing" secondItem="ZM5-c8-YAi" secondAttribute="trailing" constant="8" id="O8J-6i-GFb"/>
+                                                <constraint firstItem="ZM5-c8-YAi" firstAttribute="leading" secondItem="oNN-Sp-qVI" secondAttribute="leading" constant="12" id="Ui2-lC-w72"/>
+                                                <constraint firstItem="ZM5-c8-YAi" firstAttribute="top" secondItem="7RM-dT-Elc" secondAttribute="bottom" id="gNa-zc-FiA"/>
                                                 <constraint firstAttribute="height" constant="74" id="pZB-zr-b7M"/>
-                                                <constraint firstItem="7RM-dT-Elc" firstAttribute="leading" secondItem="oNN-Sp-qVI" secondAttribute="leading" constant="12" id="v7x-DI-pLR"/>
-                                                <constraint firstAttribute="bottom" secondItem="ZM5-c8-YAi" secondAttribute="bottom" id="w7B-u0-wA0"/>
+                                                <constraint firstItem="7RM-dT-Elc" firstAttribute="leading" secondItem="oNN-Sp-qVI" secondAttribute="leading" constant="12" id="syF-mf-xJx"/>
                                             </constraints>
                                         </view>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="oNN-Sp-qVI" firstAttribute="top" secondItem="VXr-Qn-2bB" secondAttribute="topMargin" constant="5" id="0Q7-FV-J5U"/>
                                         <constraint firstItem="oNN-Sp-qVI" firstAttribute="leading" secondItem="VXr-Qn-2bB" secondAttribute="leading" constant="16" id="Ag2-Mm-ZvA"/>
                                         <constraint firstAttribute="trailing" secondItem="oNN-Sp-qVI" secondAttribute="trailing" constant="20" id="FLB-au-VJ9"/>
-                                        <constraint firstAttribute="bottom" secondItem="oNN-Sp-qVI" secondAttribute="bottom" constant="16" id="IrC-9t-Myb"/>
-                                        <constraint firstItem="oNN-Sp-qVI" firstAttribute="top" secondItem="VXr-Qn-2bB" secondAttribute="top" constant="16" id="SQ2-Ht-bSP"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="oNN-Sp-qVI" secondAttribute="bottom" constant="5" id="fZz-bB-xQq"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1076,7 +1073,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lCV-gN-Oo6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2534.7826086956525" y="-431.25"/>
+            <point key="canvasLocation" x="2533.5999999999999" y="-431.33433283358323"/>
         </scene>
         <!--title-->
         <scene sceneID="6tH-ae-hin">
@@ -1879,7 +1876,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="kWT-Ea-UsP"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>

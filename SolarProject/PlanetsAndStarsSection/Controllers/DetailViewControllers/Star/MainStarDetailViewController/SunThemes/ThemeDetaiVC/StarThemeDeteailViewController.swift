@@ -128,7 +128,7 @@ extension StarThemeDeteailViewController: StarThemeDeteailViewControllerProtocol
     
     //MARK: Setup Animation
     internal func setupAnimation() {
-        let views = [contentBack]
+        let views = [contentBack, titleLabel]
         
         UIView.animate(withDuration: 0.4) {
             for view in views {
@@ -165,6 +165,7 @@ extension StarThemeDeteailViewController: StarThemeDeteailViewControllerProtocol
     private func setupTitleLabel() {
         titleLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         titleLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        titleLabel.alpha = 0
     }
     
     

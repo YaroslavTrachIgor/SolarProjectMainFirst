@@ -21,7 +21,7 @@
 		8463C8ED24801D190059A897 /* PlanetsMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463C8EC24801D190059A897 /* PlanetsMenuTableViewCell.swift */; };
 		8463C8EF24801D880059A897 /* PlanetsMenuTableViewControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463C8EE24801D880059A897 /* PlanetsMenuTableViewControllerPresenter.swift */; };
 		8463C93E248025790059A897 /* RefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463C93D248025790059A897 /* RefreshControl.swift */; };
-		8463C943248067A10059A897 /* NotificationsFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463C941248067A00059A897 /* NotificationsFunctions.swift */; };
+		8463C943248067A10059A897 /* NotificationsManeger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463C941248067A00059A897 /* NotificationsManeger.swift */; };
 		8463C948248068650059A897 /* LoginButtonAnimatiol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463C945248068650059A897 /* LoginButtonAnimatiol.swift */; };
 		8463C949248068650059A897 /* TestButtonAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463C946248068650059A897 /* TestButtonAnimation.swift */; };
 		8463C94A248068650059A897 /* ButtonsAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463C947248068650059A897 /* ButtonsAnimations.swift */; };
@@ -34,7 +34,6 @@
 		848A683824942B6D007F3E0F /* SunImagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A683724942B6D007F3E0F /* SunImagesTableViewController.swift */; };
 		848A683C24956CC3007F3E0F /* PlanetImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A683B24956CC3007F3E0F /* PlanetImageTableViewCell.swift */; };
 		848A683E24957A2F007F3E0F /* PlanetsImagesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A683D24957A2F007F3E0F /* PlanetsImagesCollectionViewController.swift */; };
-		848A68412495883A007F3E0F /* CollectionViewCellBasicProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A68402495883A007F3E0F /* CollectionViewCellBasicProtocol.swift */; };
 		848A68432497A24F007F3E0F /* PlaceholderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A68422497A24E007F3E0F /* PlaceholderLabel.swift */; };
 		848A68452497B79F007F3E0F /* PersonalAnalyticsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A68442497B79F007F3E0F /* PersonalAnalyticsTableViewController.swift */; };
 		848A68482498237C007F3E0F /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A68472498237B007F3E0F /* MainTabBarController.swift */; };
@@ -159,7 +158,7 @@
 		8463C8EC24801D190059A897 /* PlanetsMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsMenuTableViewCell.swift; sourceTree = "<group>"; };
 		8463C8EE24801D880059A897 /* PlanetsMenuTableViewControllerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsMenuTableViewControllerPresenter.swift; sourceTree = "<group>"; };
 		8463C93D248025790059A897 /* RefreshControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshControl.swift; sourceTree = "<group>"; };
-		8463C941248067A00059A897 /* NotificationsFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsFunctions.swift; sourceTree = "<group>"; };
+		8463C941248067A00059A897 /* NotificationsManeger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsManeger.swift; sourceTree = "<group>"; };
 		8463C945248068650059A897 /* LoginButtonAnimatiol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginButtonAnimatiol.swift; sourceTree = "<group>"; };
 		8463C946248068650059A897 /* TestButtonAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestButtonAnimation.swift; sourceTree = "<group>"; };
 		8463C947248068650059A897 /* ButtonsAnimations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonsAnimations.swift; sourceTree = "<group>"; };
@@ -172,7 +171,6 @@
 		848A683724942B6D007F3E0F /* SunImagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunImagesTableViewController.swift; sourceTree = "<group>"; };
 		848A683B24956CC3007F3E0F /* PlanetImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetImageTableViewCell.swift; sourceTree = "<group>"; };
 		848A683D24957A2F007F3E0F /* PlanetsImagesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsImagesCollectionViewController.swift; sourceTree = "<group>"; };
-		848A68402495883A007F3E0F /* CollectionViewCellBasicProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCellBasicProtocol.swift; sourceTree = "<group>"; };
 		848A68422497A24E007F3E0F /* PlaceholderLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderLabel.swift; sourceTree = "<group>"; };
 		848A68442497B79F007F3E0F /* PersonalAnalyticsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAnalyticsTableViewController.swift; sourceTree = "<group>"; };
 		848A68472498237B007F3E0F /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -379,7 +377,7 @@
 			children = (
 				84C7178F2486F387003B02B3 /* BasicViewController */,
 				8463C944248068650059A897 /* ButtonsAnimations */,
-				8463C93F248067A00059A897 /* NotificationFunctions */,
+				8463C93F248067A00059A897 /* NotificationsManeger */,
 				8463C93C248025660059A897 /* AppBasicUI */,
 				8463C8E6248019D20059A897 /* Shadows */,
 				848A6875249C0DA0007F3E0F /* Gradient Extension */,
@@ -440,13 +438,12 @@
 			path = AppBasicUI;
 			sourceTree = "<group>";
 		};
-		8463C93F248067A00059A897 /* NotificationFunctions */ = {
+		8463C93F248067A00059A897 /* NotificationsManeger */ = {
 			isa = PBXGroup;
 			children = (
-				848A683F24958815007F3E0F /* Protocols */,
-				8463C941248067A00059A897 /* NotificationsFunctions.swift */,
+				8463C941248067A00059A897 /* NotificationsManeger.swift */,
 			);
-			path = NotificationFunctions;
+			path = NotificationsManeger;
 			sourceTree = "<group>";
 		};
 		8463C944248068650059A897 /* ButtonsAnimations */ = {
@@ -492,14 +489,6 @@
 				848A683B24956CC3007F3E0F /* PlanetImageTableViewCell.swift */,
 			);
 			path = UI;
-			sourceTree = "<group>";
-		};
-		848A683F24958815007F3E0F /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				848A68402495883A007F3E0F /* CollectionViewCellBasicProtocol.swift */,
-			);
-			path = Protocols;
 			sourceTree = "<group>";
 		};
 		848A68462498233B007F3E0F /* MainTabBarController */ = {
@@ -1100,7 +1089,6 @@
 				84F055C42490FCEA008B9D06 /* MFMessageComposeViewController.swift in Sources */,
 				8463C94E248075540059A897 /* BasicFonts.swift in Sources */,
 				C457F90824CF5FE1002C69A7 /* RemindersSearchBarDelegateExtension.swift in Sources */,
-				848A68412495883A007F3E0F /* CollectionViewCellBasicProtocol.swift in Sources */,
 				848A68302492F3DA007F3E0F /* ImagesCollectionViewCell.swift in Sources */,
 				C49E5FEC24AF58CC00FDD522 /* UINavigationBar.swift in Sources */,
 				84C7174C248133C2003B02B3 /* UISegmentedControl.swift in Sources */,
@@ -1136,7 +1124,7 @@
 				84F055AF248A46F6008B9D06 /* FastAlert.swift in Sources */,
 				848A687A249C0DA1007F3E0F /* GradientExtensions.swift in Sources */,
 				84C7175924819E5A003B02B3 /* UIApplictionExtensions.swift in Sources */,
-				8463C943248067A10059A897 /* NotificationsFunctions.swift in Sources */,
+				8463C943248067A10059A897 /* NotificationsManeger.swift in Sources */,
 				84F055B3248C4665008B9D06 /* UIImageView.swift in Sources */,
 				84C7175724819C90003B02B3 /* ActivityVCManeger.swift in Sources */,
 				C497CA5C24AD2DA1009B90F3 /* UIView.swift in Sources */,

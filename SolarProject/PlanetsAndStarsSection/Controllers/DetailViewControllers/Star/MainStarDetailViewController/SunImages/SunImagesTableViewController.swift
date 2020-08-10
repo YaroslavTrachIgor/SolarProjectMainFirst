@@ -8,14 +8,6 @@
 
 import UIKit
 
-//MARK: - SunImagesTableViewController protocol
-protocol SunImagesTableViewControllerProtocol {
-    func setupCell(cell: SunImageTableViewCell, indexPath: IndexPath)
-    func setupNavController()
-    func setupSelectionBack(cell: SunImageTableViewCell)
-}
-
-
 //MARK: - SunImagesTableViewController main class
 final class SunImagesTableViewController: UITableViewController {
 
@@ -35,11 +27,10 @@ final class SunImagesTableViewController: UITableViewController {
         }
     }
 
-    // MARK: - Table view data source
+    //MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         /// #warning Incomplete implementation, return the number of sections
         ///Set number Of Sections
-        
         return 1
     }
     
@@ -50,7 +41,6 @@ final class SunImagesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         /// #warning Incomplete implementation, return the number of rows
         ///Set number Of Rows In Section
-        
         return PlanetsMenuTableViewControllerModel.StarsContent.imagesURLs.count
     }
 
@@ -69,55 +59,51 @@ final class SunImagesTableViewController: UITableViewController {
 
 
 //MARK: - SunImagesTableViewControllerProtocol extension
-extension SunImagesTableViewController: SunImagesTableViewControllerProtocol {
-    internal func setupNavController() {
-        
-        ///Set title
+extension SunImagesTableViewController {
+    private func setupNavController() {
         title = "Images"
     }
     
-    internal func setupCell(cell: SunImageTableViewCell, indexPath: IndexPath) {
-        
-        ///Setup cell UI
+    private func setupCell(cell: SunImageTableViewCell, indexPath: IndexPath) {
         guard let imageView = cell.mainImageView else { return }
         guard let imageBlurView = cell.imageBlurView else { return }
         guard let imageViewBlackBack = cell.imageViewBlackBack else { return }
         guard let activityIndicator = cell.activityIndicator else { return }
         
-        
-        ///Setup ImageView
+        setupImageView(imageView: imageView, indexPath: indexPath)
+        setupImageBlurView(imageBlurView: imageBlurView, indexPath: indexPath)
+        setupImageViewBlackBack(imageViewBlackBack: imageViewBlackBack)
+        setupPreloadingEnd(activityIndicator: activityIndicator, imageBlurView: imageBlurView)
+    }
+    
+    private func setupImageView(imageView: UIImageView, indexPath: IndexPath) {
         imageView.downloaded(from: PlanetsMenuTableViewControllerModel.StarsContent.imagesURLs[indexPath.row])
         imageView.layer.cornerRadius = BasicProperties.cornerRadius + 16
         imageView.contentMode = .scaleAspectFill
-        
-        
-        ///Setup imageBlurView
+    }
+    
+    private func setupImageBlurView(imageBlurView: UIVisualEffectView, indexPath: IndexPath) {
         imageBlurView.layer.cornerRadius = BasicProperties.cornerRadius + 16
         imageBlurView.layer.masksToBounds = true
-        
         imageBlurView.viewShadows()
         imageBlurView.layer.shadowColor = UIColor.black.cgColor
-        
-        
-        ///Setup imageViewBlackBack
+    }
+    
+    private func setupImageViewBlackBack(imageViewBlackBack: UIView) {
         imageViewBlackBack.layer.cornerRadius = BasicProperties.cornerRadius + 16
         imageViewBlackBack.viewShadows()
-        
-        
-        ///End animation
+    }
+    
+    private func setupPreloadingEnd(activityIndicator: UIActivityIndicatorView, imageBlurView: UIVisualEffectView) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
             activityIndicator.stopAnimating()
             imageBlurView.isHidden = true
         }
     }
     
-    internal func setupSelectionBack(cell: SunImageTableViewCell) {
-        
-        ///Setup background view
+    private func setupSelectionBack(cell: SunImageTableViewCell) {
         let bgColorView = UIView()
-        bgColorView.backgroundColor = UIColor.clear
-        
-        ///Setup cell selectedBackgroundView
+        bgColorView.backgroundColor = .clear
         cell.selectedBackgroundView = bgColorView
     }
 }

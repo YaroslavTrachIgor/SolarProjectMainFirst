@@ -7,9 +7,3 @@
 //
 
 import Foundation
-
-//MARK: - CollectionViewCellBasicsProtocol
-protocol CollectionViewCellBasicsProtocol {
-    func setupShadow()
-    func setupContentView()
-}

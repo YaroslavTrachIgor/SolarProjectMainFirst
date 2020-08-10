@@ -22,6 +22,7 @@ final class NotificationsTableViewController: UITableViewController {
 
         setupSwitch()
         setupNotificationsLabel()
+        setupTitle()
     }
 }
 
@@ -80,5 +81,9 @@ extension NotificationsTableViewController {
     private func setupSwitch() {
         notificationsOnSwitch.isOn = NotificationsSettings.shared.notificationsOn
         notificationsOnSwitch.onTintColor = BasicProperties.color
+    }
+    
+    private func setupTitle() {
+        title = "Articles Notifications"
     }
 }
