@@ -34,7 +34,7 @@ final class ContentTextView: UITextView {
     
     private func setupTextFont() {
         textColor = #colorLiteral(red: 0.2190820516, green: 0.2190820516, blue: 0.2190820516, alpha: 1)
-        font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        font = UIFont.systemFont(ofSize: 19, weight: .regular)
     }
     
     private func setupTextViewBasics() {

@@ -1194,10 +1194,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i9s-IU-zn1">
-                                <rect key="frame" x="20" y="120" width="335" height="357"/>
+                                <rect key="frame" x="20" y="128" width="335" height="349"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="J5H-lw-ZpS" customClass="ContentTextView" customModule="SolarProject" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="20" width="295" height="317"/>
+                                        <rect key="frame" x="20" y="20" width="295" height="309"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1283,6 +1283,7 @@
                             <constraint firstItem="EmA-d3-cx4" firstAttribute="leading" secondItem="GS6-EB-MJ3" secondAttribute="leading" constant="20" id="0J6-rw-8ON"/>
                             <constraint firstItem="GS6-EB-MJ3" firstAttribute="trailing" secondItem="EmA-d3-cx4" secondAttribute="trailing" constant="20" id="1Tg-Dr-Eh5"/>
                             <constraint firstItem="GS6-EB-MJ3" firstAttribute="trailing" secondItem="i9s-IU-zn1" secondAttribute="trailing" constant="20" id="2sK-nO-PyA"/>
+                            <constraint firstItem="i9s-IU-zn1" firstAttribute="top" secondItem="uCK-HV-AqV" secondAttribute="bottom" constant="16" id="3Hp-bD-7Sx"/>
                             <constraint firstItem="b3Y-24-bRT" firstAttribute="leading" secondItem="GS6-EB-MJ3" secondAttribute="leading" constant="20" id="4Ma-SC-Cdw"/>
                             <constraint firstItem="uCK-HV-AqV" firstAttribute="leading" secondItem="GS6-EB-MJ3" secondAttribute="leading" constant="20" id="9CK-vh-buk"/>
                             <constraint firstItem="GS6-EB-MJ3" firstAttribute="trailing" secondItem="uCK-HV-AqV" secondAttribute="trailing" constant="20" id="BLr-Ae-yKK"/>
@@ -1290,7 +1291,6 @@
                             <constraint firstItem="EmA-d3-cx4" firstAttribute="top" secondItem="b3Y-24-bRT" secondAttribute="bottom" constant="15" id="JKf-9R-NP0"/>
                             <constraint firstItem="GS6-EB-MJ3" firstAttribute="bottom" secondItem="EmA-d3-cx4" secondAttribute="bottom" constant="15" id="MBk-e8-byU"/>
                             <constraint firstAttribute="trailing" secondItem="V3x-58-RZF" secondAttribute="trailing" constant="15" id="Mc7-L9-cUE"/>
-                            <constraint firstItem="i9s-IU-zn1" firstAttribute="top" secondItem="uCK-HV-AqV" secondAttribute="bottom" constant="8" id="RTw-IR-qGa"/>
                             <constraint firstItem="V3x-58-RZF" firstAttribute="top" secondItem="GS6-EB-MJ3" secondAttribute="top" constant="20" id="Vk8-1P-sdN"/>
                             <constraint firstItem="i9s-IU-zn1" firstAttribute="leading" secondItem="GS6-EB-MJ3" secondAttribute="leading" constant="20" id="Xj8-5k-8rM"/>
                             <constraint firstItem="b3Y-24-bRT" firstAttribute="top" secondItem="i9s-IU-zn1" secondAttribute="bottom" constant="16" id="cRs-nd-SYY"/>
@@ -1867,7 +1867,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="kWT-Ea-UsP"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1894,11 +1894,11 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Content" footerTitle="Here you can choose which phrase the application will greet you when a notification appears." id="kIZ-eY-1ig">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Zkt-Ac-DEx">
-                                        <rect key="frame" x="0.0" y="153" width="375" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="43" id="Zkt-Ac-DEx">
+                                        <rect key="frame" x="0.0" y="153" width="375" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zkt-Ac-DEx" id="9la-Ax-diN">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zkt-Ac-DEx" id="9la-Ax-diN">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tci-Sx-Xgv">
@@ -1906,7 +1906,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="kul-MO-Mas"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1920,7 +1920,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="121" id="CdY-q7-xO2">
-                                        <rect key="frame" x="0.0" y="196.5" width="375" height="121"/>
+                                        <rect key="frame" x="0.0" y="196" width="375" height="121"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CdY-q7-xO2" id="qWa-TG-0tv">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="121"/>
