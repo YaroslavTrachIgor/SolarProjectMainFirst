@@ -58,6 +58,10 @@ final class AccountVC: UITableViewController {
     }
     
     
+    ///Completion
+    var completion: ((String, String, String) -> ())?
+    
+    
     //MARK: @IBOutlets
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var userPhotoImageView: UIImageView!
@@ -90,6 +94,17 @@ final class AccountVC: UITableViewController {
         setupSignInButton()
         setupGooglePreviewButton()
         setupTextFields()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        if self.isMovingFromParent {
+            let fullName = firstNameTextField.text! + " " + surNameTextField.text!
+            let email = defaults.value(forKey: AccountVC.Keys.emailKey) as? String ?? "Email:"
+            let phone = defaults.value(forKey: AccountVC.Keys.phoneKey) as? String ?? "Phone:"
+            completion!(fullName, email, phone)
+        }
     }
 }
 

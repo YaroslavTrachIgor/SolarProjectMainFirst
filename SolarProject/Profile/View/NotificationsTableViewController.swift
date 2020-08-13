@@ -16,6 +16,8 @@ final class NotificationsTableViewController: UITableViewController {
     @IBOutlet weak var notificationsOnSwitch: UISwitch!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var messagePickerView: UIPickerView!
+    @IBOutlet weak var soundLabel: UILabel!
+    @IBOutlet weak var soundPickerView: UIPickerView!
     
     
     //MARK: Overrides
@@ -27,6 +29,8 @@ final class NotificationsTableViewController: UITableViewController {
         setupTitle()
         setupMessagePickerView()
         setupMessageLabel()
+        setupSoundPickerView()
+        setupSoundLabel()
     }
 }
 
@@ -35,36 +39,10 @@ final class NotificationsTableViewController: UITableViewController {
 //MARK: - @IBActions
 extension NotificationsTableViewController {
     @IBAction func notificationsOn(_ sender: UISwitch) {
-        let semaphore = DispatchSemaphore(value: 1)
-        let mainQueue = DispatchQueue.main
-        
-        mainQueue.async {
-            semaphore.wait()
-            
+        DispatchQueue.main.async {
             NotificationsSettings.shared.notificationsOn = sender.isOn
-            
-            semaphore.signal()
         }
-        
-        mainQueue.async {
-            semaphore.wait()
-            
-            if sender.isOn {
-                self.notificationsOnLabel.setupContentWithAnimation(text: "Notifications enabled")
-            } else {
-                self.notificationsOnLabel.setupContentWithAnimation(text: "Notifications disabled")
-            }
-            
-            semaphore.signal()
-        }
-        
-        mainQueue.async {
-            semaphore.wait()
-            
-            defaults.set(NotificationsSettings.shared.notificationsOn, forKey: "NotificationsOnKey")
-            
-            semaphore.signal()
-        }
+        defaults.set(NotificationsSettings.shared.notificationsOn, forKey: NotificationsSettings.NotificationsSettingsKeys.isOn.rawValue)
     }
 }
 
@@ -73,11 +51,7 @@ extension NotificationsTableViewController {
 //MARK: - Main methods
 extension NotificationsTableViewController {
     private func setupNotificationsLabel() {
-        if NotificationsSettings.shared.notificationsOn {
-            notificationsOnLabel.text = "Notifications enabled"
-        } else {
-            notificationsOnLabel.text = "Notifications disabled"
-        }
+        notificationsOnLabel.text = "Show Notifications"
         notificationsOnLabel.textColor = .black
         notificationsOnLabel.backgroundColor = .clear
     }
@@ -98,6 +72,17 @@ extension NotificationsTableViewController {
         messageLabel.backgroundColor = .clear
     }
     
+    private func setupSoundPickerView() {
+        soundPickerView.delegate = self
+        soundPickerView.dataSource = self
+    }
+    
+    private func setupSoundLabel() {
+        soundLabel.textColor = .black
+        soundLabel.backgroundColor = .clear
+        soundLabel.text = "Sound: " + NotificationsSettings.shared.notificationsSound!
+    }
+    
     private func setupTitle() {
         title = "Articles Notifications"
     }
@@ -112,13 +97,30 @@ extension NotificationsTableViewController: UIPickerViewDataSource, UIPickerView
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return PushNotifications.PushNotificationsBasicWords.headers.count
+        switch pickerView.tag {
+        case 0:
+            return PushNotifications.PushNotificationsBasicWords.soundNames.count
+        case 1:
+            return PushNotifications.PushNotificationsBasicWords.headers.count
+        default:
+            return 0
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        messageLabel.text = "Message: " + PushNotifications.PushNotificationsBasicWords.headers[row] + "..."
-        NotificationsSettings.shared.notificationsBody = messageLabel.text!
-        defaults.setValue(NotificationsSettings.shared.notificationsBody, forKey: "NotificationMessageKey")
+        switch pickerView.tag {
+        case 0:
+            soundLabel.text = "Sound: " + PushNotifications.PushNotificationsBasicWords.soundNames[row]
+            NotificationsSettings.shared.notificationsSound = PushNotifications.PushNotificationsBasicWords.soundNames[row]
+            defaults.setValue(NotificationsSettings.shared.notificationsSound, forKey: NotificationsSettings.NotificationsSettingsKeys.notificationsSound.rawValue)
+            NotificationsSettings.shared.setupAudio()
+        case 1:
+            messageLabel.text = "Message: " + PushNotifications.PushNotificationsBasicWords.headers[row] + "..."
+            NotificationsSettings.shared.notificationsBody = messageLabel.text!
+            defaults.setValue(NotificationsSettings.shared.notificationsBody, forKey: NotificationsSettings.NotificationsSettingsKeys.notificationsBody.rawValue)
+        default:
+            break
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
@@ -135,8 +137,16 @@ extension NotificationsTableViewController: UIPickerViewDataSource, UIPickerView
         titleLabel.textColor = .black
         titleLabel.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         titleLabel.textAlignment = .center
-        titleLabel.text = PushNotifications.PushNotificationsBasicWords.headers[row] + "..."
         
+        ///Set content
+        switch pickerView.tag {
+        case 0:
+            titleLabel.text = PushNotifications.PushNotificationsBasicWords.soundNames[row]
+        case 1:
+            titleLabel.text = PushNotifications.PushNotificationsBasicWords.headers[row] + "..."
+        default:
+            titleLabel.text = ""
+        }
         return titleLabel
     }
 }

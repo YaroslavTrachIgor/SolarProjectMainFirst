@@ -13,6 +13,9 @@ import SPAlert
 //MARK: - PlanetsMenuTableViewCell
 final class PlanetsMenuTableViewCell: UITableViewCell {
     
+    ///Root VC
+    var rootVC: UIViewController?
+    
     //MARK: PlanetsMenuTableViewCellPresenter
     private var presenter: PlanetsMenuTableViewCellPresenterProtocol {
         return PlanetsMenuTableViewCellPresenter()
@@ -24,6 +27,20 @@ final class PlanetsMenuTableViewCell: UITableViewCell {
     @IBOutlet weak var notificationButton: UIButton!
     @IBOutlet weak var reminderButton: UIButton!
     @IBOutlet weak var contentTextViewBackground: UIView!
+    
+    
+    //MARK: Inits
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        setupRootVC()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        
+        setupRootVC()
+    }
 }
 
 
@@ -46,12 +63,18 @@ extension PlanetsMenuTableViewCell {
 //MARK: - Main Methods
 extension PlanetsMenuTableViewCell {
     
-    //MARK: Setup Notification Action methods
+    //MARK: Setup Root VC
+    private func setupRootVC() {
+        rootVC = UIApplication.shared.keyWindow?.rootViewController!
+    }
+    
+    
+    //MARK: Setup Notification Action methods(Private)
     private func presentNotificationAlert() {
         
         ///Present alertController
         if NotificationsSettings.shared.notificationsOn {
-            UIApplication.shared.keyWindow?.rootViewController?.present(setupAlertController(), animated: true, completion: nil)
+            rootVC?.present(setupAlertController(), animated: true, completion: nil)
         } else {
             setupNotificationsOffAlert()
         }
@@ -69,8 +92,9 @@ extension PlanetsMenuTableViewCell {
         let setNotificationAction = UIAlertAction(title: "Done", style: .default, handler: { [self] (_) in
             PushNotifications.setupBasicNotification(body: titleLabel.text!, date: datePicker!.date)
             notificationButton.pulsate()
-            notificationButton.addNotificationButtonPulse(view: (UIApplication.shared.keyWindow?.rootViewController!.view)!)
+            notificationButton.addNotificationButtonPulse(view: notificationButton!)
             setupNotificationAlert()
+            NotificationsSettings.shared.setupAudio()
         })
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
@@ -83,7 +107,7 @@ extension PlanetsMenuTableViewCell {
     }
     
     private func setupNotificationsOffAlert() {
-        FastAlert.showBasic(title: "Notifications disabled.", message: "If you want to enable notifications go to settings.", vc: (UIApplication.shared.keyWindow?.rootViewController!)!)
+        FastAlert.showBasic(title: "Notifications disabled.", message: "If you want to enable notifications go to settings.", vc: rootVC!)
     }
     
     private func setupNotificationAlert() {

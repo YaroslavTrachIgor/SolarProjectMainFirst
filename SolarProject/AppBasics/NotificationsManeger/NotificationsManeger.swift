@@ -10,14 +10,7 @@ import Foundation
 import UserNotifications
 
 //MARK: - PushNotifications Maneger
-struct PushNotifications {
-    
-    //MARK: Setup Basic Words
-    struct PushNotificationsBasicWords {
-        static let headers: [String] = ["It's time for you to read about ",
-                                        "Don't forget to read about "]
-        static let userAction = "User Action"
-    }
+public struct PushNotifications {
     
     //MARK: Setup Notification
     static func setupBasicNotification(body: String, date: Date) {

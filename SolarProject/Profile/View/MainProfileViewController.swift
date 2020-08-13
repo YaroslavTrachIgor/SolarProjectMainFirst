@@ -32,6 +32,15 @@ final class MainProfileViewController: BasicViewController {
         return MainProfileViewControllerPresenter(sections: sections)
     }
     
+    
+    //MARK: Permissions Content
+    private enum PermissionsContent: String {
+        case titleText = "Need Permissions"
+        case headerText = "This Permissions need for work app, see decription to each permission."
+        case footerText = "Permissions are necessary for the correct work of the application and the performance of all functions."
+    }
+    
+    
     ///GADInterstitial
     private var interstitial: GADInterstitial!
     
@@ -66,17 +75,7 @@ final class MainProfileViewController: BasicViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "UserProfileAccountSegue" {
-            userIconImageView.image = presenter.setupSegueImage(segue: segue)
-            fullNameLabel.text = presenter.setupSegueFullName(segue: segue)
-            emailLabel.text = presenter.setupSegueEmail(segue: segue)
-            phoneLabel.text = presenter.setupSeguePhone(segue: segue)
-                
-            ///Save fullNameLabel text
-            defaults.set(self.fullNameLabel.text!, forKey: MainProfileViewController.Keys.fullNameKay.rawValue)
-            defaults.set(self.emailLabel.text!, forKey: MainProfileViewController.Keys.emailKey.rawValue)
-            defaults.set(self.phoneLabel.text!, forKey: MainProfileViewController.Keys.phoneKey.rawValue)
-        }
+        setupContent(segue)
     }
     
     
@@ -100,6 +99,26 @@ final class MainProfileViewController: BasicViewController {
 extension MainProfileViewController {
     
     //MARK: UI setup
+    private func setupContent(_ segue: UIStoryboardSegue) {
+        if segue.identifier == "UserProfileAccountSegue", case let destVC = segue.destination as! AccountVC {
+            /* Setup labels content with AccountVC.
+            Here is using completion Callback. */
+            destVC.completion = { [unowned self] fullName, email, phone in
+                self.fullNameLabel.text = fullName
+                self.emailLabel.text = email
+                self.phoneLabel.text = phone
+            }
+            
+            ///Setup  userIconImageView  image  with  presenter
+            userIconImageView.image = presenter.setupSegueImage(segue: segue)
+            
+            ///Save Labels
+            defaults.set(self.fullNameLabel.text!, forKey: MainProfileViewController.Keys.fullNameKay.rawValue)
+            defaults.set(self.emailLabel.text!, forKey: MainProfileViewController.Keys.emailKey.rawValue)
+            defaults.set(self.phoneLabel.text!, forKey: MainProfileViewController.Keys.phoneKey.rawValue)
+        }
+    }
+    
     private func setupImageView() {
         userIconImageView.setupProfileImageView()
         userIconImageView.image = presenter.setupProfileImage()
@@ -139,9 +158,9 @@ extension MainProfileViewController {
 
     private func setupPermissionsController() {
         let controller = SPPermissions.list([.photoLibrary, .camera, .notification])
-        controller.titleText = "Need Permissions"
-        controller.headerText = "This Permissions need for work app, see decription to each permission."
-        controller.footerText = "Permissions are necessary for the correct work of the application and the performance of all functions."
+        controller.titleText = PermissionsContent.titleText.rawValue
+        controller.headerText = PermissionsContent.headerText.rawValue
+        controller.footerText = PermissionsContent.footerText.rawValue
         controller.dataSource = self
         controller.delegate = self
         controller.present(on: self)
