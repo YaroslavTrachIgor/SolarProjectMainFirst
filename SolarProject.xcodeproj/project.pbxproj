@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36802E6A315538CBC5E69633 /* libPods-SolarProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DF945464559D8411C6F01C9F /* libPods-SolarProject.a */; };
 		8463C8C7247FC9EC0059A897 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463C8C6247FC9EC0059A897 /* AppDelegate.swift */; };
 		8463C8C9247FC9EC0059A897 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463C8C8247FC9EC0059A897 /* SceneDelegate.swift */; };
 		8463C8CB247FC9EC0059A897 /* PlanetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463C8CA247FC9EC0059A897 /* PlanetDetailViewController.swift */; };
@@ -110,8 +111,8 @@
 		C49E5FF124AF597E00FDD522 /* PlanetsMenuTableViewControllerCollectionViewDelegatesExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49E5FF024AF597E00FDD522 /* PlanetsMenuTableViewControllerCollectionViewDelegatesExtension.swift */; };
 		C49E5FF324AF59D900FDD522 /* PlnaetsMenuTableViewControllerSearchBarDelegateExtnsion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49E5FF224AF59D900FDD522 /* PlnaetsMenuTableViewControllerSearchBarDelegateExtnsion.swift */; };
 		C4AEAE6424CF050900A6100A /* StarDetailMoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEAE6324CF050800A6100A /* StarDetailMoreVC.swift */; };
-		C4B2359324BE42A600E30E7D /* libPods-SolarProject.a in Resources */ = {isa = PBXBuildFile; fileRef = C4B2359124BE423D00E30E7D /* libPods-SolarProject.a */; };
-		C4B2359424BE42A600E30E7D /* libPods-SolarProject.a in Resources */ = {isa = PBXBuildFile; fileRef = 48BCC30B11006427AB1A0440 /* libPods-SolarProject.a */; };
+		C4B2359324BE42A600E30E7D /* BuildFile in Resources */ = {isa = PBXBuildFile; };
+		C4B2359424BE42A600E30E7D /* BuildFile in Resources */ = {isa = PBXBuildFile; };
 		C4FFDA7124E1FF5A00C95E0D /* ContentTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FFDA7024E1FF5A00C95E0D /* ContentTextView.swift */; };
 /* End PBXBuildFile section */
 
@@ -139,6 +140,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5FE294A7B17548A5299A36B3 /* Pods-SolarProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SolarProject.release.xcconfig"; path = "Target Support Files/Pods-SolarProject/Pods-SolarProject.release.xcconfig"; sourceTree = "<group>"; };
 		8463C8C3247FC9EC0059A897 /* SolarProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SolarProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8463C8C6247FC9EC0059A897 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8463C8C8247FC9EC0059A897 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 		84F055BF2490F354008B9D06 /* SupportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportViewController.swift; sourceTree = "<group>"; };
 		84F055C12490FBB0008B9D06 /* MFMailComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MFMailComposeViewController.swift; sourceTree = "<group>"; };
 		84F055C32490FCEA008B9D06 /* MFMessageComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MFMessageComposeViewController.swift; sourceTree = "<group>"; };
+		BA805EE54232248A13CED0B7 /* Pods-SolarProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SolarProject.debug.xcconfig"; path = "Target Support Files/Pods-SolarProject/Pods-SolarProject.debug.xcconfig"; sourceTree = "<group>"; };
 		C440A25124D2C871007EC12B /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		C440A25424D30068007EC12B /* SunThemesMenuTableViewControllerSearchBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunThemesMenuTableViewControllerSearchBarDelegate.swift; sourceTree = "<group>"; };
 		C440A25624D593FE007EC12B /* MoreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -252,6 +255,7 @@
 		C49E5FF224AF59D900FDD522 /* PlnaetsMenuTableViewControllerSearchBarDelegateExtnsion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlnaetsMenuTableViewControllerSearchBarDelegateExtnsion.swift; sourceTree = "<group>"; };
 		C4AEAE6324CF050800A6100A /* StarDetailMoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarDetailMoreVC.swift; sourceTree = "<group>"; };
 		C4FFDA7024E1FF5A00C95E0D /* ContentTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTextView.swift; sourceTree = "<group>"; };
+		DF945464559D8411C6F01C9F /* libPods-SolarProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SolarProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +263,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36802E6A315538CBC5E69633 /* libPods-SolarProject.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +282,7 @@
 			children = (
 				C470511024BE3E550052E002 /* libCharts.a */,
 				C497CA4824A27512009B90F3 /* NotificationCenter.framework */,
+				DF945464559D8411C6F01C9F /* libPods-SolarProject.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -749,6 +755,8 @@
 		BE9913E7E0D24D3645501EA2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				BA805EE54232248A13CED0B7 /* Pods-SolarProject.debug.xcconfig */,
+				5FE294A7B17548A5299A36B3 /* Pods-SolarProject.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -903,10 +911,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8463C8D7247FC9F20059A897 /* Build configuration list for PBXNativeTarget "SolarProject" */;
 			buildPhases = (
+				79D45D32EF7F734CD2BA9E8D /* [CP] Check Pods Manifest.lock */,
 				8463C8BF247FC9EC0059A897 /* Sources */,
 				8463C8C0247FC9EC0059A897 /* Frameworks */,
 				8463C8C1247FC9EC0059A897 /* Resources */,
 				C497CA5724A27513009B90F3 /* Embed App Extensions */,
+				172FE44B30C27ABE2ED53A0F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -989,12 +999,54 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4B2359324BE42A600E30E7D /* libPods-SolarProject.a in Resources */,
-				C4B2359424BE42A600E30E7D /* libPods-SolarProject.a in Resources */,
+				C4B2359324BE42A600E30E7D /* BuildFile in Resources */,
+				C4B2359424BE42A600E30E7D /* BuildFile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		172FE44B30C27ABE2ED53A0F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SolarProject/Pods-SolarProject-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SolarProject/Pods-SolarProject-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SolarProject/Pods-SolarProject-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		79D45D32EF7F734CD2BA9E8D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SolarProject-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8463C8BF247FC9EC0059A897 /* Sources */ = {
@@ -1257,6 +1309,7 @@
 		};
 		8463C8D8247FC9F20059A897 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA805EE54232248A13CED0B7 /* Pods-SolarProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SolarProject/SolarProject.entitlements;
@@ -1281,6 +1334,7 @@
 		};
 		8463C8D9247FC9F20059A897 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FE294A7B17548A5299A36B3 /* Pods-SolarProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SolarProject/SolarProject.entitlements;
