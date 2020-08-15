@@ -1,0 +1,6 @@
+module SPStorkController {
+  umbrella header "SPStorkController-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,6 @@
+module Pods_SolarProject {
+  umbrella header "Pods-SolarProject-umbrella.h"
+
+  export *
+  module * { export * }
+}
