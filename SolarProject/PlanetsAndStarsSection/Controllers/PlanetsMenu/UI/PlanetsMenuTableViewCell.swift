@@ -67,10 +67,10 @@ extension PlanetsMenuTableViewCell {
         
         ///Setup UIAlertActions
         let setNotificationAction = UIAlertAction(title: "Done", style: .default, handler: { [self] (_) in
-            PushNotifications.setupBasicNotification(body: titleLabel.text!, date: datePicker!.date)
-            notificationButton.pulsate()
-            notificationButton.addNotificationButtonPulse(view: (UIApplication.shared.keyWindow?.rootViewController!.view)!)
-            setupNotificationAlert()
+            PushNotifications.setupBasicNotification(body: self.titleLabel.text!, date: datePicker!.date)
+            self.notificationButton.pulsate()
+            self.notificationButton.addNotificationButtonPulse(view: (UIApplication.shared.keyWindow?.rootViewController!.view)!)
+            self.setupNotificationAlert()
         })
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
