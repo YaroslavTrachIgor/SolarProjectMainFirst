@@ -21,6 +21,9 @@ protocol MainProfileViewControllerPresenterDefaultContentProtocol {
 
 //MARK: - MainProfileViewControllerPresenterSegueContentProtocol protocol
 protocol MainProfileViewControllerPresenterSegueContentProtocol {
+    func setupSegueFullName(segue: UIStoryboardSegue) -> String
+    func setupSegueEmail(segue: UIStoryboardSegue) -> String
+    func setupSeguePhone(segue: UIStoryboardSegue) -> String
     func setupSegueImage(segue: UIStoryboardSegue) -> UIImage
 }
 
@@ -59,6 +62,25 @@ final class MainProfileViewControllerPresenter {
 extension MainProfileViewControllerPresenter: MainProfileViewControllerPresenterProtocol {
     
     //MARK: MainProfileViewControllerPresenterSegueContentProtocol functions
+    func setupSegueFullName(segue: UIStoryboardSegue) -> String {
+        let destVC = segue.destination as! AccountVC
+        let firstName = destVC.defaults.value(forKey: AccountVC.Keys.firstNameKey) as? String ?? ""
+        let familyName = destVC.defaults.value(forKey: AccountVC.Keys.familyNameKey) as? String ?? ""
+        return firstName + " " + familyName
+    }
+    
+    func setupSegueEmail(segue: UIStoryboardSegue) -> String {
+        let destVC = segue.destination as! AccountVC
+        let email = destVC.defaults.value(forKey: AccountVC.Keys.emailKey) as? String ?? "Email:"
+        return email
+    }
+    
+    func setupSeguePhone(segue: UIStoryboardSegue) -> String {
+        let destVC = segue.destination as! AccountVC
+        let phone = destVC.defaults.value(forKey: AccountVC.Keys.phoneKey) as? String ?? "Phone:"
+        return phone
+    }
+    
     func setupSegueImage(segue: UIStoryboardSegue) -> UIImage {
         let destVC = segue.destination as! AccountVC
         let data = destVC.defaults.object(forKey: AccountVC.Keys.userPhotoKey) as! NSData?

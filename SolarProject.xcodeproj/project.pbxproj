@@ -114,7 +114,6 @@
 		C4B2359324BE42A600E30E7D /* libPods-SolarProject.a in Resources */ = {isa = PBXBuildFile; fileRef = C4B2359124BE423D00E30E7D /* libPods-SolarProject.a */; };
 		C4B2359424BE42A600E30E7D /* libPods-SolarProject.a in Resources */ = {isa = PBXBuildFile; fileRef = 48BCC30B11006427AB1A0440 /* libPods-SolarProject.a */; };
 		C4FFDA7124E1FF5A00C95E0D /* ContentTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FFDA7024E1FF5A00C95E0D /* ContentTextView.swift */; };
-		C4FFDA7324E4689E00C95E0D /* PushNotificationsBasicWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FFDA7224E4689D00C95E0D /* PushNotificationsBasicWords.swift */; };
 		F12FB0BCABA920A1B48EF170 /* libPods-SolarProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48BCC30B11006427AB1A0440 /* libPods-SolarProject.a */; };
 /* End PBXBuildFile section */
 
@@ -259,7 +258,6 @@
 		C4AEAE6324CF050800A6100A /* StarDetailMoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarDetailMoreVC.swift; sourceTree = "<group>"; };
 		C4B2359124BE423D00E30E7D /* libPods-SolarProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libPods-SolarProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4FFDA7024E1FF5A00C95E0D /* ContentTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTextView.swift; sourceTree = "<group>"; };
-		C4FFDA7224E4689D00C95E0D /* PushNotificationsBasicWords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationsBasicWords.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -346,7 +344,7 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		8463C8E0248019120059A897 /* Presenter */ = {
+		8463C8E0248019120059A897 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
 				8463C8EE24801D880059A897 /* PlanetsMenuTableViewControllerPresenter.swift */,
@@ -354,24 +352,24 @@
 				84C717792483123C003B02B3 /* PlanetDetailViewControllerPresenters */,
 				84C7177624831207003B02B3 /* StarDetailVCPresenters */,
 			);
-			path = Presenter;
+			path = Presenters;
 			sourceTree = "<group>";
 		};
-		8463C8E12480191C0059A897 /* View */ = {
+		8463C8E12480191C0059A897 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				8463C8EA24801D060059A897 /* PlanetsMenu */,
 				8463C8E924801CFA0059A897 /* DetailViewControllers */,
 			);
-			path = View;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		8463C8E4248019B00059A897 /* PlanetsAndStarsSection */ = {
 			isa = PBXGroup;
 			children = (
+				8463C8E12480191C0059A897 /* Controllers */,
+				8463C8E0248019120059A897 /* Presenters */,
 				8463C8DF2480190C0059A897 /* Model */,
-				8463C8E12480191C0059A897 /* View */,
-				8463C8E0248019120059A897 /* Presenter */,
 			);
 			path = PlanetsAndStarsSection;
 			sourceTree = "<group>";
@@ -446,7 +444,6 @@
 			isa = PBXGroup;
 			children = (
 				8463C941248067A00059A897 /* NotificationsManeger.swift */,
-				C4FFDA7224E4689D00C95E0D /* PushNotificationsBasicWords.swift */,
 			);
 			path = NotificationsManeger;
 			sourceTree = "<group>";
@@ -666,9 +663,9 @@
 		84C7177D24844139003B02B3 /* Reminders */ = {
 			isa = PBXGroup;
 			children = (
-				84C717822485430E003B02B3 /* Model */,
-				84C7178324854315003B02B3 /* View */,
 				84C717862485B314003B02B3 /* Presenter */,
+				84C7178324854315003B02B3 /* Controller */,
+				84C717822485430E003B02B3 /* Model */,
 			);
 			path = Reminders;
 			sourceTree = "<group>";
@@ -681,7 +678,7 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		84C7178324854315003B02B3 /* View */ = {
+		84C7178324854315003B02B3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				C457F90624CF5F5C002C69A7 /* RemindersVCExtensions */,
@@ -689,7 +686,7 @@
 				84C7177E24844191003B02B3 /* RemindersViewController.swift */,
 				C4704B1D24BD98390052E002 /* DeleteVC.swift */,
 			);
-			path = View;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		84C717862485B314003B02B3 /* Presenter */ = {
@@ -704,13 +701,13 @@
 			isa = PBXGroup;
 			children = (
 				84C7178B2486DF40003B02B3 /* Model */,
-				84C7178A2486DE3D003B02B3 /* View */,
-				84C7178C2486DF70003B02B3 /* Presenter */,
+				84C7178A2486DE3D003B02B3 /* Views */,
+				84C7178C2486DF70003B02B3 /* Presenters */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		84C7178A2486DE3D003B02B3 /* View */ = {
+		84C7178A2486DE3D003B02B3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				C457F92D24D0DC31002C69A7 /* UI */,
@@ -721,7 +718,7 @@
 				848EC0CF24A7FDD400EF7D62 /* AboutAppVC.swift */,
 				C460AD3D24DBF999003162E0 /* NotificationsTableViewController.swift */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		84C7178B2486DF40003B02B3 /* Model */ = {
@@ -734,13 +731,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		84C7178C2486DF70003B02B3 /* Presenter */ = {
+		84C7178C2486DF70003B02B3 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
 				84F055AC24898F7F008B9D06 /* MainProfileViewControllerPresenter.swift */,
 				C497CA5924ACC20D009B90F3 /* PersonalAnalyticsTableViewControllerPresenter.swift */,
 			);
-			path = Presenter;
+			path = Presenters;
 			sourceTree = "<group>";
 		};
 		84C7178F2486F387003B02B3 /* BasicViewController */ = {
@@ -1113,7 +1110,6 @@
 				84F055BD2490EA87008B9D06 /* UITextView.swift in Sources */,
 				8463C948248068650059A897 /* LoginButtonAnimatiol.swift in Sources */,
 				C457F91524CF644D002C69A7 /* AccountVCIBActionsExtension.swift in Sources */,
-				C4FFDA7324E4689E00C95E0D /* PushNotificationsBasicWords.swift in Sources */,
 				84F055C02490F354008B9D06 /* SupportViewController.swift in Sources */,
 				C497CA5A24ACC20F009B90F3 /* PersonalAnalyticsTableViewControllerPresenter.swift in Sources */,
 				C457F92124D05902002C69A7 /* NewsModel.swift in Sources */,

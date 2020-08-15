@@ -138,7 +138,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IaJ-ub-uX1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-900" y="-1398"/>
+            <point key="canvasLocation" x="-914.39999999999998" y="-470.01499250374815"/>
         </scene>
         <!--News View Controller-->
         <scene sceneID="Won-5t-n16">
@@ -277,7 +277,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DEV-R7-7HA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-60" y="-1398"/>
+            <point key="canvasLocation" x="-12" y="-470.01499250374815"/>
         </scene>
         <!--News-->
         <scene sceneID="U7X-zB-Eug">
@@ -295,7 +295,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a8u-cO-LRd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1814" y="-1398"/>
+            <point key="canvasLocation" x="-1834" y="-470"/>
         </scene>
         <!--Main Tab Bar Controller-->
         <scene sceneID="faO-l4-qbO">
@@ -843,7 +843,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="voO-yz-iKw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1684" y="-1229"/>
+            <point key="canvasLocation" x="1605.5999999999999" y="-1229.2353823088456"/>
         </scene>
         <!--Sun-->
         <scene sceneID="Av7-ZZ-h28">
@@ -988,7 +988,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oHu-iJ-sXJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1684" y="-431"/>
+            <point key="canvasLocation" x="1607.2" y="-431.33433283358323"/>
         </scene>
         <!--Themes-->
         <scene sceneID="EvA-DG-7Wu">
@@ -1341,7 +1341,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IlW-fj-9mB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1684" y="296"/>
+            <point key="canvasLocation" x="1608.8" y="291.90404797601201"/>
         </scene>
         <!--Images-->
         <scene sceneID="Ozo-Ym-llm">
@@ -1432,7 +1432,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fAL-El-zpc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1684" y="1065"/>
+            <point key="canvasLocation" x="1605.5999999999999" y="1004.3478260869566"/>
         </scene>
         <!--Planet Image View Controller-->
         <scene sceneID="cte-Ub-0fs">
@@ -1498,7 +1498,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BX5-vd-r8I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2534" y="1065"/>
+            <point key="canvasLocation" x="2319.1999999999998" y="1003.4482758620691"/>
         </scene>
         <!--Settings-->
         <scene sceneID="6t2-bx-AfD">
@@ -1807,7 +1807,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h5H-NU-j8m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2636" y="2057"/>
+            <point key="canvasLocation" x="-3490.4000000000001" y="1675.4122938530736"/>
         </scene>
         <!--About App-->
         <scene sceneID="bu1-Jz-ZCH">
@@ -1862,7 +1862,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Notifications " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gAl-ZS-jR8">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications enabled" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gAl-ZS-jR8">
                                                     <rect key="frame" x="16" y="0.0" width="286" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="kWT-Ea-UsP"/>
@@ -1892,61 +1892,10 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Sounds" footerTitle="Here you can choose which sound the application will greet you when a notification appears." id="OYc-wj-VcK">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="43" id="zbK-rb-vSz">
-                                        <rect key="frame" x="0.0" y="153" width="375" height="43"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zbK-rb-vSz" id="EMC-XC-sG2">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sound:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lMk-3f-Ra9">
-                                                    <rect key="frame" x="16" y="0.0" width="343" height="44"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="44" id="GPa-cY-Gyc"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="lMk-3f-Ra9" secondAttribute="trailing" constant="16" id="AAB-DN-WBB"/>
-                                                <constraint firstItem="lMk-3f-Ra9" firstAttribute="top" secondItem="EMC-XC-sG2" secondAttribute="top" id="raa-kx-4CY"/>
-                                                <constraint firstItem="lMk-3f-Ra9" firstAttribute="leading" secondItem="EMC-XC-sG2" secondAttribute="leading" constant="16" id="zJ3-SV-pxA"/>
-                                                <constraint firstAttribute="bottom" secondItem="lMk-3f-Ra9" secondAttribute="bottom" id="zQi-My-Be0"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="121" id="82e-V3-4cO">
-                                        <rect key="frame" x="0.0" y="196" width="375" height="121"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="82e-V3-4cO" id="xY7-qn-9jv">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="121"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BhM-Kt-FzZ">
-                                                    <rect key="frame" x="8" y="11" width="359" height="100"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="100" id="m11-Lc-LrC"/>
-                                                    </constraints>
-                                                </pickerView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="BhM-Kt-FzZ" secondAttribute="bottom" constant="11" id="U7P-dU-Ib1"/>
-                                                <constraint firstAttribute="trailing" secondItem="BhM-Kt-FzZ" secondAttribute="trailing" constant="8" id="jlm-rk-hwy"/>
-                                                <constraint firstItem="BhM-Kt-FzZ" firstAttribute="top" secondItem="xY7-qn-9jv" secondAttribute="top" constant="11" id="kjt-Nf-qJy"/>
-                                                <constraint firstItem="BhM-Kt-FzZ" firstAttribute="leading" secondItem="xY7-qn-9jv" secondAttribute="leading" constant="8" id="wSk-Ou-Ft7"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                             <tableViewSection headerTitle="Content" footerTitle="Here you can choose which phrase the application will greet you when a notification appears." id="kIZ-eY-1ig">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="43" id="Zkt-Ac-DEx">
-                                        <rect key="frame" x="0.0" y="408.5" width="375" height="43"/>
+                                        <rect key="frame" x="0.0" y="153" width="375" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zkt-Ac-DEx" id="9la-Ax-diN">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
@@ -1971,13 +1920,13 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="121" id="CdY-q7-xO2">
-                                        <rect key="frame" x="0.0" y="451.5" width="375" height="121"/>
+                                        <rect key="frame" x="0.0" y="196" width="375" height="121"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CdY-q7-xO2" id="qWa-TG-0tv">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="121"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <pickerView tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nof-VW-EhX">
+                                                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nof-VW-EhX">
                                                     <rect key="frame" x="8" y="11" width="359" height="100"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="100" id="21W-Mn-69F"/>
@@ -2006,13 +1955,11 @@
                         <outlet property="messagePickerView" destination="Nof-VW-EhX" id="JJf-zd-nuV"/>
                         <outlet property="notificationsOnLabel" destination="gAl-ZS-jR8" id="bea-8h-ZR8"/>
                         <outlet property="notificationsOnSwitch" destination="00e-tB-QMU" id="L3J-LN-14C"/>
-                        <outlet property="soundLabel" destination="lMk-3f-Ra9" id="JJj-fi-Ewd"/>
-                        <outlet property="soundPickerView" destination="BhM-Kt-FzZ" id="Ckq-G2-IrZ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="muv-GH-aex" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2654" y="-222"/>
+            <point key="canvasLocation" x="-3546.4000000000001" y="146.17691154422789"/>
         </scene>
         <!--Account-->
         <scene sceneID="5Kz-8r-5QI">
@@ -2342,7 +2289,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TiD-Se-Q9I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-900" y="1840"/>
+            <point key="canvasLocation" x="-900" y="1065"/>
         </scene>
         <!--Reminders-->
         <scene sceneID="vjc-Qf-e6c">
@@ -2506,7 +2453,7 @@
                     </connections>
                 </screenEdgePanGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="17" y="1840"/>
+            <point key="canvasLocation" x="-60" y="1064.6176911544228"/>
         </scene>
         <!--DeleteVC-->
         <scene sceneID="7EV-86-mrA">
@@ -2587,7 +2534,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c3t-LJ-max" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="929" y="1839"/>
+            <point key="canvasLocation" x="740" y="1065"/>
         </scene>
         <!--Star Detail MoreVC-->
         <scene sceneID="vZW-0y-C1B">
@@ -2675,7 +2622,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="eDq-Eq-X7t"/>
-        <segue reference="zf6-kv-Wjw"/>
+        <segue reference="aZO-LN-e3j"/>
         <segue reference="ihM-Fd-vdM"/>
         <segue reference="AlL-oV-LEH"/>
     </inferredMetricsTieBreakers>
