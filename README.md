@@ -8,8 +8,7 @@ Version
 
 Build and Runtime Requirements
 -----------------------------------
-Xcode 12 or later
-iOS 14.0 or later
+Xcode 12 or later. iOS 14.0 or later
 
 Project structure
 -----------------------------------
