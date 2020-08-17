@@ -97,6 +97,7 @@
 		C457F92524D05950002C69A7 /* UISearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457F92424D05950002C69A7 /* UISearchBar.swift */; };
 		C457F92A24D05D10002C69A7 /* NewsTVCSearchResultsUpdatingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457F92924D05D10002C69A7 /* NewsTVCSearchResultsUpdatingExtension.swift */; };
 		C457F92C24D0D7A9002C69A7 /* PlanetsImagesCollectionViewControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457F92B24D0D7A9002C69A7 /* PlanetsImagesCollectionViewControllerPresenter.swift */; };
+		C45B7E3824EA82090056604D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C45B7E3724EA82090056604D /* GoogleService-Info.plist */; };
 		C460010824C5DF740082F631 /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C460010724C5DF740082F631 /* NewsTableViewController.swift */; };
 		C460AD3E24DBF999003162E0 /* NotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C460AD3D24DBF999003162E0 /* NotificationsTableViewController.swift */; };
 		C460AD4024DC0C55003162E0 /* NotificationsSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C460AD3F24DC0C55003162E0 /* NotificationsSettings.swift */; };
@@ -113,7 +114,6 @@
 		C4B2359324BE42A600E30E7D /* (null) in Resources */ = {isa = PBXBuildFile; };
 		C4B2359424BE42A600E30E7D /* (null) in Resources */ = {isa = PBXBuildFile; };
 		C4FFDA7124E1FF5A00C95E0D /* ContentTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FFDA7024E1FF5A00C95E0D /* ContentTextView.swift */; };
-		CFA3D6DF24E86944000618F8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CFA3D6DE24E86944000618F8 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -235,6 +235,7 @@
 		C457F92424D05950002C69A7 /* UISearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISearchBar.swift; sourceTree = "<group>"; };
 		C457F92924D05D10002C69A7 /* NewsTVCSearchResultsUpdatingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTVCSearchResultsUpdatingExtension.swift; sourceTree = "<group>"; };
 		C457F92B24D0D7A9002C69A7 /* PlanetsImagesCollectionViewControllerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsImagesCollectionViewControllerPresenter.swift; sourceTree = "<group>"; };
+		C45B7E3724EA82090056604D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C460010724C5DF740082F631 /* NewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
 		C460AD3D24DBF999003162E0 /* NotificationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewController.swift; sourceTree = "<group>"; };
 		C460AD3F24DC0C55003162E0 /* NotificationsSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsSettings.swift; sourceTree = "<group>"; };
@@ -254,7 +255,6 @@
 		C49E5FF224AF59D900FDD522 /* PlnaetsMenuTableViewControllerSearchBarDelegateExtnsion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlnaetsMenuTableViewControllerSearchBarDelegateExtnsion.swift; sourceTree = "<group>"; };
 		C4AEAE6324CF050800A6100A /* StarDetailMoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarDetailMoreVC.swift; sourceTree = "<group>"; };
 		C4FFDA7024E1FF5A00C95E0D /* ContentTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTextView.swift; sourceTree = "<group>"; };
-		CFA3D6DE24E86944000618F8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DF945464559D8411C6F01C9F /* libPods-SolarProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SolarProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -323,7 +323,7 @@
 				84C7177D24844139003B02B3 /* Reminders */,
 				84C717892486DE2B003B02B3 /* Profile */,
 				8463C8D4247FC9F20059A897 /* Info.plist */,
-				CFA3D6DE24E86944000618F8 /* GoogleService-Info.plist */,
+				C45B7E3724EA82090056604D /* GoogleService-Info.plist */,
 				8463C8CF247FC9F20059A897 /* Assets.xcassets */,
 				8463C8D1247FC9F20059A897 /* LaunchScreen.storyboard */,
 			);
@@ -990,7 +990,7 @@
 			files = (
 				8463C8D3247FC9F20059A897 /* LaunchScreen.storyboard in Resources */,
 				8463C8D0247FC9F20059A897 /* Assets.xcassets in Resources */,
-				CFA3D6DF24E86944000618F8 /* GoogleService-Info.plist in Resources */,
+				C45B7E3824EA82090056604D /* GoogleService-Info.plist in Resources */,
 				8463C8CE247FC9EC0059A897 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
