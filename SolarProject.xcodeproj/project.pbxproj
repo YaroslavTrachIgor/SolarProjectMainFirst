@@ -340,7 +340,7 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		8463C8E0248019120059A897 /* Presenters */ = {
+		8463C8E0248019120059A897 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
 				8463C8EE24801D880059A897 /* PlanetsMenuTableViewControllerPresenter.swift */,
@@ -348,24 +348,24 @@
 				84C717792483123C003B02B3 /* PlanetDetailViewControllerPresenters */,
 				84C7177624831207003B02B3 /* StarDetailVCPresenters */,
 			);
-			path = Presenters;
+			path = Presenter;
 			sourceTree = "<group>";
 		};
-		8463C8E12480191C0059A897 /* Controllers */ = {
+		8463C8E12480191C0059A897 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				8463C8EA24801D060059A897 /* PlanetsMenu */,
 				8463C8E924801CFA0059A897 /* DetailViewControllers */,
 			);
-			path = Controllers;
+			path = View;
 			sourceTree = "<group>";
 		};
 		8463C8E4248019B00059A897 /* PlanetsAndStarsSection */ = {
 			isa = PBXGroup;
 			children = (
-				8463C8E12480191C0059A897 /* Controllers */,
-				8463C8E0248019120059A897 /* Presenters */,
 				8463C8DF2480190C0059A897 /* Model */,
+				8463C8E12480191C0059A897 /* View */,
+				8463C8E0248019120059A897 /* Presenter */,
 			);
 			path = PlanetsAndStarsSection;
 			sourceTree = "<group>";
@@ -659,9 +659,9 @@
 		84C7177D24844139003B02B3 /* Reminders */ = {
 			isa = PBXGroup;
 			children = (
-				84C717862485B314003B02B3 /* Presenter */,
-				84C7178324854315003B02B3 /* Controller */,
 				84C717822485430E003B02B3 /* Model */,
+				84C7178324854315003B02B3 /* View */,
+				84C717862485B314003B02B3 /* Presenter */,
 			);
 			path = Reminders;
 			sourceTree = "<group>";
@@ -674,7 +674,7 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		84C7178324854315003B02B3 /* Controller */ = {
+		84C7178324854315003B02B3 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				C457F90624CF5F5C002C69A7 /* RemindersVCExtensions */,
@@ -682,7 +682,7 @@
 				84C7177E24844191003B02B3 /* RemindersViewController.swift */,
 				C4704B1D24BD98390052E002 /* DeleteVC.swift */,
 			);
-			path = Controller;
+			path = View;
 			sourceTree = "<group>";
 		};
 		84C717862485B314003B02B3 /* Presenter */ = {
@@ -697,13 +697,13 @@
 			isa = PBXGroup;
 			children = (
 				84C7178B2486DF40003B02B3 /* Model */,
-				84C7178A2486DE3D003B02B3 /* Views */,
-				84C7178C2486DF70003B02B3 /* Presenters */,
+				84C7178A2486DE3D003B02B3 /* View */,
+				84C7178C2486DF70003B02B3 /* Presenter */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		84C7178A2486DE3D003B02B3 /* Views */ = {
+		84C7178A2486DE3D003B02B3 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				C457F92D24D0DC31002C69A7 /* UI */,
@@ -714,7 +714,7 @@
 				848EC0CF24A7FDD400EF7D62 /* AboutAppVC.swift */,
 				C460AD3D24DBF999003162E0 /* NotificationsTableViewController.swift */,
 			);
-			path = Views;
+			path = View;
 			sourceTree = "<group>";
 		};
 		84C7178B2486DF40003B02B3 /* Model */ = {
@@ -727,13 +727,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		84C7178C2486DF70003B02B3 /* Presenters */ = {
+		84C7178C2486DF70003B02B3 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
 				84F055AC24898F7F008B9D06 /* MainProfileViewControllerPresenter.swift */,
 				C497CA5924ACC20D009B90F3 /* PersonalAnalyticsTableViewControllerPresenter.swift */,
 			);
-			path = Presenters;
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		84C7178F2486F387003B02B3 /* BasicViewController */ = {
@@ -782,7 +782,6 @@
 		C457F90C24CF636D002C69A7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				C457F90F24CF6392002C69A7 /* PersonalAnalyticsExtensions */,
 				C457F90E24CF6382002C69A7 /* AccountVCExtensions */,
 				C457F90D24CF6373002C69A7 /* MainProfileVCExtensions */,
 			);
@@ -806,13 +805,6 @@
 				C457F91424CF644D002C69A7 /* AccountVCIBActionsExtension.swift */,
 			);
 			path = AccountVCExtensions;
-			sourceTree = "<group>";
-		};
-		C457F90F24CF6392002C69A7 /* PersonalAnalyticsExtensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = PersonalAnalyticsExtensions;
 			sourceTree = "<group>";
 		};
 		C457F91C24D058A4002C69A7 /* View */ = {

@@ -11,9 +11,13 @@ import Foundation
 //MARK: - NewsModel
 final class NewsModel {
     
+    //MARK: Fileprivate
+    typealias NewsContentType = [String]
+    
+    
     //MARK: Public
-    public var newsTitles = [String]()
-    public var newsContents = [String]()
-    public var newsDates = [String]()
-    public var newsImagesStringURLs = [String]()
+    public var newsTitles = NewsContentType()
+    public var newsContents = NewsContentType()
+    public var newsDates = NewsContentType()
+    public var newsImagesStringURLs = NewsContentType()
 }

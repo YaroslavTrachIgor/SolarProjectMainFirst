@@ -11,5 +11,5 @@ import UIKit
 
 //MARK: - UISearchResultsUpdating extension
 extension NewsTableViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {}
+    internal func updateSearchResults(for searchController: UISearchController) {}
 }

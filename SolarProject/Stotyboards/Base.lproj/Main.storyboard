@@ -1943,6 +1943,57 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Sounds" footerTitle="Here you can choose which sounds the application will greet you when a notification appears." id="SsK-ah-XnT">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="43" id="rs5-4b-hSU">
+                                        <rect key="frame" x="0.0" y="408.5" width="375" height="43"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rs5-4b-hSU" id="cQy-No-mzr">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sounds:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fxc-Wi-Pl5">
+                                                    <rect key="frame" x="16" y="0.0" width="343" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="NTT-c3-Ya9"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Fxc-Wi-Pl5" firstAttribute="top" secondItem="cQy-No-mzr" secondAttribute="top" id="HWu-jD-e1l"/>
+                                                <constraint firstAttribute="bottom" secondItem="Fxc-Wi-Pl5" secondAttribute="bottom" id="NMf-g9-akv"/>
+                                                <constraint firstItem="Fxc-Wi-Pl5" firstAttribute="leading" secondItem="cQy-No-mzr" secondAttribute="leading" constant="16" id="e0c-IM-cdK"/>
+                                                <constraint firstAttribute="trailing" secondItem="Fxc-Wi-Pl5" secondAttribute="trailing" constant="16" id="heN-4M-y37"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="121" id="0YT-bK-O9M">
+                                        <rect key="frame" x="0.0" y="451.5" width="375" height="121"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0YT-bK-O9M" id="tgN-MP-W6f">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="121"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cdS-Jg-kDY">
+                                                    <rect key="frame" x="8" y="11" width="359" height="100"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="100" id="gj6-vZ-pAN"/>
+                                                    </constraints>
+                                                </pickerView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="cdS-Jg-kDY" secondAttribute="trailing" constant="8" id="58H-9f-c2f"/>
+                                                <constraint firstItem="cdS-Jg-kDY" firstAttribute="leading" secondItem="tgN-MP-W6f" secondAttribute="leading" constant="8" id="KNo-SQ-b25"/>
+                                                <constraint firstAttribute="bottom" secondItem="cdS-Jg-kDY" secondAttribute="bottom" constant="11" id="fzJ-X9-EvC"/>
+                                                <constraint firstItem="cdS-Jg-kDY" firstAttribute="top" secondItem="tgN-MP-W6f" secondAttribute="top" constant="11" id="z7D-Ax-3A0"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="pDt-C4-KMq" id="fsj-UO-XQC"/>
@@ -1955,6 +2006,8 @@
                         <outlet property="messagePickerView" destination="Nof-VW-EhX" id="JJf-zd-nuV"/>
                         <outlet property="notificationsOnLabel" destination="gAl-ZS-jR8" id="bea-8h-ZR8"/>
                         <outlet property="notificationsOnSwitch" destination="00e-tB-QMU" id="L3J-LN-14C"/>
+                        <outlet property="soundLabel" destination="Fxc-Wi-Pl5" id="3as-lB-rEa"/>
+                        <outlet property="soundPickerView" destination="cdS-Jg-kDY" id="YlZ-OK-WQP"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="muv-GH-aex" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
