@@ -1,6 +1,13 @@
-
 SOLAR PROJECT
 ================
+
+Version
+-----------------------------------
+1.0
+
+Build and Runtime Requirements
+-----------------------------------
+Xcode 12 or later. iOS 14.0 or later
 
 Project structure
 -----------------------------------
