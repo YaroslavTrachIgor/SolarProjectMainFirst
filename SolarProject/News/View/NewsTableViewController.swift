@@ -30,13 +30,18 @@ extension NewsTableViewController {
 //MARK: - NewsTableViewController main class
 final class NewsTableViewController: UITableViewController {
 
-    /// Sections
-    var sections: [SectionType] = [.site, .news]
+    ///Presenter
+    fileprivate var presenter: NewsTVCPresenterProtocol {
+        return NewsTVCPresenter(sections: self.sections)
+    }
     
-    /// RemoteConfig
+    ///Sections
+    var sections: [SectionType] = [.news, .site]
+    
+    ///RemoteConfig
     var remoteConfig: RemoteConfig!
     
-    /// Model
+    ///Model
     var model: NewsModel!
     
     
@@ -78,24 +83,16 @@ final class NewsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let sectionType = sections[section]
-        switch sectionType {
-        case .news:
-            return "News"
-        case .site:
-            return "Website"
-        }
+        return presenter.setupTitleForHeader(section: section)
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        return presenter.setupTitleForFooter(section: section)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        let sectionType = sections[section]
-        switch sectionType {
-        case .news:
-            return 4
-        case .site:
-            return 1
-        }
+        return presenter.setupNumberOfRowsInSection(section: section)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -112,7 +109,7 @@ final class NewsTableViewController: UITableViewController {
         let sectionType = sections[indexPath.section]
         switch sectionType {
         case .site:
-            showSafariSite(stringURL: "https://spacenews.com")
+            showSafariSite(stringURL: presenter.setupStringSiteLink())
         case .news:
             break
         }
@@ -268,7 +265,7 @@ extension NewsTableViewController: NewsTableViewControllerProtocol {
     private func setupContent(cell: NewsCell, row: Int) {
         UIView.transition(with: view, duration: 0.4, options: .curveEaseIn, animations: {
             cell.titleLabel.text         = self.model.newsTitles[row]
-            cell.subtitleLabel.text      = cell.titleLabel.text!
+            cell.subtitleLabel.text      = cell.titleLabel.text!.uppercased()
             cell.contentTextView.text    = self.model.newsContents[row]
             cell.dateLabel.text          = self.model.newsDates[row]
             cell.newsImageView.downloaded(from: self.model.newsImagesStringURLs[row])
@@ -296,6 +293,7 @@ extension NewsTableViewController: NewsTableViewControllerProtocol {
         subtitleLabel.alpha = 1
         subtitleLabel.isHidden = false
         subtitleLabel.numberOfLines = 1
+        subtitleLabel.font = UIFont.systemFont(ofSize: 11.5, weight: .semibold)
     }
     
     private func setupContentBack(contentBack: UIView) {
@@ -324,7 +322,8 @@ extension NewsTableViewController: NewsTableViewControllerProtocol {
     
     private func setupTableView() {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "SiteCell")
-        tableView.separatorColor = #colorLiteral(red: 0.9605281565, green: 0.9605281565, blue: 0.9605281565, alpha: 1)
+        tableView.separatorColor = UIColor.TableViewColors.tableViewSeparatorColor
+        tableView.separatorStyle = .singleLine
     }
     
     private func setupModel() {

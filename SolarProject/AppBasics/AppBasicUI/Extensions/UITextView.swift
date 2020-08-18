@@ -9,13 +9,17 @@
 import Foundation
 import UIKit
 
-//MARK: - UITextView public extension
+//MARK: - TextViewsContentApdateSetupProtocol protocol
 protocol TextViewsContentApdateSetupProtocol {
     func setupContentWithAnimation(text: String)
 }
 
+
+
+//MARK: - UITextView public extension
+//MARK: TextViewsContentApdateSetupProtocol extension
 extension UITextView: TextViewsContentApdateSetupProtocol {
-    func setupContentWithAnimation(text: String) {
+    internal  func setupContentWithAnimation(text: String) {
         UIView.transition(with: self,
              duration: 0.25,
               options: .transitionCrossDissolve,

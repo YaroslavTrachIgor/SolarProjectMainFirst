@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 //MARK: - UISearchBar extension
-extension UISearchBar {
+public extension UISearchBar {
     var textField: UITextField? {
         if #available(iOS 13.0, *) {
             return self.searchTextField

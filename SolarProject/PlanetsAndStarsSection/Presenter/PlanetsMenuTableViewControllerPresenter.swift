@@ -79,7 +79,7 @@ extension PlanetsMenuTableViewControllerPresenter: PlanetsMenuTableViewControlle
         let section = sections[section]
         switch section {
         case .stars:
-            return PlanetsMenuTableViewControllerModel.StarsContent.title
+            return " " + PlanetsMenuTableViewControllerModel.StarsContent.title
         case .planets:
             return " " + headers[row]
         }

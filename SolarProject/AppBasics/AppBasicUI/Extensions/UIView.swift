@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 //MARK: - UIView extension
-extension UIView {
+public extension UIView {
     func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
         let mask = CAShapeLayer()
         let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
@@ -22,7 +22,7 @@ extension UIView {
 
 
 //MARK: - UIView Gradient extension
-extension UIView {
+public extension UIView {
     @discardableResult
     func applyGradient(colours: [UIColor]) -> CAGradientLayer {
         
@@ -47,7 +47,7 @@ extension UIView {
 
 
 //MARK: - UIView roundCorners extension
-extension UIView {
+public extension UIView {
    func roundCorners(corners: UIRectCorner, radius: CGFloat) {
         let mask = CAShapeLayer()
         let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))

@@ -33,7 +33,9 @@ final class StarDetailMoreVC: BasicViewController {
         setupBasicViewControllerUI()
     }
     
-    func setupBasicViewControllerUI() {
+    
+    //MARK: BasicViewControllerProtocol
+    internal func setupBasicViewControllerUI() {
         setupButtons()
         setupNavBar()
     }
@@ -49,36 +51,43 @@ extension StarDetailMoreVC {
     }
     
     private func setupThemeButton() {
+        let tintColor: UIColor = .white
         let config = UIImage.SymbolConfiguration(weight: .semibold)
-        themesButton.imageView?.image = UIImage(systemName: "paperclip", withConfiguration: config)
-        themesButton.setTitleColor(.systemIndigo, for: .normal)
+        let image = UIImage(systemName: "paperclip", withConfiguration: config)
+        let font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+        themesButton.imageView?.image = image
+        themesButton.setTitleColor(tintColor, for: .normal)
+        themesButton.backgroundColor = BasicProperties.color
+        themesButton.titleLabel?.font = font
+        themesButton.tintColor = tintColor
+        themesButton.imageView?.tintColor = tintColor
         themesButton.layer.cornerRadius = 8
-        themesButton.backgroundColor = .systemGroupedBackground
-        themesButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+        themesButton.buttonsShadows()
     }
     
     
     private func setupImageButton() {
         let config = UIImage.SymbolConfiguration(weight: .semibold)
-        themesButton.imageView?.image = UIImage(systemName: "doc.plaintext", withConfiguration: config)
-        imagesButton.layer.cornerRadius = 8
+        let image = UIImage(systemName: "doc.plaintext", withConfiguration: config)
+        let font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+        imagesButton.imageView?.image = image
         imagesButton.setTitleColor(.systemIndigo, for: .normal)
+        imagesButton.layer.cornerRadius = 8
         imagesButton.backgroundColor = .systemGroupedBackground
-        imagesButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+        imagesButton.titleLabel?.font = font
     }
     
     private func setupNavBar() {
-        
-        ///Setup titleLabel
-        navBar.titleLabel.text = "MORE"
-        
-        ///Setup rightButton
-        navBar.rightButton.setTitle("Cancel", for: .normal)
-        navBar.rightButton.addTarget(self, action: #selector(self.dismissAction), for: .touchUpInside)
-        navBar.rightButton.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .regular)
-        navBar.rightButton.setTitleColor(.systemIndigo, for: .normal)
-
+        navBar.titleLabel.text = "More"
+        setupNavBarRightButton(button: navBar.rightButton)
         view.addSubview(self.navBar)
+    }
+    
+    private func setupNavBarRightButton(button: UIButton) {
+        button.setTitle("Cancel", for: .normal)
+        button.addTarget(self, action: #selector(self.dismissAction), for: .touchUpInside)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .regular)
+        button.setTitleColor(.systemIndigo, for: .normal)
     }
     
     
@@ -94,13 +103,15 @@ extension StarDetailMoreVC {
 extension StarDetailMoreVC {
     @IBAction func showImagesVC(_ sender: Any) {
         dismiss(animated: true, completion: {
-            NotificationCenter.default.post(name: Notification.Name(rawValue: "ImagesShowVCNotificationName"), object: nil)
+            let notificationName = Notification.Name(rawValue: "ImagesShowVCNotificationName")
+            NotificationCenter.default.post(name:notificationName, object: nil)
         })
     }
     
     @IBAction func showThemesVC(_ sender: Any) {
         dismiss(animated: true, completion: {
-            NotificationCenter.default.post(name: Notification.Name(rawValue: "ThemesShowVCNotificationName"), object: nil)
+            let notificationName = Notification.Name(rawValue: "ThemesShowVCNotificationName")
+            NotificationCenter.default.post(name: notificationName, object: nil)
         })
     }
 }

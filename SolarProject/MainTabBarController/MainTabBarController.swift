@@ -10,8 +10,6 @@ import UIKit
 
 //MARK: - MainTabBarControllerProtocol protocol
 protocol MainTabBarControllerProtocol {
-    func setupShadow()
-    func setupCorners()
     func setupDelegate()
 }
 
@@ -24,9 +22,9 @@ final class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupDelegate()
         setupShadow()
         setupCorners()
-        setupDelegate()
     }
 }
 
@@ -49,11 +47,14 @@ extension MainTabBarController: UITabBarControllerDelegate  {
     
 //MARK: - MainTabBarControllerProtocol extension
 extension MainTabBarController: MainTabBarControllerProtocol {
+    
+    //MARK: Delegate
     internal func setupDelegate() {
         delegate = self
     }
     
-    internal func setupShadow() {
+    //MARK: Private
+    private func setupShadow() {
         
         ///Setup tabBar shadow
         tabBar.isTranslucent = false
@@ -68,7 +69,7 @@ extension MainTabBarController: MainTabBarControllerProtocol {
         tabBar.backgroundImage = UIImage()
     }
     
-    internal func setupCorners() {
+    private func setupCorners() {
         
         ///Setup tabBar cornerRadius
         tabBar.layer.masksToBounds = false

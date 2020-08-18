@@ -11,21 +11,21 @@ import UIKit
 import AudioToolbox
 
 //MARK: - Setup UIBarButtonItem basics
-extension UIBarButtonItem {
+public extension UIBarButtonItem {
     // Basics for All UIBarButtonItems fot Tests
     
-    public func testBarButtonItemsTint() {
+    func testBarButtonItemsTint() {
         self.tintColor = BasicProperties.color
     }
     
     //Setup Share Audio
-    public func shareAudio() {
+    func shareAudio() {
         AudioServicesPlayAlertSound(SystemSoundID(1001))
     }
 }
 
 
-extension UIBarButtonItem {
+public extension UIBarButtonItem {
     typealias BonusAction = (() -> Void)?
     
     func viewShowingWithAnimation(animating view: UIView, main View: UIView,_ bonusAction: BonusAction) {

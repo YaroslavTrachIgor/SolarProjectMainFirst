@@ -18,19 +18,18 @@ fileprivate protocol SegmentedControlBasics {
 
 //MARK: SegmentedControlBasics extension
 extension UISegmentedControl: SegmentedControlBasics {
-    
-    public func segmentedControlBasics() {
+    func segmentedControlBasics() {
         alpha = 0
         segConBasicView()
     }
     
-    public func segmentedControlForToday() {
+    func segmentedControlForToday() {
         
         ///Setup Basics
         segConBasicView()
     }
     
-    public func segConBasicView() {
+    func segConBasicView() {
         segmentedControlShadow()
         tintColor = BasicProperties.color
         layer.cornerRadius  = BasicProperties.cornerRadius

@@ -242,7 +242,6 @@ extension AccountVC {
         for textField in textFields {
             textField.setupBasicAccountTextField()
         }
-        
         surNameTextField.setupBasicAccountTextField()
         firstNameTextField.setupBasicAccountTextField()
     }
@@ -280,6 +279,8 @@ extension AccountVC {
     
     private func setupTableView() {
         tableView.setupBasicEditorTableView()
+        tableView.separatorColor = UIColor.TableViewColors.tableViewSeparatorColor
+        tableView.separatorStyle = .singleLine
     }
     
     private func setupUserImageView() {

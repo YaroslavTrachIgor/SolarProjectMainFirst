@@ -144,6 +144,8 @@ extension MainProfileViewController {
         profileTableView.delegate = self
         profileTableView.dataSource = self
         profileTableView.backgroundColor = .systemGroupedBackground
+        profileTableView.separatorColor = UIColor.TableViewColors.tableViewSeparatorColor
+        profileTableView.separatorStyle = .singleLine
     }
     
     private func setupNavController() {

@@ -9,7 +9,8 @@
 import Foundation
 import UIKit
 
-class ActivityVCManeger {
+//MARK: - ActivityVCManeger main class
+public final class ActivityVCManeger {
     static func showBasic(content: String, for vc: UIViewController) {
         let activityVC = UIActivityViewController(activityItems: [content], applicationActivities: nil)
         vc.present(activityVC, animated: true)

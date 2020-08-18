@@ -71,13 +71,13 @@ extension MainProfileViewControllerPresenter: MainProfileViewControllerPresenter
     
     func setupSegueEmail(segue: UIStoryboardSegue) -> String {
         let destVC = segue.destination as! AccountVC
-        let email = destVC.defaults.value(forKey: AccountVC.Keys.emailKey) as? String ?? "Email:"
+        let email = destVC.defaults.value(forKey: AccountVC.Keys.emailKey) as? String ?? ":"
         return email
     }
     
     func setupSeguePhone(segue: UIStoryboardSegue) -> String {
         let destVC = segue.destination as! AccountVC
-        let phone = destVC.defaults.value(forKey: AccountVC.Keys.phoneKey) as? String ?? "Phone:"
+        let phone = destVC.defaults.value(forKey: AccountVC.Keys.phoneKey) as? String ?? ""
         return phone
     }
     
@@ -110,7 +110,7 @@ extension MainProfileViewControllerPresenter: MainProfileViewControllerPresenter
         if defaults.value(forKey: MainProfileViewController.Keys.emailKey.rawValue) == nil {
             return "Email:"
         } else {
-            return "Email: \(defaults.value(forKey: MainProfileViewController.Keys.emailKey.rawValue) ?? "")"
+            return "\(defaults.value(forKey: MainProfileViewController.Keys.emailKey.rawValue) ?? "")"
         }
     }
     
@@ -118,7 +118,7 @@ extension MainProfileViewControllerPresenter: MainProfileViewControllerPresenter
         if defaults.value(forKey: MainProfileViewController.Keys.phoneKey.rawValue) == nil {
             return "Phone:"
         } else {
-            return "Phone: \(defaults.value(forKey: MainProfileViewController.Keys.phoneKey.rawValue) ?? "")"
+            return "\(defaults.value(forKey: MainProfileViewController.Keys.phoneKey.rawValue) ?? "")"
         }
     }
     

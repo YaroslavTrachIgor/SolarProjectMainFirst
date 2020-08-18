@@ -31,6 +31,7 @@ final class NotificationsTableViewController: UITableViewController {
         setupMessageLabel()
         setupSoundPickerView()
         setupSoundLabel()
+        setupTableView()
     }
 }
 
@@ -51,9 +52,7 @@ extension NotificationsTableViewController {
 //MARK: - Main methods
 extension NotificationsTableViewController {
     private func setupNotificationsLabel() {
-        notificationsOnLabel.text = "Show Notifications"
-        notificationsOnLabel.textColor = .black
-        notificationsOnLabel.backgroundColor = .clear
+        notificationsOnLabel.setupBasicCellLabel(text: "Show Notifications")
     }
     
     private func setupSwitch() {
@@ -68,9 +67,7 @@ extension NotificationsTableViewController {
     }
     
     private func setupMessageLabel() {
-        messageLabel.text = NotificationsSettings.shared.notificationsBody
-        messageLabel.textColor = .black
-        messageLabel.backgroundColor = .clear
+        messageLabel.setupBasicCellLabel(text: NotificationsSettings.shared.notificationsBody)
     }
     
     private func setupSoundPickerView() {
@@ -80,13 +77,18 @@ extension NotificationsTableViewController {
     }
     
     private func setupSoundLabel() {
-        soundLabel.textColor = .black
-        soundLabel.backgroundColor = .clear
-        soundLabel.text = "Sound: " + NotificationsSettings.shared.notificationsSound!
+        soundLabel.setupBasicCellLabel(text: "Sound: " + NotificationsSettings.shared.notificationsSound!)
     }
     
     private func setupTitle() {
         title = "Articles Notifications"
+    }
+    
+    private func setupTableView() {
+        tableView.separatorColor = UIColor.TableViewColors.tableViewSeparatorColor
+        tableView.separatorStyle = .singleLine
+        tableView.backgroundColor = .systemGroupedBackground
+        tableView.isHidden = false
     }
 }
 

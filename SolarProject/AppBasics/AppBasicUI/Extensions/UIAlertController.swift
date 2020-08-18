@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 //MARK: - UIAlertController extension
-extension UIAlertController {
+public extension UIAlertController {
     
     //MARK: Setup Basic tintColor
     func setupBasicTint() {

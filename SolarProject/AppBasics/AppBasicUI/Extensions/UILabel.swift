@@ -23,12 +23,27 @@ public extension UILabel {
 extension UILabel: TextViewsContentApdateSetupProtocol {
     typealias ContentView = UILabel
     
-    func setupContentWithAnimation(text: String) {
+    internal func setupContentWithAnimation(text: String) {
         UIView.transition(with: self,
              duration: 0.25,
               options: .transitionCrossDissolve,
            animations: {
                self.text = text
         }, completion: nil)
+    }
+}
+
+
+
+//MARK: - UILabel Cell setup
+public extension UILabel {
+    func setupBasicCellLabel(text: String?) {
+        let font = UIFont.systemFont(ofSize: 15, weight: .medium)
+        let color: UIColor = .black
+        self.text = text
+        textColor = color
+        alpha = 1
+        isHidden = false
+        self.font = font
     }
 }

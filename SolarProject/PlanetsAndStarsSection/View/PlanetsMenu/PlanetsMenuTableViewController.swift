@@ -273,12 +273,8 @@ extension PlanetsMenuTableViewController {
     private func setupNavBar() {
         let basicColor: UIColor = .systemGroupedBackground
         guard let navBar = navigationController?.navigationBar else { return }
-        
-        ///Set backColor
         navBar.backgroundColor = basicColor
         navBar.barTintColor = basicColor
-        
-        ///Set title
         title = "Menu"
     }
     
@@ -386,7 +382,7 @@ extension PlanetsMenuTableViewController {
     }
     
     private func setupSeparator() {
-        tableView.separatorColor = #colorLiteral(red: 0.965946613, green: 0.965946613, blue: 0.965946613, alpha: 1)
+        tableView.separatorColor = UIColor.TableViewColors.tableViewSeparatorColor
         tableView.separatorStyle = .singleLine
     }
     
