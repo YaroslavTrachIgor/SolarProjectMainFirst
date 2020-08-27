@@ -20,20 +20,42 @@ extension MainProfileViewController {
         case permissions
         case settings
     }
+    
+    
+    //MARK: Keys
+    enum Keys {
+        
+        ///DefaultsKeys
+        enum DefaultsKeys: String {
+            case fullNameKay = "fullNameKay"
+            case emailKey    = "emailKey"
+            case phoneKey    = "phoneKey"
+        }
+        
+        ///DefaultsKeys
+        enum SeguesKeys: String {
+            case analyticsSegue       = "UserAnalyticsSegue"
+            case profileAccountSegue  = "UserProfileAccountSegue"
+            case notificationSegue    = "NotificationsVCSegue"
+            case appearanceSegue      = "AppearanceSegue"
+            case applicationInfoSegue = "ApplicationInfoSegue"
+            case supportSegue         = "SupportSecondSegue"
+        }
+    }
+    
+    
+    //MARK: Permissions Content
+    private enum PermissionsContent: String {
+        case titleText   = "Need Permissions"
+        case headerText  = "This Permissions need for work app, see decription to each permission."
+        case footerText  = "Permissions are necessary for the correct work of the application and the performance of all functions."
+    }
 }
 
 
 
 //MARK: - MainProfileViewController main class
 final class MainProfileViewController: BasicViewController {
-
-    //MARK: Permissions Content
-    private enum PermissionsContent: String {
-        case titleText = "Need Permissions"
-        case headerText = "This Permissions need for work app, see decription to each permission."
-        case footerText = "Permissions are necessary for the correct work of the application and the performance of all functions."
-    }
-    
     
     //MARK: Presenter
     var presenter: MainProfileViewControllerPresenterProtocol {
@@ -43,16 +65,9 @@ final class MainProfileViewController: BasicViewController {
     ///GADInterstitial
     private var interstitial: GADInterstitial!
     
-    /// Sections
+    ///Sections
     var sections: [SectionType] = [.userAccaunt, .applicationInfo, .settings, .permissions]
-    
-    
-    //MARK: Keys
-    enum Keys: String {
-        case fullNameKay = "fullNameKay"
-        case emailKey    = "emailKey"
-        case phoneKey    = "phoneKey"
-    }
+
     
     //MARK: UserDefaults
     let defaults = UserDefaults.standard
@@ -62,7 +77,6 @@ final class MainProfileViewController: BasicViewController {
     @IBOutlet weak var profileTableView: UITableView!
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var userIconImageView: UIImageView!
     
     
@@ -89,7 +103,6 @@ final class MainProfileViewController: BasicViewController {
         setupInterstitial()
         setupFullNameLabel()
         setupEmailLabel()
-        setupPhoneLabel()
     }
 }
 
@@ -100,23 +113,33 @@ extension MainProfileViewController {
     
     //MARK: UI setup
     private func setupContent(_ segue: UIStoryboardSegue) {
-        if segue.identifier == "UserProfileAccountSegue", case let destVC = segue.destination as! AccountVC {
+        if segue.identifier == Keys.SeguesKeys.profileAccountSegue.rawValue, case let destVC = segue.destination as! AccountVC {
             /* Setup labels content with AccountVC.
             Here is using completion Callback. */
-            destVC.completion = { [unowned self] fullName, email, phone in
-                self.fullNameLabel.text = fullName
-                self.emailLabel.text = email
-                self.phoneLabel.text = phone
+            destVC.completion = { [unowned self] fullName, email in
+                self.setupBasicSeguesContent(email: email, fullName: fullName)
             }
 
             ///Setup  userIconImageView  image  with  presenter
             userIconImageView.image = presenter.setupSegueImage(segue: segue)
 
             ///Save Labels
-            defaults.set(self.fullNameLabel.text!, forKey: MainProfileViewController.Keys.fullNameKay.rawValue)
-            defaults.set(self.emailLabel.text!, forKey: MainProfileViewController.Keys.emailKey.rawValue)
-            defaults.set(self.phoneLabel.text!, forKey: MainProfileViewController.Keys.phoneKey.rawValue)
+            defaults.set(self.fullNameLabel.text!, forKey: MainProfileViewController.Keys.DefaultsKeys.fullNameKay.rawValue)
+            defaults.set(self.emailLabel.text!, forKey: MainProfileViewController.Keys.DefaultsKeys.emailKey.rawValue)
         }
+    }
+    
+    private func setupBasicSeguesContent(email: String, fullName: String) {
+        let defaultName = "Profile"
+        let defaultEmail = "Profile Account"
+        
+        ///Set email
+        if email == "" || email == " " { emailLabel.text = defaultEmail }
+        else { emailLabel.text = email }
+        
+        ///Set fullName
+        if fullName == "" || fullName == " " { fullNameLabel.text = defaultName }
+        else { fullNameLabel.text = fullName }
     }
     
     private func setupImageView() {
@@ -131,13 +154,7 @@ extension MainProfileViewController {
     }
     
     private func setupEmailLabel() {
-        emailLabel.text = presenter.setupEmail()
-        emailLabel.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
-    }
-    
-    private func setupPhoneLabel() {
-        phoneLabel.text = presenter.setupPhone()
-        phoneLabel.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
+        emailLabel.setupBasicProfileDetailLabel(text: presenter.setupEmail())
     }
     
     private func setupTableView() {
@@ -175,7 +192,7 @@ extension MainProfileViewController {
         
         ///Setup Analytics Segue
         func setupAnalyticsSegue() {
-            self.performSegue(withIdentifier: "UserAnalyticsSegue", sender: self)
+            self.performSegue(withIdentifier: Keys.SeguesKeys.analyticsSegue.rawValue, sender: self)
         }
         
         //MARK: Setup all Segues
@@ -183,7 +200,7 @@ extension MainProfileViewController {
         switch section {
         case .userAccaunt:
             if row == 0 {
-                self.performSegue(withIdentifier: "UserProfileAccountSegue", sender: self)
+                self.performSegue(withIdentifier: Keys.SeguesKeys.profileAccountSegue.rawValue, sender: self)
             } else {
                 if interstitial.isReady {
                     interstitial.present(fromRootViewController: self)
@@ -194,14 +211,20 @@ extension MainProfileViewController {
             }
         case .settings:
             if indexPath.row == 0 {
-                performSegue(withIdentifier: "NotificationsVCSegue", sender: self)
+                performSegue(withIdentifier: Keys.SeguesKeys.notificationSegue.rawValue, sender: self)
+            } else {
+                performSegue(withIdentifier: Keys.SeguesKeys.appearanceSegue.rawValue, sender: self)
             }
         case .applicationInfo:
-            performSegue(withIdentifier: "ApplicationInfoSegue", sender: self)
+            performSegue(withIdentifier: Keys.SeguesKeys.applicationInfoSegue.rawValue, sender: self)
         case .permissions:
             
             ///Show Permissions VC
-            setupPermissionsController()
+            if indexPath.row == 0 {
+                setupPermissionsController()
+            } else {
+                performSegue(withIdentifier: Keys.SeguesKeys.supportSegue.rawValue, sender: self)
+            }
         }
     }
 }

@@ -11,7 +11,7 @@ import UIKit
 
 //MARK: - NewsTVCPresenterProtocol protocol
 protocol NewsTVCPresenterProtocol {
-    func setupStringSiteLink() -> String 
+    func setupStringSiteLink() -> String
     func setupNumberOfRowsInSection(section: Int) -> Int
     func setupTitleForFooter(section: Int) -> String?
     func setupTitleForHeader(section: Int) -> String?
@@ -36,7 +36,7 @@ final class NewsTVCPresenter {
 extension NewsTVCPresenter: NewsTVCPresenterProtocol {
     
     //MARK: Internal
-    func setupStringSiteLink() -> String {
+    internal func setupStringSiteLink() -> String {
         return "https://spacenews.com"
     }
     

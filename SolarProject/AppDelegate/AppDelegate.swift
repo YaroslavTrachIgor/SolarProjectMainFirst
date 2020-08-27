@@ -13,26 +13,38 @@ import UserNotifications
 import GoogleSignIn
 import Firebase
 
+//MARK: - Keys
+extension AppDelegate {
+    public struct Keys {
+        public enum ParseKeys: String {
+            case applicationId = "OVazAp8AHtdi2ldjhjhfCq3KtTdILMCf1YETzxRL"
+            case clientKey = "Fe9OY5gzrOPFUNrvXxK3OjMOimjvNT1bFWeYskNP"
+            case server = "https://parseapi.back4app.com/"
+        }
+        
+        public enum GIDSignInKeys: String {
+            case clientID = "1058440591328-jh1ff789so5qqu73cf6pfj6110ujmd9a.apps.googleusercontent.com"
+        }
+    }
+}
+
+
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+final class AppDelegate: UIResponder, UIApplicationDelegate {
     
     //MARK: Private
-    private var googleService = BasicGoogleService()
+    private var googleService: BasicGoogleServiceProtocol?
     
     
     //MARK: Lifecycle
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    internal func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         setupNavigationBarBasics()
         setupBarButtonItemBasics()
         setupParseClientConfiguration()
         registerForPushNotifications()
         setupTabBarItemBasics()
-        
-        ///Configure Google Services
-        googleService.configureGoogleMobileAds()
-        googleService.setupGoogleSignInClientID()
-        googleService.setupFirebase()
+        setupGoogleServices()
         
         return true
     }
@@ -40,54 +52,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     //MARK: UISceneSession Lifecycle
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+    internal func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.
         // Use this method to select a configuration to create the new scene with.
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
     
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
+    internal func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
         return GIDSignIn.sharedInstance().handle(url)
     }
 }
 
 
 
-//MARK: Main Methods
+//MARK: - Main Methods
 private extension AppDelegate {
+    private func setupGoogleServices() {
+        confureGoogleService()
+        googleService?.configureGoogleMobileAds()
+        googleService?.setupGoogleSignInClientID()
+        googleService?.setupFirebase()
+    }
+    
+    private func confureGoogleService() {
+        googleService = BasicGoogleService()
+    }
+    
     private func setupBarButtonItemBasics() {
-        ///Setup barButton Appearence
         let barButtonAppearence = UIBarButtonItem.appearance()
-        
-        ///Set tintColor
         barButtonAppearence.tintColor = BasicProperties.color
     }
     
     private func setupTabBarItemBasics() {
-        
-        ///Setup barButton Appearence
         let tabBarAppearence = UITabBar.appearance()
         let tabBarItemAppearence = UITabBarItem.appearance()
-        
         tabBarItemAppearence.badgeColor = BasicProperties.color
-        
-        ///Set tintColor
         tabBarAppearence.unselectedItemTintColor = #colorLiteral(red: 0.5382281652, green: 0.585738293, blue: 0.6582731492, alpha: 1)
         tabBarAppearence.selectedImageTintColor = BasicProperties.color
-        
-        ///Hide separator
         tabBarAppearence.shadowImage = UIImage()
     }
     
     private func setupNavigationBarBasics() {
-        
-        ///Setup navBar Appearence
         let navBarAppearence = UINavigationBar.appearance()
-        
-        ///Set tintColor
         navBarAppearence.tintColor = .orange
-        
-        ///Setup shadow
         navBarAppearence.layer.masksToBounds = false
         navBarAppearence.layer.shadowColor = UIColor.lightGray.cgColor
         navBarAppearence.layer.shadowOpacity = 0.8
@@ -97,9 +104,9 @@ private extension AppDelegate {
     
     private func setupParseClientConfiguration() {
         let parseConfig = ParseClientConfiguration { config in
-            config.applicationId = "OVazAp8AHtdi2ldjhjhfCq3KtTdILMCf1YETzxRL"
-            config.clientKey = "Fe9OY5gzrOPFUNrvXxK3OjMOimjvNT1bFWeYskNP"
-            config.server = "https://parseapi.back4app.com/"
+            config.applicationId = Keys.ParseKeys.applicationId.rawValue
+            config.clientKey = Keys.ParseKeys.clientKey.rawValue
+            config.server = Keys.ParseKeys.server.rawValue
         }
         Parse.initialize(with: parseConfig)
     }
@@ -114,23 +121,26 @@ private extension AppDelegate {
 
 
 
-//MARK: - BasicGoogleServices extension
-final class BasicGoogleService {
+//MARK: - BasicGoogleServices BasicGoogleServiceProtocol
+fileprivate protocol BasicGoogleServiceProtocol: class {
+    func configureGoogleMobileAds()
+    func setupGoogleSignInClientID()
+    func setupFirebase()
+}
+
+
+
+//MARK: - BasicGoogleService main class
+final class BasicGoogleService: BasicGoogleServiceProtocol {
     internal func configureGoogleMobileAds() {
-        
-        ///Start GADMobileAds sharedInstance
         GADMobileAds.sharedInstance().start(completionHandler: nil)
     }
     
     internal func setupGoogleSignInClientID() {
-        
-        ///Setup GIDSignIn clientID
-        GIDSignIn.sharedInstance().clientID = "1058440591328-jh1ff789so5qqu73cf6pfj6110ujmd9a.apps.googleusercontent.com"
+        GIDSignIn.sharedInstance().clientID = AppDelegate.Keys.GIDSignInKeys.clientID.rawValue
     }
     
     internal func setupFirebase() {
-        
-        ///Configure Firebase
         FirebaseApp.configure()
     }
 }

@@ -33,21 +33,21 @@ extension StarDetailVCPresenter: StarDetailVCPresenterProtocol {
     
     //MARK: Setup AddUnitId
     internal func setupBasicAddUnitId() -> String {
-        return PlanetsMenuTableViewControllerModel.StarsContent.basicStartDetailadUnitID
+        return MenuContentModel.StarsContent.basicStartDetailadUnitID
     }
     
     
     //MARK: Setup content
     internal func setupMostContent() -> String {
-        return PlanetsMenuTableViewControllerModel.StarsContent.mostContent
+        return MenuContentModel.StarsContent.mostContent
     }
     
     internal func setupBasicContent() -> String {
-        return PlanetsMenuTableViewControllerModel.StarsContent.basicContent
+        return MenuContentModel.StarsContent.basicContent
     }
     
     internal func setupHistoryContent() -> String {
-        return PlanetsMenuTableViewControllerModel.StarsContent.historyContent
+        return MenuContentModel.StarsContent.historyContent
     }
     
     internal func setupSwitchedContent(with selectedIndex: Int) -> String {

@@ -40,10 +40,10 @@ protocol PlanetsMenuTableViewControllerPresenterProtocol: PlanetsMenuTableViewCo
 final class PlanetsMenuTableViewControllerPresenter {
     
     //MARK: Index(from Model)
-    let index = PlanetsMenuTableViewControllerModel.index
+    let index = MenuContentModel.index
     
     //Content
-    private let headers = PlanetsMenuTableViewControllerModel.planetsTitles
+    private let headers = MenuContentModel.planetsTitles
 }
 
 
@@ -79,7 +79,7 @@ extension PlanetsMenuTableViewControllerPresenter: PlanetsMenuTableViewControlle
         let section = sections[section]
         switch section {
         case .stars:
-            return " " + PlanetsMenuTableViewControllerModel.StarsContent.title
+            return " " + MenuContentModel.StarsContent.title
         case .planets:
             return " " + headers[row]
         }
@@ -89,9 +89,9 @@ extension PlanetsMenuTableViewControllerPresenter: PlanetsMenuTableViewControlle
         let section = sections[section]
         switch section {
         case .stars:
-            return PlanetsMenuTableViewControllerModel.StarsContent.previewContent
+            return MenuContentModel.StarsContent.previewContent
         case .planets:
-            return PlanetsMenuTableViewControllerModel.PreviewContent.planetsPreviewContent[row]
+            return MenuContentModel.PreviewContent.planetsPreviewContent[row]
         }
     }
     
@@ -136,34 +136,34 @@ extension PlanetsMenuTableViewControllerPresenter: PlanetsMenuTableViewControlle
     
     //MARK: Setup MoreItems Content
     internal func setupMoreItemsNumberOfRows() -> Int {
-        return PlanetsMenuTableViewControllerModel.MoreItemsContent.titles.count
+        return MenuContentModel.MoreItemsContent.titles.count
     }
     
     internal func setupCollectionViewCellImageDownloadsContent(indexPath: IndexPath) -> String {
-        return PlanetsMenuTableViewControllerModel.images[indexPath.row]
+        return MenuContentModel.images[indexPath.row]
     }
     
     internal func setupMoreItemsBackColors(row: Int) -> UIColor {
-        return PlanetsMenuTableViewControllerModel.MoreItemsContent.backColors[row]
+        return MenuContentModel.MoreItemsContent.backColors[row]
     }
     
     internal func setupMoreItemsTitles(row: Int) -> String {
-        return PlanetsMenuTableViewControllerModel.MoreItemsContent.titles[row]
+        return MenuContentModel.MoreItemsContent.titles[row]
     }
     
     internal func setupMoreItemsButtonsTitles(row: Int) -> String {
-        return PlanetsMenuTableViewControllerModel.MoreItemsContent.buttonsTitles[row]
+        return MenuContentModel.MoreItemsContent.buttonsTitles[row]
     }
     
     internal func setupMoreItemsDescriptions(row: Int) -> String {
-        return PlanetsMenuTableViewControllerModel.MoreItemsContent.titlesDescriptions[row]
+        return MenuContentModel.MoreItemsContent.titlesDescriptions[row]
     }
     
     internal func setupSegues(row: Int) -> String {
-        return PlanetsMenuTableViewControllerModel.MoreItemsContent.segues[row]
+        return MenuContentModel.MoreItemsContent.segues[row]
     }
     
     internal func setupMoreCellBackImages(row: Int) -> UIImage {
-        return PlanetsMenuTableViewControllerModel.MoreItemsContent.images[row]
+        return MenuContentModel.MoreItemsContent.images[row]
     }
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 //MARK: - LocalizedDate struct
-struct LocalizedDate {
+public struct LocalizedDate {
     
     //MARK: String
     var location: String

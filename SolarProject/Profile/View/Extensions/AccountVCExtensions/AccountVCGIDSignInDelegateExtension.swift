@@ -21,7 +21,7 @@ extension AccountVC: GIDSignInDelegate {
             } else {
                 
                 ///Show error alert
-                FastAlert.showBasic(title: "Error", message: "\(error.localizedDescription)", vc: self)
+                AlertManeger.presentAlert(title: "Error", message: "\(error.localizedDescription)", vc: self)
             }
             return
         }

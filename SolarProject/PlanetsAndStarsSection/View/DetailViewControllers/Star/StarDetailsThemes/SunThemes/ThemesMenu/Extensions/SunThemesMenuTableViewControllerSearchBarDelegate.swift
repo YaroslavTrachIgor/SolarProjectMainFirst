@@ -18,7 +18,7 @@ extension SunThemesMenuTableViewController: UISearchBarDelegate {
         mainQueue.async {
             semaphore.wait()
             
-            self.searchedArticle = PlanetsMenuTableViewControllerModel.StarsContent.themesContentTitles.filter({$0.contains(searchText)})
+            self.searchedArticle = MenuContentModel.StarsContent.themesContentTitles.filter({$0.contains(searchText)})
             self.isSearching = true
             
             semaphore.signal()

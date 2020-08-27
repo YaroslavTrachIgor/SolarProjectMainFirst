@@ -26,25 +26,42 @@ extension MainProfileViewController: UITableViewDelegate, UITableViewDataSource 
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTableViewCell")!
         
-        ///Setup cell
-        let section = sections[indexPath.section]
-        switch section {
-        case .userAccaunt:
+        ///Setup basic cell
+        ///(for userAccaunt, applicationInfo, settings section)
+        func setupBasicCell() {
             cell.accessoryType = .disclosureIndicator
-        case .applicationInfo:
-            cell.accessoryType = .detailDisclosureButton
-        case .settings:
-            cell.accessoryType = .disclosureIndicator
-        case .permissions:
+            cell.textLabel?.font = UIFont.systemFont(ofSize: 16.5, weight: .semibold)
+            cell.textLabel?.textColor = .black
+        }
+        
+        ///Setup button cell
+        ///(for permissions and support cell)
+        func setupButtonCell() {
             cell.accessoryType = .none
             cell.textLabel?.font = UIFont.systemFont(ofSize: 16.5, weight: .regular)
             cell.textLabel?.textColor = BasicProperties.color
+            cell.imageView?.image = nil
         }
         
+        
+        ///Setup cell imageView
+        let section = sections[indexPath.section]
+        if section != .permissions {
+            cell.imageView?.image = UIImage(systemName: presenter.setupImagesNames(section: indexPath.section, row: indexPath.row)!)
+            cell.imageView?.tintColor = presenter.setupImagesTintColors(section: indexPath.section, row: indexPath.row)
+        }
+        
+        ///Setup cell
+        switch section {
+        case .userAccaunt: setupBasicCell()
+        case .applicationInfo: setupBasicCell()
+        case .settings: setupBasicCell()
+        case .permissions: setupButtonCell()
+        }
+        
+        ///Setup basic cell
         cell.tintColor = BasicProperties.color
         cell.textLabel?.text = presenter.setupLabelsText(section: indexPath.section, row: indexPath.row)
-        cell.imageView?.image = UIImage(systemName: presenter.setupImagesNames(section: indexPath.section, row: indexPath.row)!)
-        cell.imageView?.tintColor = presenter.setupImagesTintColors(section: indexPath.section, row: indexPath.row)
         
         return cell
     }
@@ -55,7 +72,7 @@ extension MainProfileViewController: UITableViewDelegate, UITableViewDataSource 
         return presenter.setupSectionHeaders(section: section)
     }
     
-    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+    internal func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         return presenter.setupSectionFooters(section: section)
     }
     

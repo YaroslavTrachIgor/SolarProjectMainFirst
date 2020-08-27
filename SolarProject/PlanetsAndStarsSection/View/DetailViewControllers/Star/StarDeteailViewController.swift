@@ -12,6 +12,29 @@ import GoogleMobileAds
 import SPStorkController
 import SPFakeBar
 
+//MARK: Keys
+extension StarDeteailViewController {
+    public enum Keys: String {
+        
+        //MARK: NotficationNames
+        enum NotficationNames: String {
+            case imagesShowVCNotificationName = "ImagesShowVCNotificationName"
+            case themesShowVCNotificationName = "ThemesShowVCNotificationName"
+        }
+        
+        
+        //MARK: Segues
+        enum Segues: String {
+            case showImagesSegue = "ShowImagesSegue"
+            case showThemesSegue = "ShowThemesSegue"
+        }
+        
+        case starDetailMoreVC = "StarDetailMoreVC"
+    }
+}
+
+
+
 //MARK: - StarDeteailViewController main class
 final class StarDeteailViewController: BasicViewController {
     
@@ -21,7 +44,7 @@ final class StarDeteailViewController: BasicViewController {
     }
     
     
-    //MARK: - @IBOutlets
+    //MARK: @IBOutlets
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var contentBack: ContentBack!
     @IBOutlet weak var contentTextView: ContentTextView!
@@ -31,10 +54,10 @@ final class StarDeteailViewController: BasicViewController {
     @IBOutlet weak var themesGoImage: UIImageView!
     @IBOutlet weak var moreButton: UIButton!
     @IBOutlet weak var bunner: GADBannerView!
+    @IBOutlet weak var openInWikiButton: UIButton!
     
     
-    
-    //MARK: - Overrides
+    //MARK: Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,8 +68,8 @@ final class StarDeteailViewController: BasicViewController {
         addViewToAnalytics()
         
         ///Add observers
-        NotificationCenter.default.addObserver(self, selector: #selector(showImage(notification: )), name: Notification.Name(rawValue: "ImagesShowVCNotificationName"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(showThemes(notification: )), name: Notification.Name(rawValue: "ThemesShowVCNotificationName"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showImage(notification: )), name: Notification.Name(rawValue: Keys.NotficationNames.imagesShowVCNotificationName.rawValue), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showThemes(notification: )), name: Notification.Name(rawValue: Keys.NotficationNames.themesShowVCNotificationName.rawValue), object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -79,11 +102,12 @@ final class StarDeteailViewController: BasicViewController {
         setupAddBunner()
         setupMoreButton()
         setupThemesGoImage()
+        setupWikiButton()
     }
     
     @IBAction func more(sender: Any) {
         let transitonDelegate = SPStorkTransitioningDelegate()
-        let vc = storyboard?.instantiateViewController(identifier: "StarDetailMoreVC") as! StarDetailMoreVC
+        let vc = storyboard?.instantiateViewController(identifier: Keys.starDetailMoreVC.rawValue) as! StarDetailMoreVC
         
         ///Setup transitonDelegate
         transitonDelegate.customHeight = 195
@@ -95,6 +119,10 @@ final class StarDeteailViewController: BasicViewController {
         ///Present vc
         present(vc, animated: true)
     }
+    
+    @IBAction func openWikPage(_ sender: Any) {
+        showSafariVC(with: "https://en.wikipedia.org/wiki/Sun")
+    }
 }
 
 
@@ -102,11 +130,11 @@ final class StarDeteailViewController: BasicViewController {
 //MARK: - @objc
 extension StarDeteailViewController {
     @objc func showImage(notification: Notification.Name) {
-        performSegue(withIdentifier: "ShowImagesSegue", sender: self)
+        performSegue(withIdentifier: Keys.Segues.showImagesSegue.rawValue, sender: self)
     }
     
     @objc func showThemes(notification: Notification.Name) {
-        performSegue(withIdentifier: "ShowThemesSegue", sender: self)
+        performSegue(withIdentifier: Keys.Segues.showThemesSegue.rawValue, sender: self)
     }
 }
 
@@ -155,16 +183,16 @@ extension StarDeteailViewController {
 //MARK: - StarDeteailViewController Main Methods extnsion
 extension StarDeteailViewController {
     
-    //MARK: - Add view to analytics
+    //MARK: Add view to analytics
     fileprivate func addViewToAnalytics() {
         PersonalAnalyticsModel.shared.views[0] += 1
         defaults.set(PersonalAnalyticsModel.shared.views, forKey: "ViewsKey")
     }
     
     
-    //MARK: - Setup ViewDidAppeare Animation
+    //MARK: Setup ViewDidAppeare Animation
     fileprivate func setupViewDidAppeareAnimation() {
-        let views = [segmentedControl, contentBack, moreButton, themesGoImage]
+        let views = [openInWikiButton, segmentedControl, contentBack, moreButton, themesGoImage]
         UIView.animate(withDuration: 0.4) {
             for view in views {
                 view!.alpha = 1
@@ -173,7 +201,15 @@ extension StarDeteailViewController {
     }
     
     
-    //MARK: - Setup UI
+    //MARK: Setup UI
+    fileprivate func setupWikiButton() {
+        openInWikiButton.backgroundColor = .clear
+        openInWikiButton.setTitle("Open In Wikipedia", for: .normal)
+        openInWikiButton.setTitleColor(BasicProperties.color, for: .normal)
+        openInWikiButton.alpha = 0
+        openInWikiButton.tintColor = BasicProperties.color
+    }
+    
     fileprivate func setupAddBunner() {
         bunner.adUnitID = presenter.setupBasicAddUnitId()
         bunner.rootViewController = self
@@ -206,7 +242,8 @@ extension StarDeteailViewController {
     //MARK: Private
     private func setupThemesGoImage() {
         let config = UIImage.SymbolConfiguration(weight: .heavy)
-        let image = UIImage(systemName: "chevron.compact.up", withConfiguration: config)
+        let imageName = "chevron.compact.up"
+        let image = UIImage(systemName: imageName, withConfiguration: config)
         themesGoImage.image = image
         themesGoImage.tintColor = .tertiaryLabel
         themesGoImage.alpha = 0

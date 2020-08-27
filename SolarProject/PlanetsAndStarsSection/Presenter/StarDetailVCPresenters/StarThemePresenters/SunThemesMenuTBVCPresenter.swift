@@ -22,7 +22,7 @@ protocol SunThemesMenuTBVCPresenterProtocol {
 final class SunThemesMenuTBVCPresenter {
     
     //MARK: Content
-    private let titles = PlanetsMenuTableViewControllerModel.StarsContent.themesContentTitles
+    private let titles = MenuContentModel.StarsContent.themesContentTitles
 }
 
 
@@ -38,7 +38,7 @@ extension SunThemesMenuTBVCPresenter: SunThemesMenuTBVCPresenterProtocol {
     internal func setupPreviewContent(indexPath: IndexPath) -> String {
         
         ///Setup basic content
-        return PlanetsMenuTableViewControllerModel.StarsContent.themesContent[indexPath.row]
+        return MenuContentModel.StarsContent.themesContent[indexPath.row]
     }
     
     internal func setupNumberOfRowsInSection() -> Int {
@@ -46,6 +46,6 @@ extension SunThemesMenuTBVCPresenter: SunThemesMenuTBVCPresenterProtocol {
     }
     
     internal func setupStarThemeIndex(indexPath: IndexPath) {
-        PlanetsMenuTableViewControllerModel.StarsContent.starThemeIndex = indexPath.row
+        MenuContentModel.StarsContent.starThemeIndex = indexPath.row
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 //MARK: - PlanetsMenuTableViewControllerModel extension
-extension PlanetsMenuTableViewControllerModel {
+extension MenuContentModel {
     
     //MARK: MoreItemsContent struct
     public struct MoreItemsContent {

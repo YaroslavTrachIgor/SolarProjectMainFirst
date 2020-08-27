@@ -17,13 +17,13 @@ final class DeleteVC: UIViewController {
     //MARK: Private
     private let navBar = SPFakeBarView(style: .stork)
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
     //MARK: @IBOutlets
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     
     
     //MARK: Overrides
@@ -44,6 +44,7 @@ extension DeleteVC {
     @objc func dismissAction() {
         dismiss(animated: true, completion: nil)
     }
+    
     
     //MARK: Private
     private func setupButtons() {
@@ -70,7 +71,7 @@ extension DeleteVC {
     }
     
     private func setupNavBar() {
-        navBar.titleLabel.text = "DELETION REMINDER"
+        navBar.titleLabel.text = "Deletion Reminder"
         navBar.rightButton.setTitle("Cancel", for: .normal)
         navBar.rightButton.addTarget(self, action: #selector(self.dismissAction), for: .touchUpInside)
         navBar.rightButton.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .regular)
@@ -85,13 +86,13 @@ extension DeleteVC {
 extension DeleteVC {
     @IBAction func deleteReminder(_ sender: Any) {
         dismiss(animated: true, completion: {
-            NotificationCenter.default.post(name: Notification.Name(rawValue: "DeleteNotificationName"), object: nil)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: RemindersViewController.Keys.NotificationNames.deleteNotificationName.rawValue), object: nil)
         })
     }
     
     @IBAction func done(_ sender: Any) {
         dismiss(animated: true, completion: {
-            NotificationCenter.default.post(name: Notification.Name(rawValue: "DoneNotificationName"), object: nil)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: RemindersViewController.Keys.NotificationNames.doneNotificationName.rawValue), object: nil)
         })
     }
 }

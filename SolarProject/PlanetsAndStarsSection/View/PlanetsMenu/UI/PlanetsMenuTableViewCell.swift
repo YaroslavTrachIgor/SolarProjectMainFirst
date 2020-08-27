@@ -107,7 +107,7 @@ extension PlanetsMenuTableViewCell {
     }
     
     private func setupNotificationsOffAlert() {
-        FastAlert.showBasic(title: "Notifications disabled.", message: "If you want to enable notifications go to settings.", vc: rootVC!)
+        AlertManeger.presentAlert(title: "Notifications disabled.", message: "If you want to enable notifications go to settings.", vc: rootVC!)
     }
     
     private func setupNotificationAlert() {

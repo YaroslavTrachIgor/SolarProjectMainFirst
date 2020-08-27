@@ -9,10 +9,10 @@
 import Foundation
 import UIKit
 
-//MARK: - FastAlert Maneger main class
-public final class FastAlert {
+//MARK: - Fast Alert Maneger main class
+public final class AlertManeger {
     typealias Action = () -> Void
-    static func showBasic(title: String?, message: String?, vc: UIViewController) {
+    static func presentAlert(title: String?, message: String?, vc: UIViewController) {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alertVC.view.tintColor = BasicProperties.color

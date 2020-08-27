@@ -16,7 +16,7 @@
 		8463C8D3247FC9F20059A897 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8463C8D1247FC9F20059A897 /* LaunchScreen.storyboard */; };
 		8463C8DB247FCCC60059A897 /* PlanetsMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463C8DA247FCCC60059A897 /* PlanetsMenuTableViewController.swift */; };
 		8463C8DE247FD63E0059A897 /* Shadows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463C8DD247FD58C0059A897 /* Shadows.swift */; };
-		8463C8E32480193C0059A897 /* PlanetsMenuTableViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463C8E22480193B0059A897 /* PlanetsMenuTableViewControllerModel.swift */; };
+		8463C8E32480193C0059A897 /* MenuContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463C8E22480193B0059A897 /* MenuContentModel.swift */; };
 		8463C8E824801AE70059A897 /* PlanetDetailViewControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463C8E724801AE70059A897 /* PlanetDetailViewControllerPresenter.swift */; };
 		8463C8ED24801D190059A897 /* PlanetsMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463C8EC24801D190059A897 /* PlanetsMenuTableViewCell.swift */; };
 		8463C8EF24801D880059A897 /* PlanetsMenuTableViewControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463C8EE24801D880059A897 /* PlanetsMenuTableViewControllerPresenter.swift */; };
@@ -71,7 +71,7 @@
 		84C7179524897DE7003B02B3 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C7179424897DE5003B02B3 /* Device.swift */; };
 		84C7179724898126003B02B3 /* ValidCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C7179624898124003B02B3 /* ValidCheck.swift */; };
 		84F055AD24898F7F008B9D06 /* MainProfileViewControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F055AC24898F7F008B9D06 /* MainProfileViewControllerPresenter.swift */; };
-		84F055AF248A46F6008B9D06 /* FastAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F055AE248A46F6008B9D06 /* FastAlert.swift */; };
+		84F055AF248A46F6008B9D06 /* AlertManeger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F055AE248A46F6008B9D06 /* AlertManeger.swift */; };
 		84F055B3248C4665008B9D06 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F055B2248C4665008B9D06 /* UIImageView.swift */; };
 		84F055B5248C49B1008B9D06 /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F055B4248C49B1008B9D06 /* UIAlertController.swift */; };
 		84F055B7249023B2008B9D06 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F055B6249023B1008B9D06 /* UIViewController.swift */; };
@@ -100,6 +100,12 @@
 		C45B7E3824EA82090056604D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C45B7E3724EA82090056604D /* GoogleService-Info.plist */; };
 		C45B7E3A24EAD3C80056604D /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45B7E3924EAD3C80056604D /* UIColor.swift */; };
 		C45B7E3D24EB0D360056604D /* NewsTVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45B7E3C24EB0D360056604D /* NewsTVCPresenter.swift */; };
+		C45B7E3F24EEA2000056604D /* AppearenceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45B7E3E24EEA2000056604D /* AppearenceTableViewController.swift */; };
+		C45B7E4124EEB2580056604D /* AppearenceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45B7E4024EEB2580056604D /* AppearenceModel.swift */; };
+		C45B7E4324EF00B10056604D /* AppearancePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45B7E4224EF00B10056604D /* AppearancePresenter.swift */; };
+		C45B7E4524F569F40056604D /* SunImagesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45B7E4424F569F30056604D /* SunImagesPresenter.swift */; };
+		C45B7E4724F7E0710056604D /* FullPhotoImageSingletone.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45B7E4624F7E06F0056604D /* FullPhotoImageSingletone.swift */; };
+		C45B7E4924F7E0AF0056604D /* FullPhotoImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45B7E4824F7E0AF0056604D /* FullPhotoImageViewController.swift */; };
 		C460010824C5DF740082F631 /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C460010724C5DF740082F631 /* NewsTableViewController.swift */; };
 		C460AD3E24DBF999003162E0 /* NotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C460AD3D24DBF999003162E0 /* NotificationsTableViewController.swift */; };
 		C460AD4024DC0C55003162E0 /* NotificationsSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C460AD3F24DC0C55003162E0 /* NotificationsSettings.swift */; };
@@ -153,7 +159,7 @@
 		8463C8D4247FC9F20059A897 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8463C8DA247FCCC60059A897 /* PlanetsMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsMenuTableViewController.swift; sourceTree = "<group>"; };
 		8463C8DD247FD58C0059A897 /* Shadows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadows.swift; sourceTree = "<group>"; };
-		8463C8E22480193B0059A897 /* PlanetsMenuTableViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsMenuTableViewControllerModel.swift; sourceTree = "<group>"; };
+		8463C8E22480193B0059A897 /* MenuContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuContentModel.swift; sourceTree = "<group>"; };
 		8463C8E724801AE70059A897 /* PlanetDetailViewControllerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetDetailViewControllerPresenter.swift; sourceTree = "<group>"; };
 		8463C8EC24801D190059A897 /* PlanetsMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsMenuTableViewCell.swift; sourceTree = "<group>"; };
 		8463C8EE24801D880059A897 /* PlanetsMenuTableViewControllerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsMenuTableViewControllerPresenter.swift; sourceTree = "<group>"; };
@@ -210,7 +216,7 @@
 		84C7179424897DE5003B02B3 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		84C7179624898124003B02B3 /* ValidCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidCheck.swift; sourceTree = "<group>"; };
 		84F055AC24898F7F008B9D06 /* MainProfileViewControllerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProfileViewControllerPresenter.swift; sourceTree = "<group>"; };
-		84F055AE248A46F6008B9D06 /* FastAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FastAlert.swift; sourceTree = "<group>"; };
+		84F055AE248A46F6008B9D06 /* AlertManeger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertManeger.swift; sourceTree = "<group>"; };
 		84F055B2248C4665008B9D06 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		84F055B4248C49B1008B9D06 /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
 		84F055B6249023B1008B9D06 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
@@ -240,6 +246,12 @@
 		C45B7E3724EA82090056604D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C45B7E3924EAD3C80056604D /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		C45B7E3C24EB0D360056604D /* NewsTVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTVCPresenter.swift; sourceTree = "<group>"; };
+		C45B7E3E24EEA2000056604D /* AppearenceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearenceTableViewController.swift; sourceTree = "<group>"; };
+		C45B7E4024EEB2580056604D /* AppearenceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearenceModel.swift; sourceTree = "<group>"; };
+		C45B7E4224EF00B10056604D /* AppearancePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearancePresenter.swift; sourceTree = "<group>"; };
+		C45B7E4424F569F30056604D /* SunImagesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunImagesPresenter.swift; sourceTree = "<group>"; };
+		C45B7E4624F7E06F0056604D /* FullPhotoImageSingletone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullPhotoImageSingletone.swift; sourceTree = "<group>"; };
+		C45B7E4824F7E0AF0056604D /* FullPhotoImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullPhotoImageViewController.swift; sourceTree = "<group>"; };
 		C460010724C5DF740082F631 /* NewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
 		C460AD3D24DBF999003162E0 /* NotificationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewController.swift; sourceTree = "<group>"; };
 		C460AD3F24DC0C55003162E0 /* NotificationsSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsSettings.swift; sourceTree = "<group>"; };
@@ -337,9 +349,10 @@
 		8463C8DF2480190C0059A897 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8463C8E22480193B0059A897 /* PlanetsMenuTableViewControllerModel.swift */,
+				8463C8E22480193B0059A897 /* MenuContentModel.swift */,
 				84C7177B24831331003B02B3 /* StarsContent.swift */,
 				C440A25824D80FED007EC12B /* MoreItemsContent.swift */,
+				C45B7E4624F7E06F0056604D /* FullPhotoImageSingletone.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -435,7 +448,7 @@
 				84C717612482A79D003B02B3 /* BasicClasses */,
 				84C717602482A794003B02B3 /* Extensions */,
 				84C7175624819C90003B02B3 /* ActivityVCManeger.swift */,
-				84F055AE248A46F6008B9D06 /* FastAlert.swift */,
+				84F055AE248A46F6008B9D06 /* AlertManeger.swift */,
 			);
 			path = AppBasicUI;
 			sourceTree = "<group>";
@@ -481,6 +494,7 @@
 				848A683A24956CAB007F3E0F /* UI */,
 				848A683D24957A2F007F3E0F /* PlanetsImagesCollectionViewController.swift */,
 				848EC0D924A9F2B400EF7D62 /* PlanetImageViewController.swift */,
+				C45B7E4824F7E0AF0056604D /* FullPhotoImageViewController.swift */,
 			);
 			path = PlanetsImagesControllers;
 			sourceTree = "<group>";
@@ -648,6 +662,7 @@
 			children = (
 				84C71775248311F1003B02B3 /* StarThemePresenters */,
 				84C7175424819416003B02B3 /* StarDetailVCPresenter.swift */,
+				C45B7E4424F569F30056604D /* SunImagesPresenter.swift */,
 			);
 			path = StarDetailVCPresenters;
 			sourceTree = "<group>";
@@ -718,6 +733,7 @@
 				848A68442497B79F007F3E0F /* PersonalAnalyticsTableViewController.swift */,
 				848EC0CF24A7FDD400EF7D62 /* AboutAppVC.swift */,
 				C460AD3D24DBF999003162E0 /* NotificationsTableViewController.swift */,
+				C45B7E3E24EEA2000056604D /* AppearenceTableViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -728,6 +744,7 @@
 				848EC0D124A7FF2700EF7D62 /* AboutAppVCModel.swift */,
 				848EC0D324A7FF5000EF7D62 /* PersonalAnalyticsModel.swift */,
 				C460AD3F24DC0C55003162E0 /* NotificationsSettings.swift */,
+				C45B7E4024EEB2580056604D /* AppearenceModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -737,6 +754,7 @@
 			children = (
 				84F055AC24898F7F008B9D06 /* MainProfileViewControllerPresenter.swift */,
 				C497CA5924ACC20D009B90F3 /* PersonalAnalyticsTableViewControllerPresenter.swift */,
+				C45B7E4224EF00B10056604D /* AppearancePresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -1072,21 +1090,25 @@
 				84F055B7249023B2008B9D06 /* UIViewController.swift in Sources */,
 				84C71781248519F1003B02B3 /* LocalizedDate.swift in Sources */,
 				84C7175524819416003B02B3 /* StarDetailVCPresenter.swift in Sources */,
+				C45B7E4724F7E0710056604D /* FullPhotoImageSingletone.swift in Sources */,
 				C497CA6224AE847D009B90F3 /* RemindersTableViewCell.swift in Sources */,
 				C457F91724CF7538002C69A7 /* RemindersVCIBActions.swift in Sources */,
-				8463C8E32480193C0059A897 /* PlanetsMenuTableViewControllerModel.swift in Sources */,
+				8463C8E32480193C0059A897 /* MenuContentModel.swift in Sources */,
 				C457F91124CF63DC002C69A7 /* AccountVCGIDSignInDelegateExtension.swift in Sources */,
 				84C717712482F041003B02B3 /* StarThemeDeteailViewControllerPresenter.swift in Sources */,
 				8463C8CB247FC9EC0059A897 /* PlanetDetailViewController.swift in Sources */,
 				8463C8DE247FD63E0059A897 /* Shadows.swift in Sources */,
+				C45B7E4324EF00B10056604D /* AppearancePresenter.swift in Sources */,
 				84C7177C24831331003B02B3 /* StarsContent.swift in Sources */,
 				84C7174F24818FF6003B02B3 /* StarDeteailViewController.swift in Sources */,
 				C460AD4024DC0C55003162E0 /* NotificationsSettings.swift in Sources */,
 				848EC0D024A7FDD400EF7D62 /* AboutAppVC.swift in Sources */,
+				C45B7E4524F569F40056604D /* SunImagesPresenter.swift in Sources */,
 				C4FFDA7124E1FF5A00C95E0D /* ContentTextView.swift in Sources */,
 				8463C8C7247FC9EC0059A897 /* AppDelegate.swift in Sources */,
 				84F055C42490FCEA008B9D06 /* MFMessageComposeViewController.swift in Sources */,
 				8463C94E248075540059A897 /* BasicFonts.swift in Sources */,
+				C45B7E4124EEB2580056604D /* AppearenceModel.swift in Sources */,
 				C457F90824CF5FE1002C69A7 /* RemindersSearchBarDelegateExtension.swift in Sources */,
 				848A68302492F3DA007F3E0F /* ImagesCollectionViewCell.swift in Sources */,
 				C49E5FEC24AF58CC00FDD522 /* UINavigationBar.swift in Sources */,
@@ -1118,9 +1140,10 @@
 				C457F92124D05902002C69A7 /* NewsModel.swift in Sources */,
 				8463C8C9247FC9EC0059A897 /* SceneDelegate.swift in Sources */,
 				C457F92C24D0D7A9002C69A7 /* PlanetsImagesCollectionViewControllerPresenter.swift in Sources */,
+				C45B7E3F24EEA2000056604D /* AppearenceTableViewController.swift in Sources */,
 				C457F90B24CF6050002C69A7 /* RemindersTableViewProtocolsExtension.swift in Sources */,
 				84C7179724898126003B02B3 /* ValidCheck.swift in Sources */,
-				84F055AF248A46F6008B9D06 /* FastAlert.swift in Sources */,
+				84F055AF248A46F6008B9D06 /* AlertManeger.swift in Sources */,
 				848A687A249C0DA1007F3E0F /* GradientExtensions.swift in Sources */,
 				84C7175924819E5A003B02B3 /* UIApplictionExtensions.swift in Sources */,
 				8463C943248067A10059A897 /* NotificationsManeger.swift in Sources */,
@@ -1144,6 +1167,7 @@
 				84C7176F2482EB4D003B02B3 /* StarThemeDeteailViewController.swift in Sources */,
 				C457F92A24D05D10002C69A7 /* NewsTVCSearchResultsUpdatingExtension.swift in Sources */,
 				C440A25524D30068007EC12B /* SunThemesMenuTableViewControllerSearchBarDelegate.swift in Sources */,
+				C45B7E4924F7E0AF0056604D /* FullPhotoImageViewController.swift in Sources */,
 				848EC0D224A7FF2700EF7D62 /* AboutAppVCModel.swift in Sources */,
 				848A687B249C0DA1007F3E0F /* GradientView.swift in Sources */,
 				84C7175F2482A789003B02B3 /* BasicFontChangeSlider.swift in Sources */,

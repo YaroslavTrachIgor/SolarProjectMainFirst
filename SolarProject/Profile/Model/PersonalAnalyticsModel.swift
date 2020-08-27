@@ -47,16 +47,16 @@ final class PersonalAnalyticsModel {
     
     var chartsItems: [PieChartDataEntry] {
         return [
-            PieChartDataEntry(value: Double(views[0]), label: PlanetsMenuTableViewControllerModel.StarsContent.title),
-            PieChartDataEntry(value: Double(views[1]), label: PlanetsMenuTableViewControllerModel.planetsTitles[0]),
-            PieChartDataEntry(value: Double(views[2]), label: PlanetsMenuTableViewControllerModel.planetsTitles[1]),
-            PieChartDataEntry(value: Double(views[3]), label: PlanetsMenuTableViewControllerModel.planetsTitles[2]),
-            PieChartDataEntry(value: Double(views[4]), label: PlanetsMenuTableViewControllerModel.planetsTitles[3]),
-            PieChartDataEntry(value: Double(views[5]), label: PlanetsMenuTableViewControllerModel.planetsTitles[4]),
-            PieChartDataEntry(value: Double(views[6]), label: PlanetsMenuTableViewControllerModel.planetsTitles[5]),
-            PieChartDataEntry(value: Double(views[7]), label: PlanetsMenuTableViewControllerModel.planetsTitles[6]),
-            PieChartDataEntry(value: Double(views[8]), label: PlanetsMenuTableViewControllerModel.planetsTitles[7]),
-            PieChartDataEntry(value: Double(views[9]), label: PlanetsMenuTableViewControllerModel.planetsTitles[8])
+            PieChartDataEntry(value: Double(views[0]), label: MenuContentModel.StarsContent.title),
+            PieChartDataEntry(value: Double(views[1]), label: MenuContentModel.planetsTitles[0]),
+            PieChartDataEntry(value: Double(views[2]), label: MenuContentModel.planetsTitles[1]),
+            PieChartDataEntry(value: Double(views[3]), label: MenuContentModel.planetsTitles[2]),
+            PieChartDataEntry(value: Double(views[4]), label: MenuContentModel.planetsTitles[3]),
+            PieChartDataEntry(value: Double(views[5]), label: MenuContentModel.planetsTitles[4]),
+            PieChartDataEntry(value: Double(views[6]), label: MenuContentModel.planetsTitles[5]),
+            PieChartDataEntry(value: Double(views[7]), label: MenuContentModel.planetsTitles[6]),
+            PieChartDataEntry(value: Double(views[8]), label: MenuContentModel.planetsTitles[7]),
+            PieChartDataEntry(value: Double(views[9]), label: MenuContentModel.planetsTitles[8])
         ]
     }
     

@@ -25,11 +25,11 @@ final class PlanetsImagesCollectionViewControllerPresenter {}
 //MARK: PlanetsImagesCollectionViewControllerPresenterProtocol extension
 extension PlanetsImagesCollectionViewControllerPresenter: PlanetsImagesCollectionViewControllerPresenterProtocol {
     func setupImagesURLs(row: Int) -> String {
-        return PlanetsMenuTableViewControllerModel.mainPlanetsImagesURLArray[PlanetsMenuTableViewControllerModel.index][row]
+        return MenuContentModel.mainPlanetsImagesURLArray[MenuContentModel.index][row]
     }
     
     func setupNumberOfItemsInSection() -> Int {
-        return PlanetsMenuTableViewControllerModel.mainPlanetsImagesURLArray[PlanetsMenuTableViewControllerModel.index].count
+        return MenuContentModel.mainPlanetsImagesURLArray[MenuContentModel.index].count
     }
     
     func setupNumberOfSections() -> Int {

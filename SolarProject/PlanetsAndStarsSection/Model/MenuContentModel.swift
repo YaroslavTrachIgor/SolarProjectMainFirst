@@ -9,7 +9,7 @@
 import Foundation
 
 //MARK: - PlanetsMenuTableViewControllerModel
-struct PlanetsMenuTableViewControllerModel {
+public struct MenuContentModel {
     
     //MARK: - ImagesURLs
     static let images =

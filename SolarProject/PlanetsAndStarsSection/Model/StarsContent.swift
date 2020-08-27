@@ -9,7 +9,7 @@
 import Foundation
 
 //MARK: - PlanetsMenuTableViewControllerModel extension
-extension PlanetsMenuTableViewControllerModel {
+extension MenuContentModel {
     
     //MARK: - Stars Content
     struct StarsContent {

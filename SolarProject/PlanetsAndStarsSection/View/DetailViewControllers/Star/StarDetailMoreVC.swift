@@ -53,7 +53,8 @@ extension StarDetailMoreVC {
     private func setupThemeButton() {
         let tintColor: UIColor = .white
         let config = UIImage.SymbolConfiguration(weight: .semibold)
-        let image = UIImage(systemName: "paperclip", withConfiguration: config)
+        let imageName = "paperclip"
+        let image = UIImage(systemName: imageName, withConfiguration: config)
         let font = UIFont.systemFont(ofSize: 15, weight: .semibold)
         themesButton.imageView?.image = image
         themesButton.setTitleColor(tintColor, for: .normal)
@@ -68,7 +69,8 @@ extension StarDetailMoreVC {
     
     private func setupImageButton() {
         let config = UIImage.SymbolConfiguration(weight: .semibold)
-        let image = UIImage(systemName: "doc.plaintext", withConfiguration: config)
+        let imageName = "doc.plaintext"
+        let image = UIImage(systemName: imageName, withConfiguration: config)
         let font = UIFont.systemFont(ofSize: 15, weight: .semibold)
         imagesButton.imageView?.image = image
         imagesButton.setTitleColor(.systemIndigo, for: .normal)
@@ -103,14 +105,14 @@ extension StarDetailMoreVC {
 extension StarDetailMoreVC {
     @IBAction func showImagesVC(_ sender: Any) {
         dismiss(animated: true, completion: {
-            let notificationName = Notification.Name(rawValue: "ImagesShowVCNotificationName")
+            let notificationName = Notification.Name(rawValue: StarDeteailViewController.Keys.Segues.showImagesSegue.rawValue)
             NotificationCenter.default.post(name:notificationName, object: nil)
         })
     }
     
     @IBAction func showThemesVC(_ sender: Any) {
         dismiss(animated: true, completion: {
-            let notificationName = Notification.Name(rawValue: "ThemesShowVCNotificationName")
+            let notificationName = Notification.Name(rawValue: StarDeteailViewController.Keys.Segues.showThemesSegue.rawValue)
             NotificationCenter.default.post(name: notificationName, object: nil)
         })
     }

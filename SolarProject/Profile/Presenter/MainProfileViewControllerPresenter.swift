@@ -10,31 +10,27 @@ import Foundation
 import UIKit
 
 //MARK: - MainProfileViewControllerPresenterDefaultContentProtocol protocol
-protocol MainProfileViewControllerPresenterDefaultContentProtocol {
+public protocol MainProfileViewControllerPresenterDefaultContentProtocol {
     func setupProfileImage() -> UIImage?
     func setupEmail() -> String
     func setupFullName() -> String
-    func setupPhone() -> String
 }
 
 
 
 //MARK: - MainProfileViewControllerPresenterSegueContentProtocol protocol
-protocol MainProfileViewControllerPresenterSegueContentProtocol {
-    func setupSegueFullName(segue: UIStoryboardSegue) -> String
-    func setupSegueEmail(segue: UIStoryboardSegue) -> String
-    func setupSeguePhone(segue: UIStoryboardSegue) -> String
+public protocol MainProfileViewControllerPresenterSegueContentProtocol {
     func setupSegueImage(segue: UIStoryboardSegue) -> UIImage
 }
 
 
 
 //MARK: - MainProfileViewControllerPresenterTableViewMethodsSetupProtocol protocol
-protocol MainProfileViewControllerPresenterTableViewMethodsSetupProtocol {
+public protocol MainProfileViewControllerPresenterTableViewMethodsSetupProtocol {
     func setupSectionHeaders(section: Int) -> String?
     func setupNumberOfRowsInSection() -> Int
     func setupNumberOfSections(section: Int) -> Int
-    func setupImagesTintColors(section: Int, row: Int) -> UIColor
+    func setupImagesTintColors(section: Int, row: Int) -> UIColor?
     func setupImagesNames(section: Int, row: Int) -> String?
     func setupLabelsText(section: Int, row: Int) -> String
     func setupSectionFooters(section: Int) -> String?
@@ -43,7 +39,7 @@ protocol MainProfileViewControllerPresenterTableViewMethodsSetupProtocol {
 
 
 //MARK: - MainProfileViewControllerPresenterProtocol protocol
-protocol MainProfileViewControllerPresenterProtocol: MainProfileViewControllerPresenterSegueContentProtocol, MainProfileViewControllerPresenterDefaultContentProtocol, MainProfileViewControllerPresenterTableViewMethodsSetupProtocol {}
+public protocol MainProfileViewControllerPresenterProtocol: MainProfileViewControllerPresenterSegueContentProtocol, MainProfileViewControllerPresenterDefaultContentProtocol, MainProfileViewControllerPresenterTableViewMethodsSetupProtocol {}
 
 
 
@@ -62,26 +58,7 @@ final class MainProfileViewControllerPresenter {
 extension MainProfileViewControllerPresenter: MainProfileViewControllerPresenterProtocol {
     
     //MARK: MainProfileViewControllerPresenterSegueContentProtocol functions
-    func setupSegueFullName(segue: UIStoryboardSegue) -> String {
-        let destVC = segue.destination as! AccountVC
-        let firstName = destVC.defaults.value(forKey: AccountVC.Keys.firstNameKey) as? String ?? ""
-        let familyName = destVC.defaults.value(forKey: AccountVC.Keys.familyNameKey) as? String ?? ""
-        return firstName + " " + familyName
-    }
-    
-    func setupSegueEmail(segue: UIStoryboardSegue) -> String {
-        let destVC = segue.destination as! AccountVC
-        let email = destVC.defaults.value(forKey: AccountVC.Keys.emailKey) as? String ?? ":"
-        return email
-    }
-    
-    func setupSeguePhone(segue: UIStoryboardSegue) -> String {
-        let destVC = segue.destination as! AccountVC
-        let phone = destVC.defaults.value(forKey: AccountVC.Keys.phoneKey) as? String ?? ""
-        return phone
-    }
-    
-    func setupSegueImage(segue: UIStoryboardSegue) -> UIImage {
+    internal func setupSegueImage(segue: UIStoryboardSegue) -> UIImage {
         let destVC = segue.destination as! AccountVC
         let data = destVC.defaults.object(forKey: AccountVC.Keys.userPhotoKey) as! NSData?
         if data != nil {
@@ -93,42 +70,28 @@ extension MainProfileViewControllerPresenter: MainProfileViewControllerPresenter
     
     
     //MARK: MainProfileViewControllerPresenterDefaultContentProtocol functions
-    func setupFullName() -> String {
-        return defaults.value(forKey: MainProfileViewController.Keys.fullNameKay.rawValue) as? String ?? ""
+    internal func setupFullName() -> String {
+        let value = defaults.value(forKey: MainProfileViewController.Keys.DefaultsKeys.fullNameKay.rawValue) as? String ?? "Profile"
+        if value == "" || value == " " { return "Profile" } else { return "\(value)" }
     }
     
-    func setupProfileImage() -> UIImage? {
+    internal func setupProfileImage() -> UIImage? {
         let data = UserDefaults.standard.object(forKey: AccountVC.Keys.userPhotoKey) as! NSData?
-        if data != nil {
-            return UIImage(data: (data!) as Data)
-        } else {
-            return UIImage(systemName: "person.crop.circle")
-        }
+        if data != nil { return UIImage(data: (data!) as Data) } else { return UIImage(systemName: "person.crop.circle") }
     }
     
-    func setupEmail() -> String {
-        if defaults.value(forKey: MainProfileViewController.Keys.emailKey.rawValue) == nil {
-            return "Email:"
-        } else {
-            return "\(defaults.value(forKey: MainProfileViewController.Keys.emailKey.rawValue) ?? "")"
-        }
-    }
-    
-    func setupPhone() -> String {
-        if defaults.value(forKey: MainProfileViewController.Keys.phoneKey.rawValue) == nil {
-            return "Phone:"
-        } else {
-            return "\(defaults.value(forKey: MainProfileViewController.Keys.phoneKey.rawValue) ?? "")"
-        }
+    internal func setupEmail() -> String {
+        let value = defaults.value(forKey: MainProfileViewController.Keys.DefaultsKeys.emailKey.rawValue) as? String ?? "Profile Account"
+        if value == "" || value == " " { return "Profile Account" } else { return "\(value)" }
     }
     
     
     //MARK: MainProfileViewControllerPresenterTableViewMethodsSetupProtocol functions
-    func setupSectionFooters(section: Int) -> String? {
+    internal func setupSectionFooters(section: Int) -> String? {
         let section = sections[section]
         switch section {
         case .userAccaunt:
-            return nil
+            return "In this section you can view personal information and analytics about yourself as well as fill out personal information about yourself."
         case .applicationInfo:
             return "In this section, you can read about the application and its main functions."
         case .settings:
@@ -138,7 +101,7 @@ extension MainProfileViewControllerPresenter: MainProfileViewControllerPresenter
         }
     }
     
-    func setupSectionHeaders(section: Int) -> String? {
+    internal func setupSectionHeaders(section: Int) -> String? {
         let section = sections[section]
         switch section {
         case .userAccaunt:
@@ -152,11 +115,11 @@ extension MainProfileViewControllerPresenter: MainProfileViewControllerPresenter
         }
     }
     
-    func setupNumberOfRowsInSection() -> Int {
+    internal func setupNumberOfRowsInSection() -> Int {
         return sections.count
     }
     
-    func setupNumberOfSections(section: Int) -> Int {
+    internal func setupNumberOfSections(section: Int) -> Int {
         let section = sections[section]
         switch section {
         case .userAccaunt:
@@ -164,31 +127,35 @@ extension MainProfileViewControllerPresenter: MainProfileViewControllerPresenter
         case .applicationInfo:
             return 1
         case .settings:
-            return 1
+            return 2
         case .permissions:
-            return 1
+            return 2
         }
     }
     
-    func setupImagesTintColors(section: Int, row: Int) -> UIColor {
+    internal func setupImagesTintColors(section: Int, row: Int) -> UIColor? {
         let section = sections[section]
         switch section {
         case .userAccaunt:
             if row == 0 {
-                return .red
+                return #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)
             } else {
-                return #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+                return #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
             }
         case .applicationInfo:
             return BasicProperties.color
         case .settings:
-            return #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1)
+            if row == 0 {
+                return #colorLiteral(red: 0.8159197061, green: 0.1416606569, blue: 0.1822148324, alpha: 1)
+            } else {
+                return #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+            }
         case .permissions:
-            return #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+            return nil
         }
     }
     
-    func setupImagesNames(section: Int, row: Int) -> String? {
+    internal func setupImagesNames(section: Int, row: Int) -> String? {
         let section = sections[section]
         switch section {
         case .userAccaunt:
@@ -200,13 +167,17 @@ extension MainProfileViewControllerPresenter: MainProfileViewControllerPresenter
         case .applicationInfo:
             return "info.circle.fill"
         case .settings:
-            return "text.bubble.fill"
+            if row == 0 {
+                return "text.bubble.fill"
+            } else {
+                return "paintpalette.fill"
+            }
         case .permissions:
-            return ""
+            return nil
         }
     }
     
-    func setupLabelsText(section: Int, row: Int) -> String {
+    internal func setupLabelsText(section: Int, row: Int) -> String {
         let section = sections[section]
         switch section {
         case .userAccaunt:
@@ -218,9 +189,17 @@ extension MainProfileViewControllerPresenter: MainProfileViewControllerPresenter
         case .applicationInfo:
             return "Application Info"
         case .settings:
-            return "Articles Notifications"
+            if row == 0 {
+                return "Articles Notifications"
+            } else {
+                return "Appearance"
+            }
         case .permissions:
-            return "Permissions"
+            if row == 0 {
+                return "Update Permissions"
+            } else {
+                return "Support"
+            }
         }
     }
 }

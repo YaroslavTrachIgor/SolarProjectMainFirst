@@ -25,13 +25,13 @@ protocol PlanetDetailViewControllerPresenterContentSetupProtocol {
 final class PlanetDetailViewControllerPresenter {
     
     //MARK: Index(from Model)
-    let index = PlanetsMenuTableViewControllerModel.index
+    let index = MenuContentModel.index
     
     
     //MARK: Content(from Model)
-    let titles = PlanetsMenuTableViewControllerModel.planetsTitles
-    let mainContent = PlanetsMenuTableViewControllerModel.MainContent.content
-    let previewContent = PlanetsMenuTableViewControllerModel.PreviewContent.planetsPreviewContent
+    let titles = MenuContentModel.planetsTitles
+    let mainContent = MenuContentModel.MainContent.content
+    let previewContent = MenuContentModel.PreviewContent.planetsPreviewContent
 }
 
 
@@ -90,13 +90,13 @@ extension PlanetDetailViewControllerPresenter: PlanetDetailViewControllerPresent
     public func addViewToAnalytics() {
         
         ///I use  "index + 1"  beacouse index 0 is Sun index
-        PersonalAnalyticsModel.shared.views[PlanetsMenuTableViewControllerModel.index + 1] += 1
+        PersonalAnalyticsModel.shared.views[MenuContentModel.index + 1] += 1
         
         ///Save array
         defaults.set(PersonalAnalyticsModel.shared.views, forKey: "ViewsKey")
     }
     
     public func setupBasicAdUnitId() -> String {
-        return PlanetsMenuTableViewControllerModel.basicPlanetsDetailadUnitID
+        return MenuContentModel.basicPlanetsDetailadUnitID
     }
 }

@@ -11,10 +11,11 @@ import UIKit
 import SPAlert
 
 //MARK: - PlanetImageViewController main class
-final class PlanetImageViewController: UIViewController {
+final class PlanetImageViewController: BasicViewController {
     
     //MARK: Public
     public var image: UIImage?
+    
     
     //MARK: @IBOutlets
     @IBOutlet weak var mainImageView: UIImageView!
@@ -26,6 +27,14 @@ final class PlanetImageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        ///Setup UI
+        setupBasicViewControllerUI()
+        registerForPreviewing(with: self, sourceView: view)
+    }
+    
+    
+    //MARK: BasicViewController protocol
+    internal func setupBasicViewControllerUI() {
         setupImageViewImage()
         setupShareButton()
         setupDismissButton()
@@ -59,26 +68,49 @@ extension PlanetImageViewController {
 
 //MARK: - Main methods
 private extension PlanetImageViewController {
-    private func setupImageViewImage() {
+    func setupImageViewImage() {
         mainImageView.image = image
     }
     
-    private func setupDismissButton() {
+    func setupDismissButton() {
         let config = UIImage.SymbolConfiguration(weight: .semibold)
         let image = UIImage(systemName: "multiply", withConfiguration: config)
+        let cornerRadius = dismissButton.frame.height / 2
         dismissButton.setImage(image, for: .normal)
-        dismissButton.layer.cornerRadius = dismissButton.frame.height / 2
+        dismissButton.layer.cornerRadius = cornerRadius
     }
     
-    private func setupShareButton() {
+    func setupShareButton() {
         let config = UIImage.SymbolConfiguration(weight: .medium)
         let image = UIImage(systemName: "square.and.arrow.up", withConfiguration: config)
+        let font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        let cornerRadius = BasicProperties.cornerRadius
+        let tintColor = BasicProperties.color
+        let title = "  Share Image"
         shareButton.setImage(image, for: .normal)
-        shareButton.imageView?.tintColor = BasicProperties.color
+        shareButton.imageView?.tintColor = tintColor
         shareButton.backgroundColor = #colorLiteral(red: 0.1118186724, green: 0.1118186724, blue: 0.1118186724, alpha: 1)
-        shareButton.layer.cornerRadius = BasicProperties.cornerRadius
-        shareButton.setTitleColor(BasicProperties.color, for: .normal)
-        shareButton.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
-        shareButton.setTitle("  Share Image", for: .normal)
+        shareButton.layer.cornerRadius = cornerRadius
+        shareButton.setTitleColor(tintColor, for: .normal)
+        shareButton.titleLabel?.font = font
+        shareButton.setTitle(title, for: .normal)
+    }
+}
+
+
+
+//MARK: - UIViewControllerPreviewingDelegate extension
+extension PlanetImageViewController: UIViewControllerPreviewingDelegate {
+    internal func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        let vc = FullPhotoImageViewController()
+        let size = CGSize(width: view.frame.width * 0.8, height: view.frame.height * 0.8)
+        vc.preferredContentSize = size
+        FullPhotoImageSingletone.shared.image = mainImageView.image!
+        previewingContext.sourceRect = mainImageView.frame
+        return vc
+    }
+    
+    internal func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        show(viewControllerToCommit, sender: self)
     }
 }

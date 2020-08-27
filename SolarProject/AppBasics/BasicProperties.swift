@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-//MARK: Basic Properties
-struct BasicProperties {
+//MARK: - Basic Properties struct
+public struct BasicProperties {
     
     //MARK: Basic cornerRadius
     ///CGFloat
@@ -18,5 +18,5 @@ struct BasicProperties {
     
     //MARK: Basic color
     ///UIColor
-    static var color: UIColor = .systemIndigo
+    static var color: UIColor = defaults.object(forKey: "BasicPropertiesColorKey") as? UIColor ?? .systemIndigo
 }

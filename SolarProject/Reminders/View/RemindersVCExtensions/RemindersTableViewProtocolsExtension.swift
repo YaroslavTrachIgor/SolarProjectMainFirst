@@ -13,21 +13,19 @@ import SPStorkController
 //MARK: - UITableViewDelegate, UITableViewDataSource extension
 extension RemindersViewController: UITableViewDelegate, UITableViewDataSource {
     internal func numberOfSections(in tableView: UITableView) -> Int {
-        
-        ///number Of Sections
         return sections.count
     }
     
     internal func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-        ///Set header title
-        return presenter.setupHeaders(sections: sections, section: section)
+        return presenter.setupHeaders(section: section)
+    }
+    
+    internal func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        return presenter.setupFooters(section: section)
     }
     
     internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        ///Setup number Of Rows In Section
-        return presenter.setupNumperOfRows(sections: sections, isSearching: isSearching, searchedArticle: searchedArticle, section: section)
+        return presenter.setupNumperOfRows(isSearching: isSearching, searchedArticle: searchedArticle, section: section)
     }
     
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -42,8 +40,6 @@ extension RemindersViewController: UITableViewDelegate, UITableViewDataSource {
         setupSubtitleLabel(subtitle: subtitle)
         setupTitleLabel(title: title)
         setupBackImageView(backImageView: cell.backImageView, section: indexPath.section)
-        
-        ///Setup cell
         cell.backgroundColor = .clear
         
         return cell
@@ -54,6 +50,7 @@ extension RemindersViewController: UITableViewDelegate, UITableViewDataSource {
             let section = sections[indexPath.section]
             switch section {
             case .reminders:
+                
                 ///Set deleted indexes
                 deletedIndex = indexPath.row
                 deletedIndexPath = indexPath
@@ -120,11 +117,7 @@ extension RemindersViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     internal func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        
-        ///Setup done action
         let share = shareAction(at: indexPath, for: self)
-        
-        ///Setup all swipe actions
         return UISwipeActionsConfiguration(actions: [share])
     }
 }

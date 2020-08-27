@@ -35,6 +35,8 @@ final class SupportViewController: BasicViewController {
     
     //MARK: BasicViewController method
     internal func setupBasicViewControllerUI() {
+        
+        ///Setup Contrels
         setupContactButton()
         setupContactWithMessagesButton()
         setupNavConroller()

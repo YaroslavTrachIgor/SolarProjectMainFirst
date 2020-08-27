@@ -19,7 +19,7 @@ protocol StarThemeDeteailViewControllerPresenterProtocol {
 
 //MARK: - StarThemeDeteailViewControllerPresenter main class
 final class StarThemeDeteailViewControllerPresenter {
-    private let index = PlanetsMenuTableViewControllerModel.StarsContent.starThemeIndex
+    private let index = MenuContentModel.StarsContent.starThemeIndex
 }
 
 
@@ -27,10 +27,10 @@ extension StarThemeDeteailViewControllerPresenter: StarThemeDeteailViewControlle
     
     //MARK: Setup Content
     internal func setupTitleContent() -> String {
-        return PlanetsMenuTableViewControllerModel.StarsContent.themesContentTitles[index]
+        return MenuContentModel.StarsContent.themesContentTitles[index]
     }
     
     internal func setupTextViewContent() -> String {
-        return PlanetsMenuTableViewControllerModel.StarsContent.themesContent[index]
+        return MenuContentModel.StarsContent.themesContent[index]
     }
 }

@@ -10,10 +10,11 @@ import Foundation
 
 //MARK: - RemindersViewControllerPresenterProtocol protocol
 protocol RemindersViewControllerPresenterProtocol {
-    func setupNumperOfRows(sections: [RemindersViewController.RemindersMenuSectionType], isSearching: Bool, searchedArticle: [String], section: Int) -> Int
-    func setupHeaders(sections: [RemindersViewController.RemindersMenuSectionType], section: Int) -> String
-    func setupRemindersContent(sections: [RemindersViewController.RemindersMenuSectionType], row: Int, section: Int) -> String
-    func setupRemindersDatesContent(sections: [RemindersViewController.RemindersMenuSectionType], row: Int, section: Int) -> String
+    func setupNumperOfRows(isSearching: Bool, searchedArticle: [String], section: Int) -> Int
+    func setupHeaders(section: Int) -> String?
+    func setupFooters(section: Int) -> String?
+    func setupRemindersContent(row: Int, section: Int) -> String
+    func setupRemindersDatesContent(row: Int, section: Int) -> String
     func setupSavedRemindersArrays(remindersSaveKey: String, remindersDatesSaveKey: String, remindersCompletedDatesSaveKey: String, remindersCompletedSaveKey: String)
     func inhertRow(method reloadTable: () -> Void, text: String?)
     func shareContent(at indexPath: IndexPath) -> String
@@ -23,7 +24,13 @@ protocol RemindersViewControllerPresenterProtocol {
 
 
 //MARK: - RemindersViewControllerPresenter main class
-final class RemindersViewControllerPresenter {}
+final class RemindersViewControllerPresenter {
+    var sections: [RemindersViewController.RemindersMenuSectionType]
+    
+    init(sections: [RemindersViewController.RemindersMenuSectionType]) {
+        self.sections = sections
+    }
+}
 
 
 
@@ -43,7 +50,7 @@ extension RemindersViewController {
 extension RemindersViewControllerPresenter: RemindersViewControllerPresenterProtocol {
     
     //MARK: Internal
-    internal func setupNumperOfRows(sections: [RemindersViewController.RemindersMenuSectionType], isSearching: Bool, searchedArticle: [String], section: Int) -> Int {
+    internal func setupNumperOfRows(isSearching: Bool, searchedArticle: [String], section: Int) -> Int {
         if isSearching {
             return searchedArticle.count
         } else {
@@ -57,7 +64,7 @@ extension RemindersViewControllerPresenter: RemindersViewControllerPresenterProt
         }
     }
     
-    internal func setupHeaders(sections: [RemindersViewController.RemindersMenuSectionType], section: Int) -> String {
+    internal func setupHeaders(section: Int) -> String? {
         let section = sections[section]
         switch section {
         case .reminders:
@@ -67,7 +74,17 @@ extension RemindersViewControllerPresenter: RemindersViewControllerPresenterProt
         }
     }
     
-    internal func setupRemindersContent(sections: [RemindersViewController.RemindersMenuSectionType], row: Int, section: Int) -> String {
+    internal func setupFooters(section: Int) -> String? {
+        let section = sections[section]
+        switch section {
+        case .reminders:
+            return nil
+        case .completed:
+            return "If you want to mark a reminder as done, then you must first swipe the reminder to the left, click on the Delete button, and then on the Done button"
+        }
+    }
+    
+    internal func setupRemindersContent(row: Int, section: Int) -> String {
         let section = sections[section]
         switch section {
         case .reminders:
@@ -77,7 +94,7 @@ extension RemindersViewControllerPresenter: RemindersViewControllerPresenterProt
         }
     }
     
-    internal func setupRemindersDatesContent(sections: [RemindersViewController.RemindersMenuSectionType], row: Int, section: Int) -> String {
+    internal func setupRemindersDatesContent(row: Int, section: Int) -> String {
         let section = sections[section]
         switch section {
         case .reminders:

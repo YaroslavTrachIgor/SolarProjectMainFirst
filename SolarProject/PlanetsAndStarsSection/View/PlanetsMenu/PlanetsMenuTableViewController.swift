@@ -24,7 +24,7 @@ final class PlanetsMenuTableViewController: UITableViewController {
     internal var isSearching: Bool = false
     
     ///Content
-    let titles = PlanetsMenuTableViewControllerModel.planetsTitles
+    let titles = MenuContentModel.planetsTitles
     
     ///PlanetsMenuTableViewControllerPresenter
     var presenter: PlanetsMenuTableViewControllerPresenterProtocol {
@@ -114,7 +114,7 @@ final class PlanetsMenuTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         ///Set index
-        PlanetsMenuTableViewControllerModel.index = indexPath.row
+        MenuContentModel.index = indexPath.row
         
         ///Setup segues
         if indexPath.section == 0 {
@@ -145,7 +145,7 @@ extension PlanetsMenuTableViewController {
     
     //MARK: Internal
     internal func setupNemberOfRowsInSection() -> Int {
-        return PlanetsMenuTableViewControllerModel.images.count
+        return MenuContentModel.images.count
     }
     
     internal func setupImageCell(cell: ImagesCollectionViewCell, indexPath: IndexPath) {
@@ -217,13 +217,15 @@ extension PlanetsMenuTableViewController {
     }
     
     private func setupNotificationButton(_ button: UIButton) {
+        let title = "SET NOTIFICATION"
         button.setupBasicPlanetCellButton()
-        button.setTitle("SET NOTIFICATION", for: .normal)
+        button.setTitle(title, for: .normal)
     }
     
     private func setupReminderButton(_ button: UIButton) {
+        let title = "PUT IN REMINDERS"
         button.setupBasicPlanetCellButton()
-        button.setTitle("PUT IN REMINDERS", for: .normal)
+        button.setTitle(title, for: .normal)
     }
     
     private func setupContentTextView(_ textView: UITextView) {

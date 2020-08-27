@@ -31,7 +31,7 @@ extension AccountVC {
             } else {
                 
                 ///Show Error alert
-                FastAlert.showBasic(title: "Error", message: "Camera is unavailable", vc: self)
+                AlertManeger.presentAlert(title: "Error", message: "Camera is unavailable", vc: self)
             }
         }
         

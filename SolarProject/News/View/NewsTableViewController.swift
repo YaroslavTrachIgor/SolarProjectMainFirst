@@ -109,7 +109,7 @@ final class NewsTableViewController: UITableViewController {
         let sectionType = sections[indexPath.section]
         switch sectionType {
         case .site:
-            showSafariSite(stringURL: presenter.setupStringSiteLink())
+            showSafariSite()
         case .news:
             break
         }
@@ -137,7 +137,7 @@ extension NewsTableViewController: NewsTableViewControllerProtocol {
     func setupContent() {
         remoteConfig.fetchAndActivate { (status, error) in
             if error != nil {
-                FastAlert.showBasic(title: nil, message: error!.localizedDescription, vc: self)
+                AlertManeger.presentAlert(title: nil, message: error!.localizedDescription, vc: self)
             } else {
                 if status != .error {
                     if let title1    = self.remoteConfig["news_title_first"].stringValue,
@@ -183,7 +183,7 @@ extension NewsTableViewController: NewsTableViewControllerProtocol {
                         self.model.newsImagesStringURLs.append(image4)
                     }
                 } else {
-                    FastAlert.showBasic(title: "Error", message: error!.localizedDescription, vc: self)
+                    AlertManeger.presentAlert(title: "Error", message: error!.localizedDescription, vc: self)
                 }
             }
         }
@@ -252,14 +252,8 @@ extension NewsTableViewController: NewsTableViewControllerProtocol {
         return cell
     }
     
-    private func showSafariSite(stringURL: String) {
-        if let url = URL(string: stringURL) {
-            let config = SFSafariViewController.Configuration()
-            config.entersReaderIfAvailable = true
-            let vc = SFSafariViewController(url: url, configuration: config)
-            vc.preferredControlTintColor = BasicProperties.color
-            present(vc, animated: true)
-        }
+    private func showSafariSite() {
+        showSafariVC(with: presenter.setupStringSiteLink())
     }
     
     private func setupContent(cell: NewsCell, row: Int) {

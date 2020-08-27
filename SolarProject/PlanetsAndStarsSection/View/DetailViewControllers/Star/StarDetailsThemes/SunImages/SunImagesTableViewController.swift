@@ -11,6 +11,20 @@ import UIKit
 //MARK: - SunImagesTableViewController main class
 final class SunImagesTableViewController: UITableViewController {
 
+    ///Presenter
+    fileprivate var presenter: SunImagesPresenterProtocol {
+        return SunImagesPresenter()
+    }
+    
+    
+    //MARK: Identifiers
+    public enum Identifiers: String {
+        case segueIdentifier = "PlanetImageVCSegue"
+        case cellIdentifier  = "SunImageTableViewCell"
+    }
+    
+    
+    
     //MARK: Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,10 +33,9 @@ final class SunImagesTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "PlanetImageVCSegue" {
+        if segue.identifier == Identifiers.segueIdentifier.rawValue {
             let destVC = segue.destination as! PlanetImageViewController
             let cell = sender as! SunImageTableViewCell
-            
             destVC.image = cell.mainImageView.image!
         }
     }
@@ -31,22 +44,26 @@ final class SunImagesTableViewController: UITableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         /// #warning Incomplete implementation, return the number of sections
         ///Set number Of Sections
-        return 1
-    }
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return  PlanetsMenuTableViewControllerModel.StarsContent.title + " Images"
+        return presenter.numberOfSections()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         /// #warning Incomplete implementation, return the number of rows
         ///Set number Of Rows In Section
-        return PlanetsMenuTableViewControllerModel.StarsContent.imagesURLs.count
+        return presenter.setupNemberOfRows()
     }
 
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        return presenter.setupFooter()
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return presenter.setupHeader()
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SunImageTableViewCell", for: indexPath) as! SunImageTableViewCell
+        let identifier = Identifiers.cellIdentifier.rawValue
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! SunImageTableViewCell
 
         ///Setup cell
         setupCell(cell: cell, indexPath: indexPath)
@@ -77,7 +94,7 @@ extension SunImagesTableViewController {
     }
     
     private func setupImageView(imageView: UIImageView, indexPath: IndexPath) {
-        imageView.downloaded(from: PlanetsMenuTableViewControllerModel.StarsContent.imagesURLs[indexPath.row])
+        imageView.downloaded(from: MenuContentModel.StarsContent.imagesURLs[indexPath.row])
         imageView.layer.cornerRadius = BasicProperties.cornerRadius + 16
         imageView.contentMode = .scaleAspectFill
     }

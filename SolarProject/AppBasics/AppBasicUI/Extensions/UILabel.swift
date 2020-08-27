@@ -9,16 +9,6 @@
 import Foundation
 import UIKit
 
-//MARK: UILabel Shadow public extension
-public extension UILabel {
-    func setupCollectionViewDetailLabelShadow() {
-        labelShadow()
-        layer.shadowColor = UIColor.white.cgColor
-    }
-}
-
-
-
 //MARK: - UITextView public extension(change text with animation)
 extension UILabel: TextViewsContentApdateSetupProtocol {
     typealias ContentView = UILabel
@@ -35,8 +25,10 @@ extension UILabel: TextViewsContentApdateSetupProtocol {
 
 
 
-//MARK: - UILabel Cell setup
+//MARK: - UILabel public extension
 public extension UILabel {
+    
+    //MARK: UILabel Cell setup
     func setupBasicCellLabel(text: String?) {
         let font = UIFont.systemFont(ofSize: 15, weight: .medium)
         let color: UIColor = .black
@@ -45,5 +37,20 @@ public extension UILabel {
         alpha = 1
         isHidden = false
         self.font = font
+    }
+    
+    
+    //MARK: Setup Profile Detail UILabel
+    func setupBasicProfileDetailLabel(text: String?) {
+        self.text = text
+        font = UIFont.systemFont(ofSize: 12, weight: .medium)
+        textColor = .secondaryLabel
+        alpha = 1
+    }
+    
+    //MARK: UILabel Shadow public extension
+    func setupCollectionViewDetailLabelShadow() {
+        labelShadow()
+        layer.shadowColor = UIColor.white.cgColor
     }
 }

@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import GoogleMobileAds
 import NotificationBannerSwift
 import SPStorkController
 import SPAlert
@@ -22,11 +21,17 @@ final class RemindersViewController: BasicViewController {
         case remindersDatesSaveKey           = "RemindersDatesSaveKey"
         case remindersCompletedSaveKey       = "remindersCompletedSaveKey"
         case remindersCompletedDatesSaveKey  = "remindersCompletedDatesSaveKey"
+        
+        //MARK: NotificationNames
+        enum NotificationNames: String {
+            case deleteNotificationName   = "DeleteNotificationName"
+            case doneNotificationName     = "DoneNotificationName"
+        }
     }
     
     ///Presenter
     var presenter: RemindersViewControllerPresenterProtocol {
-        return RemindersViewControllerPresenter()
+        return RemindersViewControllerPresenter(sections: sections)
     }
     
     ///Sections
@@ -34,7 +39,6 @@ final class RemindersViewController: BasicViewController {
 
     
     //MARK: @IBOutlets
-    @IBOutlet weak var bunnerView: GADBannerView!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var inputTextField: UITextField!
     @IBOutlet weak var editorControlsBackView: UIView!
@@ -75,8 +79,8 @@ final class RemindersViewController: BasicViewController {
         setupBasicViewControllerUI()
         
         ///Add Observaers
-        NotificationCenter.default.addObserver(self, selector: #selector(deleteReminderAction(notification: )), name: Notification.Name(rawValue: "DeleteNotificationName"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(doneReminder(notification: )), name: Notification.Name(rawValue: "DoneNotificationName"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(deleteReminderAction(notification: )), name: Notification.Name(rawValue: Keys.NotificationNames.deleteNotificationName.rawValue), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(doneReminder(notification: )), name: Notification.Name(rawValue: Keys.NotificationNames.doneNotificationName.rawValue), object: nil)
     }
     
     
@@ -93,7 +97,6 @@ final class RemindersViewController: BasicViewController {
         setupAddButton()
         setupRefreshControl()
         setupSearchBar()
-        setupAddBunner()
     }
 }
 
@@ -206,7 +209,9 @@ extension RemindersViewController {
         mainQueue.async {
             semaphore.wait()
             
-            let alertView = SPAlertView(title: "Completed", message: "The Reminder has been completed", preset: SPAlertPreset.done)
+            let alertTitle = "Completed"
+            let alertMessage = "The Reminder has been completed"
+            let alertView = SPAlertView(title: alertTitle, message: alertMessage, preset: SPAlertPreset.done)
             alertView.duration = 2
             alertView.present()
             
@@ -264,7 +269,8 @@ extension RemindersViewController {
     }
     
     private func setupInputTextField() {
-        inputTextField.placeholder = "Enter here your reminder"
+        let placeholder = "Enter here your reminder"
+        inputTextField.placeholder = placeholder
         inputTextField.tintColor = BasicProperties.color
         inputTextField.viewShadows()
         inputTextField.layer.shadowColor = #colorLiteral(red: 0.9813625978, green: 0.9813625978, blue: 0.9813625978, alpha: 1)
@@ -277,19 +283,15 @@ extension RemindersViewController {
     }
     
     private func setupAddButton() {
-        addButton.layer.cornerRadius = addButton.frame.height / 2
+        let font = UIFont.systemFont(ofSize: 14.5, weight: .bold)
+        let cornerRadius = addButton.frame.height / 2
+        addButton.layer.cornerRadius = cornerRadius
         addButton.backgroundColor = BasicProperties.color
         addButton.setTitleColor(.white, for: .normal)
         addButton.setTitle("ADD", for: .normal)
-        addButton.titleLabel?.font = UIFont.systemFont(ofSize: 14.5, weight: .bold)
+        addButton.titleLabel?.font = font
         addButton.buttonsShadows()
         addButton.titleLabel?.labelShadow()
-    }
-    
-    private func setupAddBunner() {
-        bunnerView.adUnitID = "ca-app-pub-8702634561077907/5121256822"
-        bunnerView.rootViewController = self
-        bunnerView.load(GADRequest())
     }
     
     private func setupStatusBarView(with size: CGFloat) {
@@ -323,6 +325,7 @@ extension RemindersViewController {
     
     internal func setupTitleLabel(title: UILabel) {
         title.textColor = .white
+        title.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
     }
     
     internal func setupSubtitleLabel(subtitle: UILabel) {
@@ -352,15 +355,11 @@ extension RemindersViewController {
     
     internal func setupRemindersContent(cell: RemindersTableViewCell, row: Int, section: Int) {
         if isSearching {
-            
-            ///Set cell content when searching
             cell.subtitleLabel.text = ""
             cell.titleLabel.text = searchedArticle[row]
         } else {
-            
-            ///Set default cell content
-            cell.titleLabel.text = presenter.setupRemindersContent(sections: sections, row: row, section: section)
-            cell.subtitleLabel.text = presenter.setupRemindersDatesContent(sections: sections, row: row, section: section)
+            cell.titleLabel.text = presenter.setupRemindersContent(row: row, section: section)
+            cell.subtitleLabel.text = presenter.setupRemindersDatesContent(row: row, section: section)
         }
     }
     

@@ -58,7 +58,7 @@ final class AccountVC: UITableViewController {
     }
     
     ///Completion
-    var completion: ((String, String, String) -> ())?
+    var completion: ((String, String) -> ())?
     
     //MARK: @IBOutlets
     @IBOutlet weak var shareButton: UIBarButtonItem!
@@ -100,9 +100,8 @@ final class AccountVC: UITableViewController {
         
         if self.isMovingFromParent {
             let fullName = firstNameTextField.text! + " " + surNameTextField.text!
-            let email = defaults.value(forKey: AccountVC.Keys.emailKey) as? String ?? "Email:"
-            let phone = defaults.value(forKey: AccountVC.Keys.phoneKey) as? String ?? "Phone:"
-            completion!(fullName, email, phone)
+            let email = defaults.value(forKey: AccountVC.Keys.emailKey) as? String ?? ""
+            completion!(fullName, email)
         }
     }
 }
@@ -174,7 +173,7 @@ extension AccountVC: AccountVCProtocol {
             if (textField.text?.isValidEmail())! {
                 user.email = textField.text
             } else {
-                FastAlert.showBasic(
+                AlertManeger.presentAlert(
                     title: "Incorrect Email",
                     message: "Please, check your email. Your mail may already be on the server or you have incorrectly recorded it.",
                     vc: self
@@ -186,12 +185,7 @@ extension AccountVC: AccountVCProtocol {
     internal func signUpSetup(user: PFUser) {
         user.signUpInBackground { (success, error) -> Void in
             if let error = error as NSError? {
-                let alertView = SPAlertView(
-                    title: "Error",
-                    message: "\(error)",
-                    preset: .error)
-                alertView.duration = 2
-                alertView.present()
+                AlertManeger.presentAlert(title: "Error", message: "\(error)", vc: self)
             } else {
                 let alertView = SPAlertView(
                     title: "Profile has been saved",
@@ -235,7 +229,7 @@ extension AccountVC: AccountVCProtocol {
 
 
 //MARK: AccountVC UI Setup methods
-extension AccountVC {
+private extension AccountVC {
     
     //MARK: Setup UI
     private func setupTextFields() {
