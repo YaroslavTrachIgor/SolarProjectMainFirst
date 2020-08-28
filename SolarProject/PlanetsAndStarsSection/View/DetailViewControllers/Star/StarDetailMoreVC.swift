@@ -11,8 +11,19 @@ import UIKit
 import SPFakeBar
 import SPStorkController
 
+//MARK: - StarDetailDelegate protocol
+protocol StarDetailDelegate {
+    func setSegue(with id: Int?)
+}
+
+
+
 //MARK: - StarDetailMoreVC main class
 final class StarDetailMoreVC: BasicViewController {
+    
+    ///Delegate
+    var delegate: StarDetailDelegate?
+    
     
     //MARK: Private
     private let navBar = SPFakeBarView(style: .stork)
@@ -105,15 +116,13 @@ extension StarDetailMoreVC {
 extension StarDetailMoreVC {
     @IBAction func showImagesVC(_ sender: Any) {
         dismiss(animated: true, completion: {
-            let notificationName = Notification.Name(rawValue: StarDeteailViewController.Keys.Segues.showImagesSegue.rawValue)
-            NotificationCenter.default.post(name:notificationName, object: nil)
+            self.delegate?.setSegue(with: 1)
         })
     }
     
     @IBAction func showThemesVC(_ sender: Any) {
         dismiss(animated: true, completion: {
-            let notificationName = Notification.Name(rawValue: StarDeteailViewController.Keys.Segues.showThemesSegue.rawValue)
-            NotificationCenter.default.post(name: notificationName, object: nil)
+            self.delegate?.setSegue(with: 2)
         })
     }
 }

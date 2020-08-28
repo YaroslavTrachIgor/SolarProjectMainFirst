@@ -30,4 +30,5 @@ class SunThemesMenuTableViewCell: UITableViewCell {
         }
     }
     @IBOutlet weak var previewContentBack: ContentBack! { didSet { previewContentBack.layer.cornerRadius = basicCellCornerRadius; } }
+    @IBOutlet weak var subtitleLabel: UILabel!
 }

@@ -64,10 +64,14 @@ extension DeleteVC {
     }
     
     private func setupDleteButton() {
-        deleteButton.tintColor = .white
-        deleteButton.setTitleColor(.white, for: .normal)
+        let backColor = #colorLiteral(red: 0.9708763349, green: 0.2299415323, blue: 0.2072887329, alpha: 1)
+        let tintColor: UIColor = .white
+        deleteButton.tintColor = tintColor
+        deleteButton.setTitleColor(tintColor, for: .normal)
         deleteButton.layer.cornerRadius = 8
-        deleteButton.backgroundColor = #colorLiteral(red: 0.9708763349, green: 0.2299415323, blue: 0.2072887329, alpha: 1)
+        deleteButton.backgroundColor = backColor
+        deleteButton.buttonsShadows()
+        deleteButton.layer.shadowColor = backColor.cgColor
     }
     
     private func setupNavBar() {

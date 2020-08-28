@@ -13,7 +13,7 @@ import SafariServices
 
 //MARK: - NewsTableViewControllerProtocol protocol
 protocol NewsTableViewControllerProtocol {
-    func setupContent()
+    func setupContent(completion: @escaping () -> Void)
 }
 
 
@@ -41,8 +41,9 @@ final class NewsTableViewController: UITableViewController {
     ///RemoteConfig
     var remoteConfig: RemoteConfig!
     
-    ///Model
-    var model: NewsModel!
+
+    //MARK: News Main Content Array
+    var news = [News]()
     
     
     //MARK: Private
@@ -66,7 +67,9 @@ final class NewsTableViewController: UITableViewController {
         
         setRemoteConfig()
         configureRemoteConfig()
-        setupModel()
+        setupContent(completion: {
+            self.tableView.reloadData()
+        })
 
         ///Setup UI
         setupTableView()
@@ -92,7 +95,13 @@ final class NewsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return presenter.setupNumberOfRowsInSection(section: section)
+        let sectionType = sections[section]
+        switch sectionType {
+        case .news:
+            return news.count
+        case .site:
+            return 1
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -134,7 +143,7 @@ final class NewsTableViewController: UITableViewController {
 extension NewsTableViewController: NewsTableViewControllerProtocol {
     
     //MARK: NewsTableViewControllerProtocol
-    func setupContent() {
+    internal func setupContent(completion: @escaping () -> Void) {
         remoteConfig.fetchAndActivate { (status, error) in
             if error != nil {
                 AlertManeger.presentAlert(title: nil, message: error!.localizedDescription, vc: self)
@@ -157,30 +166,17 @@ extension NewsTableViewController: NewsTableViewControllerProtocol {
                        let image3    = self.remoteConfig["news_image_third"].stringValue,
                        let image4    = self.remoteConfig["news_image_forth"].stringValue {
                         
-                        ///Add titles
-                        self.model.newsTitles.append(title1)
-                        self.model.newsTitles.append(title2)
-                        self.model.newsTitles.append(title3)
-                        self.model.newsTitles.append(title4)
-                        
-                        ///Add content
-                        self.model.newsContents.append(content1)
-                        self.model.newsContents.append(content2)
-                        self.model.newsContents.append(content3)
-                        self.model.newsContents.append(content4)
-                        
-                        ///Add dates
-                        self.model.newsDates.append(date1)
-                        self.model.newsDates.append(date2)
-                        self.model.newsDates.append(date3)
-                        self.model.newsDates.append(date4)
+                        ///Setup News array
+                        self.news = [
+                            News(title: title1, content: content1, date: date1, imageURL: image1),
+                            News(title: title2, content: content2, date: date2, imageURL: image2),
+                            News(title: title3, content: content3, date: date3, imageURL: image3),
+                            News(title: title4, content: content4, date: date4, imageURL: image4)
+                        ]
                         
                         
-                        ///Add images urls
-                        self.model.newsImagesStringURLs.append(image1)
-                        self.model.newsImagesStringURLs.append(image2)
-                        self.model.newsImagesStringURLs.append(image3)
-                        self.model.newsImagesStringURLs.append(image4)
+                        ///Completion
+                        completion()
                     }
                 } else {
                     AlertManeger.presentAlert(title: "Error", message: error!.localizedDescription, vc: self)
@@ -194,14 +190,6 @@ extension NewsTableViewController: NewsTableViewControllerProtocol {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as! NewsCell
         let mainQueue = DispatchQueue.main
         let semaphore = DispatchSemaphore(value: 1)
-        
-        mainQueue.async {
-            semaphore.wait()
-            
-            self.setupContent()
-            
-            semaphore.signal()
-        }
         
         mainQueue.async {
             semaphore.wait()
@@ -258,11 +246,12 @@ extension NewsTableViewController: NewsTableViewControllerProtocol {
     
     private func setupContent(cell: NewsCell, row: Int) {
         UIView.transition(with: view, duration: 0.4, options: .curveEaseIn, animations: {
-            cell.titleLabel.text         = self.model.newsTitles[row]
+            let news = self.news[row]
+            cell.titleLabel.text         = news.title
             cell.subtitleLabel.text      = cell.titleLabel.text!.uppercased()
-            cell.contentTextView.text    = self.model.newsContents[row]
-            cell.dateLabel.text          = self.model.newsDates[row]
-            cell.newsImageView.downloaded(from: self.model.newsImagesStringURLs[row])
+            cell.contentTextView.text    = news.content
+            cell.dateLabel.text          = news.date
+            cell.newsImageView.downloaded(from: news.imageURL)
         }, completion: nil)
     }
     
@@ -318,10 +307,6 @@ extension NewsTableViewController: NewsTableViewControllerProtocol {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "SiteCell")
         tableView.separatorColor = UIColor.TableViewColors.tableViewSeparatorColor
         tableView.separatorStyle = .singleLine
-    }
-    
-    private func setupModel() {
-        model = NewsModel()
     }
     
     private func setRemoteConfig() {

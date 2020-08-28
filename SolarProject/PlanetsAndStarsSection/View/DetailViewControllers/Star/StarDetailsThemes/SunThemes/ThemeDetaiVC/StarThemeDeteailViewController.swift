@@ -26,7 +26,7 @@ protocol StarThemeDeteailViewControllerProtocol: StarThemeDeteailViewControllerC
 
 
 //MARK: - StarThemeDeteailViewController main class
-class StarThemeDeteailViewController: BasicViewController {
+final class StarThemeDeteailViewController: BasicViewController {
     
     //MARK: Presenter
     var presenter: StarThemeDeteailViewControllerPresenterProtocol {
@@ -42,6 +42,7 @@ class StarThemeDeteailViewController: BasicViewController {
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var fontChangeButton: UIBarButtonItem!
     @IBOutlet weak var bunner: GADBannerView!
+    @IBOutlet weak var subtitleLabel: UILabel!
     
     
     //MARK: Overrides
@@ -81,6 +82,10 @@ class StarThemeDeteailViewController: BasicViewController {
         setupContentTextViewBack()
         setupAddBunner()
         setupTitleLabel()
+        setupSubtitleLabel()
+        
+        ///Setup View
+        view.backgroundColor = .systemBackground
     }
 }
 
@@ -154,9 +159,17 @@ extension StarThemeDeteailViewController: StarThemeDeteailViewControllerProtocol
     }
     
     private func setupTitleLabel() {
-        titleLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        titleLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        let font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        titleLabel.font = font
+        titleLabel.textColor = .black
         titleLabel.alpha = 0
+    }
+    
+    private func setupSubtitleLabel() {
+        let font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        subtitleLabel.font = font
+        subtitleLabel.textColor = .secondaryLabel
+        subtitleLabel.alpha = 0
     }
     
     
@@ -164,6 +177,7 @@ extension StarThemeDeteailViewController: StarThemeDeteailViewControllerProtocol
     internal func setupContent() {
         contentTextView.setupContentWithAnimation(text: presenter.setupTextViewContent())
         titleLabel.text = presenter.setupTitleContent()
+        subtitleLabel.text = presenter.setupTitleContent().uppercased()
         navigationItem.title = ""
     }
 }

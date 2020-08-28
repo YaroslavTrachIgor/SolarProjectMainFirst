@@ -71,7 +71,6 @@ extension AccountVC {
             case 2: defaults.set(text, forKey: Keys.emailKey)
             case 3: defaults.set(text, forKey: Keys.phoneKey)
             case 4: defaults.set(text, forKey: Keys.passwordKey)
-            
             default: return
         }
     }

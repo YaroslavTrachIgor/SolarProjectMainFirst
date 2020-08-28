@@ -74,6 +74,8 @@ final class SunThemesMenuTableViewController: UITableViewController {
         ///Setup Content
         setupContent(cell: cell, indexPath: indexPath)
         setupSelectionBack(cell: cell)
+        setupSubtitleLabel(label: cell.subtitleLabel)
+        setupTitleLabel(label: cell.titleLabel)
 
         return cell
     }
@@ -114,6 +116,7 @@ extension SunThemesMenuTableViewController {
 
     private func setupFastContent(cell: SunThemesMenuTableViewCell, title: String, content: String) {
         cell.titleLabel?.text = title
+        cell.subtitleLabel?.text = title.uppercased()
         cell.previewTextView?.text = content
     }
     
@@ -142,9 +145,25 @@ extension SunThemesMenuTableViewController {
     }
     
     private func setupTableView() {
-        tableView.rowHeight = 105
+        tableView.rowHeight = 125
         tableView.backgroundColor = .systemGroupedBackground
         tableView.alpha = 1
+    }
+    
+    private func setupSubtitleLabel(label: UILabel) {
+        let font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        label.textColor = .secondaryLabel
+        label.backgroundColor = .clear
+        label.alpha = 1
+        label.font = font
+    }
+    
+    private func setupTitleLabel(label: UILabel) {
+        let font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        label.textColor = .black
+        label.backgroundColor = .clear
+        label.alpha = 1
+        label.font = font
     }
     
     private func setupSelectionBack(cell: SunThemesMenuTableViewCell) {

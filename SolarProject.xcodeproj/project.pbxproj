@@ -98,7 +98,7 @@
 		C457F92A24D05D10002C69A7 /* NewsTVCSearchResultsUpdatingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457F92924D05D10002C69A7 /* NewsTVCSearchResultsUpdatingExtension.swift */; };
 		C457F92C24D0D7A9002C69A7 /* PlanetsImagesCollectionViewControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457F92B24D0D7A9002C69A7 /* PlanetsImagesCollectionViewControllerPresenter.swift */; };
 		C45B7E3824EA82090056604D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C45B7E3724EA82090056604D /* GoogleService-Info.plist */; };
-		C45B7E3A24EAD3C80056604D /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45B7E3924EAD3C80056604D /* UIColor.swift */; };
+		C45B7E3A24EAD3C80056604D /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45B7E3924EAD3C80056604D /* UIColorExtension.swift */; };
 		C45B7E3D24EB0D360056604D /* NewsTVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45B7E3C24EB0D360056604D /* NewsTVCPresenter.swift */; };
 		C45B7E3F24EEA2000056604D /* AppearenceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45B7E3E24EEA2000056604D /* AppearenceTableViewController.swift */; };
 		C45B7E4124EEB2580056604D /* AppearenceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45B7E4024EEB2580056604D /* AppearenceModel.swift */; };
@@ -244,7 +244,7 @@
 		C457F92924D05D10002C69A7 /* NewsTVCSearchResultsUpdatingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTVCSearchResultsUpdatingExtension.swift; sourceTree = "<group>"; };
 		C457F92B24D0D7A9002C69A7 /* PlanetsImagesCollectionViewControllerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsImagesCollectionViewControllerPresenter.swift; sourceTree = "<group>"; };
 		C45B7E3724EA82090056604D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
-		C45B7E3924EAD3C80056604D /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		C45B7E3924EAD3C80056604D /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		C45B7E3C24EB0D360056604D /* NewsTVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTVCPresenter.swift; sourceTree = "<group>"; };
 		C45B7E3E24EEA2000056604D /* AppearenceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearenceTableViewController.swift; sourceTree = "<group>"; };
 		C45B7E4024EEB2580056604D /* AppearenceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearenceModel.swift; sourceTree = "<group>"; };
@@ -595,7 +595,7 @@
 				C49E5FEB24AF58CB00FDD522 /* UINavigationBar.swift */,
 				C49E5FED24AF593300FDD522 /* UILabel.swift */,
 				C457F92424D05950002C69A7 /* UISearchBar.swift */,
-				C45B7E3924EAD3C80056604D /* UIColor.swift */,
+				C45B7E3924EAD3C80056604D /* UIColorExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1152,7 +1152,7 @@
 				C497CA5C24AD2DA1009B90F3 /* UIView.swift in Sources */,
 				C49E5FF324AF59D900FDD522 /* PlnaetsMenuTableViewControllerSearchBarDelegateExtnsion.swift in Sources */,
 				C457F92324D05927002C69A7 /* NewsCell.swift in Sources */,
-				C45B7E3A24EAD3C80056604D /* UIColor.swift in Sources */,
+				C45B7E3A24EAD3C80056604D /* UIColorExtension.swift in Sources */,
 				84C7176D2482D3DD003B02B3 /* SunThemesMenuTBVCPresenter.swift in Sources */,
 				84C7178524854332003B02B3 /* RemindersModel.swift in Sources */,
 				848EC0D624A7FF8500EF7D62 /* ChartTableViewCell.swift in Sources */,

@@ -29,12 +29,6 @@ final class AppearenceTableViewController: UITableViewController {
         setupColorsCollectionView()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        setupAnimation()
-    }
-    
     
     //MARK: Private
     private func setupColorItem(indexPath: IndexPath) -> UICollectionViewCell {
@@ -52,13 +46,6 @@ final class AppearenceTableViewController: UITableViewController {
         colorsCollectionView.delegate = self
         colorsCollectionView.dataSource = self
         colorsCollectionView.backgroundColor = .systemBackground
-        colorsCollectionView.alpha = 0
-    }
-    
-    private func setupAnimation() {
-        UIView.animate(withDuration: 0.2) {
-            self.colorsCollectionView.alpha = 1
-        }
     }
 }
 

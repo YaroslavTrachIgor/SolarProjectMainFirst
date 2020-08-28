@@ -107,8 +107,6 @@ extension RemindersViewController {
     
     //MARK: @objc
     @objc func deleteReminderAction(notification: Notification.Name) {
-        
-        ///Setup Semaphore
         let semaphore = DispatchSemaphore(value: 1)
         let mainQueue = DispatchQueue.main
         
@@ -155,8 +153,6 @@ extension RemindersViewController {
     }
     
     @objc func doneReminder(notification: Notification.Name) {
-        
-        ///Setup Semaphore
         let semaphore = DispatchSemaphore(value: 1)
         let mainQueue = DispatchQueue.main
         
@@ -227,6 +223,7 @@ extension RemindersViewController {
             semaphore.signal() //+1
         }
     }
+    
     
     //MARK: Private
     private func setupSearchBar() {

@@ -50,7 +50,7 @@ extension AccountVC: GIDSignInDelegate {
         firstNameTextField.text = familyName
         
         ///Save firstName
-        defaults.set(firstNameTextField.text, forKey: Keys.firstNameKey)
+        defaults.set(familyName, forKey: Keys.firstNameKey)
         
         
         //MARK: Setup Google Family Name
@@ -58,7 +58,7 @@ extension AccountVC: GIDSignInDelegate {
         surNameTextField.text = givenName
         
         ///Save familyName
-        defaults.set(surNameTextField.text, forKey: Keys.familyNameKey)
+        defaults.set(givenName, forKey: Keys.familyNameKey)
     }
 }
 

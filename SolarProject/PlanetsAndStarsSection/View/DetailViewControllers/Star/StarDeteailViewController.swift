@@ -36,7 +36,7 @@ extension StarDeteailViewController {
 
 
 //MARK: - StarDeteailViewController main class
-final class StarDeteailViewController: BasicViewController {
+final class StarDeteailViewController: BasicViewController, StarDetailDelegate {
     
     //MARK: - Presenter
     var presenter: StarDetailVCPresenterProtocol {
@@ -66,10 +66,6 @@ final class StarDeteailViewController: BasicViewController {
         
         ///Add View to Analytics
         addViewToAnalytics()
-        
-        ///Add observers
-        NotificationCenter.default.addObserver(self, selector: #selector(showImage(notification: )), name: Notification.Name(rawValue: Keys.NotficationNames.imagesShowVCNotificationName.rawValue), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(showThemes(notification: )), name: Notification.Name(rawValue: Keys.NotficationNames.themesShowVCNotificationName.rawValue), object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -91,7 +87,7 @@ final class StarDeteailViewController: BasicViewController {
     }
     
     
-    //MARK: BasicViewControllerProtocol method
+    //MARK: BasicViewControllerProtocol
     internal func setupBasicViewControllerUI() {
         
         ///Setup UI
@@ -105,36 +101,19 @@ final class StarDeteailViewController: BasicViewController {
         setupWikiButton()
     }
     
-    @IBAction func more(sender: Any) {
-        let transitonDelegate = SPStorkTransitioningDelegate()
-        let vc = storyboard?.instantiateViewController(identifier: Keys.starDetailMoreVC.rawValue) as! StarDetailMoreVC
-        
-        ///Setup transitonDelegate
-        transitonDelegate.customHeight = 195
-        transitonDelegate.cornerRadius = 9
-        vc.transitioningDelegate = transitonDelegate
-        vc.modalPresentationStyle = .custom
-        vc.modalPresentationCapturesStatusBarAppearance = true
-        
-        ///Present vc
-        present(vc, animated: true)
-    }
     
-    @IBAction func openWikPage(_ sender: Any) {
-        showSafariVC(with: "https://en.wikipedia.org/wiki/Sun")
-    }
-}
-
-
-
-//MARK: - @objc
-extension StarDeteailViewController {
-    @objc func showImage(notification: Notification.Name) {
-        performSegue(withIdentifier: Keys.Segues.showImagesSegue.rawValue, sender: self)
-    }
-    
-    @objc func showThemes(notification: Notification.Name) {
-        performSegue(withIdentifier: Keys.Segues.showThemesSegue.rawValue, sender: self)
+    //MARK: StarDetailDelegate
+    internal func setSegue(with id: Int?) {
+        switch id {
+        case nil:
+            break
+        case 1:
+            performSegue(withIdentifier: Keys.Segues.showImagesSegue.rawValue, sender: self)
+        case 2:
+            performSegue(withIdentifier: Keys.Segues.showThemesSegue.rawValue, sender: self)
+        default:
+            break
+        }
     }
 }
 
@@ -175,6 +154,26 @@ extension StarDeteailViewController {
     
     @IBAction func presentSliderBack(_ sender: Any) {
         sliderBackShowerButton.viewShowingWithAnimation(animating: sliderBack, main: self.view, nil)
+    }
+    
+    @IBAction func more(sender: Any) {
+        let transitonDelegate = SPStorkTransitioningDelegate()
+        let vc = storyboard?.instantiateViewController(identifier: Keys.starDetailMoreVC.rawValue) as! StarDetailMoreVC
+        
+        ///Setup transitonDelegate
+        transitonDelegate.customHeight = 195
+        transitonDelegate.cornerRadius = 9
+        vc.transitioningDelegate = transitonDelegate
+        vc.modalPresentationStyle = .custom
+        vc.modalPresentationCapturesStatusBarAppearance = true
+        vc.delegate = self
+        
+        ///Present vc
+        present(vc, animated: true)
+    }
+    
+    @IBAction func openWikPage(_ sender: Any) {
+        showSafariVC(with: "https://en.wikipedia.org/wiki/Sun")
     }
 }
 
@@ -226,6 +225,7 @@ extension StarDeteailViewController {
     
     fileprivate func setupContentTextView() {
         contentTextView.text = presenter.setupMostContent()
+        contentTextView.isScrollEnabled = true
     }
     
     fileprivate func setupSliderBack() {
