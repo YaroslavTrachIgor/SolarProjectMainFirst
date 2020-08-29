@@ -138,7 +138,7 @@ extension NotificationsTableViewController: UIPickerViewDataSource, UIPickerView
         }
         
         ///Setup titleLabel
-        titleLabel.textColor = .black
+        titleLabel.textColor = .label
         titleLabel.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         titleLabel.textAlignment = .center
         

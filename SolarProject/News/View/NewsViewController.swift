@@ -56,6 +56,10 @@ final class NewsViewController: BasicViewController {
         setupDateLabel()
         setupSliderBack()
         setupImageView()
+        
+        
+        ///Setup View
+        view.backgroundColor = .systemBackground
     }
 }
 
@@ -129,14 +133,14 @@ extension NewsViewController {
     }
     
     private func setupTitleLabel() {
-        titleLabel.textColor = .black
+        titleLabel.textColor = .label
         titleLabel.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         titleLabel.backgroundColor = .clear
         titleLabel.alpha = 0
     }
     
     private func setupSubtitleLabel() {
-        subtitleLabel.textColor = #colorLiteral(red: 0.6511782289, green: 0.6511782289, blue: 0.6511782289, alpha: 1)
+        subtitleLabel.textColor = .secondaryLabel
         subtitleLabel.font = UIFont.systemFont(ofSize: 13.5, weight: .semibold)
         subtitleLabel.backgroundColor = .clear
         subtitleLabel.alpha = 0

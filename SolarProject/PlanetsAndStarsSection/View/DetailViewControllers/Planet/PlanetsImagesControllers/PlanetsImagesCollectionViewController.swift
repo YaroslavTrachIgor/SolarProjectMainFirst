@@ -17,7 +17,7 @@ protocol PlanetsImagesCollectionViewControllerProtocol {
 
 
 //MARK: - PlanetsImagesCollectionViewController main class
-final class PlanetsImagesCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+final class PlanetsImagesCollectionViewController: UICollectionViewController {
 
     //MARK: Presenter
     var presenter: PlanetsImagesCollectionViewControllerPresenterProtocol {
@@ -55,7 +55,21 @@ final class PlanetsImagesCollectionViewController: UICollectionViewController, U
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PlanetImageVCSegue" {
+            let destVC = segue.destination as! PlanetImageViewController
+            let cell = sender as! PlanetImageCollectionViewCell
+            
+            destVC.image = cell.mainImageView.image!
+        }
+    }
+}
+
+
+
+//MARK: - UICollectionViewDelegateFlowLayout extension
+extension PlanetsImagesCollectionViewController: UICollectionViewDelegateFlowLayout {
+    internal func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let itemsPerRow: CGFloat = 2
         let paddingWidth = 20 * (itemsPerRow + 1)
         let availableWidth = collectionView.frame.width - paddingWidth
@@ -64,26 +78,17 @@ final class PlanetsImagesCollectionViewController: UICollectionViewController, U
         return size
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    internal func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         let basicBorder: CGFloat = 20
         return UIEdgeInsets(top: basicBorder, left: basicBorder, bottom: basicBorder, right: basicBorder)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+    internal func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 20
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    internal func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 20
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "PlanetImageVCSegue" {
-            let destVC = segue.destination as! PlanetImageViewController
-            let cell = sender as! PlanetImageCollectionViewCell
-            
-            destVC.image = cell.mainImageView.image!
-        }
     }
 }
 

@@ -49,6 +49,9 @@ final class StarDetailMoreVC: BasicViewController {
     internal func setupBasicViewControllerUI() {
         setupButtons()
         setupNavBar()
+        
+        ///Setup View
+        view.backgroundColor = .systemBackground
     }
 }
 
@@ -86,7 +89,7 @@ extension StarDetailMoreVC {
         imagesButton.imageView?.image = image
         imagesButton.setTitleColor(.systemIndigo, for: .normal)
         imagesButton.layer.cornerRadius = 8
-        imagesButton.backgroundColor = .systemGroupedBackground
+        imagesButton.backgroundColor = UIColor.TableViewColors.tableViewBackgroundColor
         imagesButton.titleLabel?.font = font
     }
     

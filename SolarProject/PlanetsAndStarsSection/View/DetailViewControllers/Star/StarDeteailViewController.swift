@@ -99,6 +99,9 @@ final class StarDeteailViewController: BasicViewController, StarDetailDelegate {
         setupMoreButton()
         setupThemesGoImage()
         setupWikiButton()
+        
+        ///Setup View
+        view.backgroundColor = .systemBackground
     }
     
     

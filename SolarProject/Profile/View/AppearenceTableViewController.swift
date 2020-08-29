@@ -47,6 +47,12 @@ final class AppearenceTableViewController: UITableViewController {
         colorsCollectionView.dataSource = self
         colorsCollectionView.backgroundColor = .systemBackground
     }
+    
+    private func setupTableView() {
+        tableView.backgroundColor = UIColor.TableViewColors.tableViewBackgroundColor
+        tableView.separatorStyle = .singleLine
+        tableView.separatorColor = UIColor.TableViewColors.tableViewSeparatorColor
+    }
 }
 
 

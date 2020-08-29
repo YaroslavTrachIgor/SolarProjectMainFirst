@@ -31,7 +31,7 @@ extension MainProfileViewController: UITableViewDelegate, UITableViewDataSource 
         func setupBasicCell() {
             cell.accessoryType = .disclosureIndicator
             cell.textLabel?.font = UIFont.systemFont(ofSize: 16.5, weight: .semibold)
-            cell.textLabel?.textColor = .black
+            cell.textLabel?.textColor = .label
         }
         
         ///Setup button cell
@@ -60,6 +60,9 @@ extension MainProfileViewController: UITableViewDelegate, UITableViewDataSource 
         }
         
         ///Setup basic cell
+        let backColor: UIColor = .systemBackground
+        cell.backgroundColor = backColor
+        cell.contentView.backgroundColor = backColor
         cell.tintColor = BasicProperties.color
         cell.textLabel?.text = presenter.setupLabelsText(section: indexPath.section, row: indexPath.row)
         

@@ -23,8 +23,7 @@ final class MainTabBarController: UITabBarController {
         super.viewDidLoad()
 
         setupDelegate()
-        setupShadow()
-        setupCorners()
+        setupTabBar()
     }
 }
 
@@ -53,28 +52,11 @@ extension MainTabBarController: MainTabBarControllerProtocol {
         delegate = self
     }
     
-    //MARK: Private
-    private func setupShadow() {
-        
-        ///Setup tabBar shadow
-        tabBar.isTranslucent = false
-
-        tabBar.layer.shadowOffset = CGSize(width: 0, height: 5)
-        tabBar.layer.shadowColor = #colorLiteral(red: 0.9103026095, green: 0.9103026095, blue: 0.9103026095, alpha: 1)
-        tabBar.layer.shadowOpacity = 1
-        tabBar.layer.shadowRadius = 35
-        
-        ///Hide separator
-        tabBar.shadowImage = UIImage()
-        tabBar.backgroundImage = UIImage()
-    }
     
-    private func setupCorners() {
-        
-        ///Setup tabBar cornerRadius
-        tabBar.layer.masksToBounds = false
-        tabBar.isTranslucent = true
-        tabBar.layer.cornerRadius = BasicProperties.cornerRadius + 12
-        tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+    //MARK: Private
+    private func setupTabBar() {
+        let backColor: UIColor = .systemBackground
+        tabBar.barTintColor = backColor
+        tabBar.backgroundColor = backColor
     }
 }

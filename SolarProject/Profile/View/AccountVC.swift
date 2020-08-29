@@ -244,7 +244,7 @@ private extension AccountVC {
         googlePreviewButton.setTitleColor(BasicProperties.color, for: .normal)
         googlePreviewButton.setTitle("Fill with Google", for: .normal)
         googlePreviewButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .regular)
-        googlePreviewButton.backgroundColor = .white
+        googlePreviewButton.backgroundColor = .systemBackground
     }
     
     private func setupSignInButton() {

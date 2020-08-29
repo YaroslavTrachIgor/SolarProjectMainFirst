@@ -19,9 +19,22 @@ protocol NewsTableViewControllerProtocol {
 
 //MARK: - SectionType enum extension
 extension NewsTableViewController {
+    
+    //MARK: SectionType
     enum SectionType {
         case site
         case news
+    }
+    
+    
+    //MARK: Keys
+    enum Keys: String {
+        enum CellIdentifiers: String {
+            case newsCell = "NewsCell"
+            case siteCell = "SiteCell"
+        }
+        
+        case siteURL = "https://spacenews.com"
     }
 }
 
@@ -44,6 +57,7 @@ final class NewsTableViewController: UITableViewController {
 
     //MARK: News Main Content Array
     var news = [News]()
+    
     
     
     //MARK: Private
@@ -76,10 +90,13 @@ final class NewsTableViewController: UITableViewController {
         setupSearchController()
         setupRefreshControl()
         setupNavBar()
+        
+        ///Setup View
+        view.backgroundColor = UIColor.TableViewColors.tableViewBackgroundColor
     }
     
     
-    // MARK: - Table view data source
+    //MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return sections.count
@@ -175,8 +192,11 @@ extension NewsTableViewController: NewsTableViewControllerProtocol {
                         ]
                         
                         
+                        
                         ///Completion
-                        completion()
+                        DispatchQueue.main.async {
+                            completion()
+                        }
                     }
                 } else {
                     AlertManeger.presentAlert(title: "Error", message: error!.localizedDescription, vc: self)
@@ -187,7 +207,7 @@ extension NewsTableViewController: NewsTableViewControllerProtocol {
     
     //MARK: Private
     private func setupNewsCell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as! NewsCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Keys.CellIdentifiers.newsCell.rawValue, for: indexPath) as! NewsCell
         let mainQueue = DispatchQueue.main
         let semaphore = DispatchSemaphore(value: 1)
         
@@ -220,11 +240,15 @@ extension NewsTableViewController: NewsTableViewControllerProtocol {
         ///Set tableView rowHeight
         tableView.rowHeight = 420
         
+        ///Setup Cell
+        cell.backgroundColor = .systemBackground
+        cell.contentView.backgroundColor = .systemBackground
+        
         return cell
     }
     
     private func setupSiteCell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SiteCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: Keys.CellIdentifiers.siteCell.rawValue, for: indexPath)
         
         ///Setup label
         setupURLTextLabel(label: cell.textLabel)
@@ -235,7 +259,8 @@ extension NewsTableViewController: NewsTableViewControllerProtocol {
         
         cell.accessoryType = .detailButton
         cell.tintColor = BasicProperties.color
-        cell.backgroundColor = .white
+        cell.backgroundColor = .systemBackground
+        cell.contentView.backgroundColor = .systemBackground
         
         return cell
     }
@@ -292,7 +317,7 @@ extension NewsTableViewController: NewsTableViewControllerProtocol {
     }
     
     private func setupURLTextLabel(label: UILabel?) {
-        label?.text = "https://spacenews.com"
+        label?.text = Keys.siteURL.rawValue
         label?.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         label?.textColor = BasicProperties.color
     }
@@ -304,9 +329,10 @@ extension NewsTableViewController: NewsTableViewControllerProtocol {
     }
     
     private func setupTableView() {
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "SiteCell")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: Keys.CellIdentifiers.siteCell.rawValue)
         tableView.separatorColor = UIColor.TableViewColors.tableViewSeparatorColor
         tableView.separatorStyle = .singleLine
+        tableView.backgroundColor = UIColor.TableViewColors.tableViewBackgroundColor
     }
     
     private func setRemoteConfig() {
@@ -314,8 +340,9 @@ extension NewsTableViewController: NewsTableViewControllerProtocol {
     }
     
     private func setupSearchController() {
+        let placehollder = "Search News"
         searchController.searchResultsUpdater = self
-        searchController.searchBar.placeholder = "Search News"
+        searchController.searchBar.placeholder = placehollder
         searchController.searchBar.tintColor = BasicProperties.color
         searchController.searchBar.textField?.font = UIFont.systemFont(ofSize: 15, weight: .medium)
         navigationItem.searchController = searchController
@@ -323,7 +350,7 @@ extension NewsTableViewController: NewsTableViewControllerProtocol {
     
     private func setupNavBar() {
         guard let navBar = navigationController?.navigationBar else { return }
-        navBar.backgroundColor = .systemGroupedBackground
+        navBar.backgroundColor = UIColor.TableViewColors.tableViewBackgroundColor
     }
     
     private func configureRemoteConfig() {

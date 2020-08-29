@@ -9,6 +9,18 @@
 import UIKit
 import GoogleMobileAds
 
+//MARK: PlanetsMenuTableViewController extension
+extension PlanetsMenuTableViewController {
+    
+    //MARK: Segues public enum
+    public enum Segues: String {
+        case planetsSegue = "planetsDetailTableViewCellSegue"
+        case starsSegue = "starDetailTableViewCellSegue"
+    }
+}
+
+
+
 //MARK: - PlanetsMenuTableViewController main class
 final class PlanetsMenuTableViewController: UITableViewController {
     
@@ -58,7 +70,6 @@ final class PlanetsMenuTableViewController: UITableViewController {
         
         setupRefreshControl()
         setupSearchBar()
-        setupStatusBar()
         setupNavBar()
         setupInterstitial()
         setupSeparator()
@@ -108,6 +119,11 @@ final class PlanetsMenuTableViewController: UITableViewController {
         setupTitleLabel(cell: cell)
         setupReminderButton(cell.reminderButton)
         
+        ///Setup Cell
+        let backColor: UIColor = .systemBackground
+        cell.backgroundColor = backColor
+        cell.contentView.backgroundColor = backColor
+        
         return cell
     }
     
@@ -118,9 +134,9 @@ final class PlanetsMenuTableViewController: UITableViewController {
         
         ///Setup segues
         if indexPath.section == 0 {
-            performSegue(withIdentifier: "starDetailTableViewCellSegue", sender: self)
+            performSegue(withIdentifier: Segues.starsSegue.rawValue, sender: self)
         } else {
-            performSegue(withIdentifier: "planetsDetailTableViewCellSegue", sender: self)
+            performSegue(withIdentifier: Segues.planetsSegue.rawValue, sender: self)
         }
     }
 }
@@ -264,16 +280,8 @@ extension PlanetsMenuTableViewController {
         setupSearchBar(searchController.searchBar)
     }
     
-    private func setupStatusBar() {
-        if DeviceType.IS_IPHONE_5 || DeviceType.IS_IPHONE_7 || DeviceType.IS_IPHONE_7P || DeviceType.IS_IPAD {
-            setupStatusBarView(with: 20)
-        } else {
-            setupStatusBarView(with: 50)
-        }
-    }
-    
     private func setupNavBar() {
-        let basicColor: UIColor = .systemGroupedBackground
+        let basicColor: UIColor = UIColor.TableViewColors.tableViewBackgroundColor
         guard let navBar = navigationController?.navigationBar else { return }
         navBar.backgroundColor = basicColor
         navBar.barTintColor = basicColor
@@ -364,7 +372,7 @@ extension PlanetsMenuTableViewController {
     }
     
     private func setupSubDetailLabel(subDetailLabel: UILabel, indexPath: IndexPath) {
-        subDetailLabel.textColor = .systemGroupedBackground
+        subDetailLabel.textColor = .gray
         subDetailLabel.text = presenter.setupImageCellPlanetSubDetailLabelContent(row: indexPath.row)
         subDetailLabel.setupCollectionViewDetailLabelShadow()
         subDetailLabel.font = UIFont.systemFont(ofSize: 8, weight: .regular)
@@ -386,19 +394,27 @@ extension PlanetsMenuTableViewController {
     private func setupSeparator() {
         tableView.separatorColor = UIColor.TableViewColors.tableViewSeparatorColor
         tableView.separatorStyle = .singleLine
+        tableView.backgroundColor = UIColor.TableViewColors.tableViewBackgroundColor
     }
     
     private func setupCollectionView() {
         imagesCollectionView.delegate = self
         imagesCollectionView.dataSource = self
         moreCollectionView.tag = 0
+        
+        ///Set backgroundColor
+        if traitCollection.userInterfaceStyle == .dark {
+            imagesCollectionView.backgroundColor = UIColor.TableViewColors.tableViewBackgroundColor
+        } else {
+            imagesCollectionView.backgroundColor = .systemGroupedBackground
+        }
     }
     
     private func setupMoreCollectionView() {
         moreCollectionView.delegate = self
         moreCollectionView.dataSource = self
         moreCollectionView.tag = 1
-        moreCollectionView.backgroundColor = .systemGroupedBackground
+        moreCollectionView.backgroundColor = UIColor.TableViewColors.tableViewBackgroundColor
         
         ///Setup collectionViewLayout
         let layout = moreCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
@@ -411,11 +427,5 @@ extension PlanetsMenuTableViewController {
         } else {
             return presenter.setupSectionRows(sections: sections, section: section)
         }
-    }
-    
-    private func setupStatusBarView(with size: CGFloat) {
-        let statusBarView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: size))
-        statusBarView.backgroundColor = .systemGroupedBackground
-        navigationController?.view.addSubview(statusBarView)
     }
 }

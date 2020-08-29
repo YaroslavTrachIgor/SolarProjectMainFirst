@@ -45,6 +45,9 @@ final class SunThemesMenuTableViewController: UITableViewController {
         setupRefreshControl()
         setupInterstitial()
         setupTitle()
+        
+        ///Setup View
+        view.backgroundColor = UIColor.TableViewColors.tableViewBackgroundColor
     }
 
     
@@ -52,13 +55,13 @@ final class SunThemesMenuTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
         ///Setup Header
-        return "Sun Themes"
+        return presenter.setupSectionHeader()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         
         ///Setup number of sections
-        return 1
+        return presenter.setupNumberOfSections()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -76,6 +79,11 @@ final class SunThemesMenuTableViewController: UITableViewController {
         setupSelectionBack(cell: cell)
         setupSubtitleLabel(label: cell.subtitleLabel)
         setupTitleLabel(label: cell.titleLabel)
+        
+        ///Setup cell
+        let backColor: UIColor = .systemBackground
+        cell.backgroundColor = backColor
+        cell.contentView.backgroundColor = backColor
 
         return cell
     }
@@ -121,8 +129,9 @@ extension SunThemesMenuTableViewController {
     }
     
     private func setupInterstitial() {
-        interstitial = GADInterstitial(adUnitID: "ca-app-pub-8702634561077907/8242136384")
         let request = GADRequest()
+        let adUnit = "ca-app-pub-8702634561077907/8242136384"
+        interstitial = GADInterstitial(adUnitID: adUnit)
         interstitial.load(request)
     }
     
@@ -146,12 +155,14 @@ extension SunThemesMenuTableViewController {
     
     private func setupTableView() {
         tableView.rowHeight = 125
-        tableView.backgroundColor = .systemGroupedBackground
+        tableView.backgroundColor = UIColor.TableViewColors.tableViewBackgroundColor
+        tableView.separatorColor = UIColor.TableViewColors.tableViewSeparatorColor
+        tableView.separatorStyle = .singleLine
         tableView.alpha = 1
     }
     
     private func setupSubtitleLabel(label: UILabel) {
-        let font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        let font = UIFont.systemFont(ofSize: 12, weight: .semibold)
         label.textColor = .secondaryLabel
         label.backgroundColor = .clear
         label.alpha = 1
@@ -160,7 +171,7 @@ extension SunThemesMenuTableViewController {
     
     private func setupTitleLabel(label: UILabel) {
         let font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        label.textColor = .black
+        label.textColor = .label
         label.backgroundColor = .clear
         label.alpha = 1
         label.font = font

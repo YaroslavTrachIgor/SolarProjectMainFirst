@@ -40,6 +40,9 @@ final class SupportViewController: BasicViewController {
         setupContactButton()
         setupContactWithMessagesButton()
         setupNavConroller()
+        
+        ///Setup View
+        view.backgroundColor = .systemBackground
     }
 }
 

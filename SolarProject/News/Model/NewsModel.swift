@@ -7,17 +7,13 @@
 //
 
 import Foundation
+import RealmSwift
 
-//MARK: - NewsModel
-final class NewsModel {
-    
-    //MARK: Fileprivate
-    typealias NewsContentType = [String]
-    
-    
-    //MARK: Public
-    public var newsTitles = NewsContentType()
-    public var newsContents = NewsContentType()
-    public var newsDates = NewsContentType()
-    public var newsImagesStringURLs = NewsContentType()
+//MARK: - News Model main struct
+struct News {
+    public var title: String!
+    public var content: String!
+    public var date: String!
+    public var imageURL: String!
 }
+

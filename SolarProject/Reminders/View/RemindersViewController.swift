@@ -22,6 +22,7 @@ final class RemindersViewController: BasicViewController {
         case remindersCompletedSaveKey       = "remindersCompletedSaveKey"
         case remindersCompletedDatesSaveKey  = "remindersCompletedDatesSaveKey"
         
+        
         //MARK: NotificationNames
         enum NotificationNames: String {
             case deleteNotificationName   = "DeleteNotificationName"
@@ -88,7 +89,7 @@ final class RemindersViewController: BasicViewController {
     internal func setupBasicViewControllerUI() {
         
         ///Set view backColor
-        view.backgroundColor = .systemGroupedBackground
+        view.backgroundColor = UIColor.TableViewColors.tableViewBackgroundColor
         
         ///Setup UI
         setupInputTextField()
@@ -243,7 +244,7 @@ extension RemindersViewController {
         }
         
         ///Set Bar backgroundColor
-        let color = UIColor.white
+        let color = UIColor.systemBackground
         navBar.barTintColor = color
         navBar.backgroundColor = color
         navBar.tintColor = BasicProperties.color
@@ -269,9 +270,6 @@ extension RemindersViewController {
         let placeholder = "Enter here your reminder"
         inputTextField.placeholder = placeholder
         inputTextField.tintColor = BasicProperties.color
-        inputTextField.viewShadows()
-        inputTextField.layer.shadowColor = #colorLiteral(red: 0.9813625978, green: 0.9813625978, blue: 0.9813625978, alpha: 1)
-        inputTextField.layer.shadowRadius = 40
     }
     
     private func setupRefreshControl() {
@@ -293,7 +291,7 @@ extension RemindersViewController {
     
     private func setupStatusBarView(with size: CGFloat) {
         let statusBarView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: size))
-        statusBarView.backgroundColor = .white
+        statusBarView.backgroundColor = .systemBackground
         navigationController?.view.addSubview(statusBarView)
     }
     
@@ -367,7 +365,8 @@ extension RemindersViewController {
     }
     
     public func shareAction(at indexPath: IndexPath, for vc: UIViewController) -> UIContextualAction {
-        let action = UIContextualAction(style: .normal, title: "Share") { (action, view, completion) in
+        let title = "Share"
+        let action = UIContextualAction(style: .normal, title: title) { (action, view, completion) in
             
             ///Present ActivityVC
             ActivityVCManeger.showBasic(content: self.presenter.shareContent(at: indexPath), for: self)
@@ -375,7 +374,8 @@ extension RemindersViewController {
         
         ///Setup action style
         let backColor = UIColor.systemTeal
-        let image = UIImage(systemName: "square.and.arrow.up")
+        let imageName = "square.and.arrow.up"
+        let image = UIImage(systemName: imageName)
         
         action.backgroundColor = backColor
         action.image = image

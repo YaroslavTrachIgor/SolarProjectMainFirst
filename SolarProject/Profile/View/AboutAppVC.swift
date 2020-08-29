@@ -109,7 +109,7 @@ extension AboutAppVC {
     
     private func setupTitleLabel() {
         let title = "Application Info"
-        titleLabel.textColor = .black
+        titleLabel.textColor = .label
         titleLabel.backgroundColor = .clear
         titleLabel.alpha = 1
         titleLabel.text = title

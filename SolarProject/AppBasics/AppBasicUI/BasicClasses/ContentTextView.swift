@@ -33,7 +33,7 @@ final class ContentTextView: UITextView {
     }
     
     private func setupTextFont() {
-        textColor = #colorLiteral(red: 0.2190820516, green: 0.2190820516, blue: 0.2190820516, alpha: 1)
+        textColor = .label
         font = UIFont.systemFont(ofSize: 19, weight: .regular)
     }
     

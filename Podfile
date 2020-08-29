@@ -16,4 +16,6 @@ pod 'SPPermissions/Camera'
 pod 'SPPermissions/PhotoLibrary'
 pod 'Firebase/Core'
 pod 'Firebase/RemoteConfig'
+pod 'Realm'
+pod 'RealmSwift'
 end

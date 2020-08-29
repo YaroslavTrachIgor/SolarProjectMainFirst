@@ -20,11 +20,11 @@ extension AccountVC: BasicIPCDelegate {
         let globalQueue = DispatchQueue.global()
         let mainQueue = DispatchQueue.main
         let semaphore = DispatchSemaphore(value: 1)
+        let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         
         mainQueue.async {
             semaphore.wait()
             
-            let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
             self.userPhoto = image
             
             semaphore.signal()
@@ -47,7 +47,7 @@ extension AccountVC: BasicIPCDelegate {
         globalQueue.async {
             semaphore.wait()
             
-            let imageData: NSData = self.userPhoto.pngData()! as NSData
+            let imageData: NSData = image.pngData()! as NSData
             self.defaults.set(imageData, forKey: Keys.userPhotoKey)
             
             semaphore.signal()

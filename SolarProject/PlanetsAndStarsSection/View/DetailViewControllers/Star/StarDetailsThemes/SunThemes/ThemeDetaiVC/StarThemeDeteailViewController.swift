@@ -132,7 +132,7 @@ extension StarThemeDeteailViewController: StarThemeDeteailViewControllerProtocol
     
     //MARK: Setup Animation
     internal func setupAnimation() {
-        let views = [contentBack, titleLabel]
+        let views = [contentBack, titleLabel, subtitleLabel]
         
         UIView.animate(withDuration: 0.4) {
             for view in views {
@@ -161,12 +161,12 @@ extension StarThemeDeteailViewController: StarThemeDeteailViewControllerProtocol
     private func setupTitleLabel() {
         let font = UIFont.systemFont(ofSize: 20, weight: .bold)
         titleLabel.font = font
-        titleLabel.textColor = .black
+        titleLabel.textColor = .label
         titleLabel.alpha = 0
     }
     
     private func setupSubtitleLabel() {
-        let font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        let font = UIFont.systemFont(ofSize: 13.5, weight: .bold)
         subtitleLabel.font = font
         subtitleLabel.textColor = .secondaryLabel
         subtitleLabel.alpha = 0

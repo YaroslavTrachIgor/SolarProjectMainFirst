@@ -14,6 +14,8 @@ protocol SunThemesMenuTBVCPresenterProtocol {
     func setupPreviewContent(indexPath: IndexPath) -> String
     func setupNumberOfRowsInSection() -> Int
     func setupStarThemeIndex(indexPath: IndexPath)
+    func setupSectionHeader() -> String
+    func setupNumberOfSections() -> Int
 }
 
 
@@ -41,11 +43,19 @@ extension SunThemesMenuTBVCPresenter: SunThemesMenuTBVCPresenterProtocol {
         return MenuContentModel.StarsContent.themesContent[indexPath.row]
     }
     
+    internal func setupSectionHeader() -> String {
+        return "Sun Themes"
+    }
+    
     internal func setupNumberOfRowsInSection() -> Int {
         return titles.count
     }
     
     internal func setupStarThemeIndex(indexPath: IndexPath) {
         MenuContentModel.StarsContent.starThemeIndex = indexPath.row
+    }
+    
+    internal func setupNumberOfSections() -> Int {
+        return 1
     }
 }

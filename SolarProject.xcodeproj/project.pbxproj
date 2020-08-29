@@ -390,7 +390,6 @@
 		8463C8E5248019C60059A897 /* AppBasics */ = {
 			isa = PBXGroup;
 			children = (
-				84C7178F2486F387003B02B3 /* BasicViewController */,
 				8463C944248068650059A897 /* ButtonsAnimations */,
 				8463C93F248067A00059A897 /* NotificationsManeger */,
 				8463C93C248025660059A897 /* AppBasicUI */,
@@ -445,6 +444,7 @@
 		8463C93C248025660059A897 /* AppBasicUI */ = {
 			isa = PBXGroup;
 			children = (
+				84C7178F2486F387003B02B3 /* BasicViewController */,
 				84C717612482A79D003B02B3 /* BasicClasses */,
 				84C717602482A794003B02B3 /* Extensions */,
 				84C7175624819C90003B02B3 /* ActivityVCManeger.swift */,

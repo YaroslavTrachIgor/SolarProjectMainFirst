@@ -109,20 +109,23 @@ extension PersonalAnalyticsTableViewController {
     
     private func setupDefaultCell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PersonalAnalyticsTableViewCell", for: indexPath) as! PersonalAnalyticsTableViewCell
+        let backColor: UIColor = .systemBackground
         
         setupContent(cell: cell, indexPath: indexPath)
         setupViewsCountBackView(cell: cell, indexPath: indexPath)
         setupTitleLabel(titleLabel: cell.titleLabel)
         setupSubtitleLabel(subtitleLabel: cell.subtitleLabel)
         setupArrowImage(cell: cell)
+        cell.backgroundColor = backColor
+        cell.contentView.backgroundColor = backColor
         tableView.rowHeight = 60
         
         return cell
     }
     
     private func setpTableView() {
-        tableView.backgroundColor = .systemGroupedBackground
-        tableView.separatorColor = #colorLiteral(red: 0.962546849, green: 0.962546849, blue: 0.962546849, alpha: 1)
+        tableView.backgroundColor = UIColor.TableViewColors.tableViewBackgroundColor
+        tableView.separatorColor = UIColor.TableViewColors.tableViewSeparatorColor
     }
     
     private func setupRefreshControl() {
@@ -175,7 +178,7 @@ extension PersonalAnalyticsTableViewController {
         
         ///ZeroCountViewType method
         func setupZeroCountViewType() {
-            setupBasicViewsCountBackView(cell: cell, textColor: .black, backgroundColor: .systemGroupedBackground, imageName: "")
+            setupBasicViewsCountBackView(cell: cell, textColor: .label, backgroundColor: UIColor.TableViewColors.tableViewBackgroundColor, imageName: "")
         }
     }
     
@@ -186,13 +189,13 @@ extension PersonalAnalyticsTableViewController {
     }
     
     private func setupTitleLabel(titleLabel: UILabel) {
-        titleLabel.textColor = .black
+        titleLabel.textColor = .label
         titleLabel.backgroundColor = .clear
         titleLabel.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
     }
     
     private func setupSubtitleLabel(subtitleLabel: UILabel) {
-        subtitleLabel.textColor = .lightGray
+        subtitleLabel.textColor = .secondaryLabel
         subtitleLabel.backgroundColor = .clear
         subtitleLabel.font = UIFont.systemFont(ofSize: 9.5, weight: .regular)
     }

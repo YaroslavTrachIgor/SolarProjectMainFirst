@@ -136,7 +136,11 @@ open class SPFakeBarView: UIView {
         self.blurView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         
         self.addSubview(self.separatorView)
-        self.separatorView.backgroundColor = UIColor.init(red: 191 / 255.0, green: 191 / 255.0, blue: 191 / 255.0, alpha: 1)
+        if #available(iOS 13.0, *) {
+            self.separatorView.backgroundColor = .systemGray5
+        } else {
+            self.separatorView.backgroundColor = .lightGray
+        }
         self.separatorView.translatesAutoresizingMaskIntoConstraints = false
         self.separatorView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         self.separatorView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true

@@ -31,7 +31,7 @@ public extension UILabel {
     //MARK: UILabel Cell setup
     func setupBasicCellLabel(text: String?) {
         let font = UIFont.systemFont(ofSize: 15, weight: .medium)
-        let color: UIColor = .black
+        let color: UIColor = .label
         self.text = text
         textColor = color
         alpha = 1

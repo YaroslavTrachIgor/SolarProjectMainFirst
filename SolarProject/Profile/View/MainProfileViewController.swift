@@ -150,7 +150,7 @@ extension MainProfileViewController {
     private func setupFullNameLabel() {
         fullNameLabel.text = presenter.setupFullName()
         fullNameLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-        fullNameLabel.textColor = .black
+        fullNameLabel.textColor = .label
     }
     
     private func setupEmailLabel() {
@@ -160,7 +160,7 @@ extension MainProfileViewController {
     private func setupTableView() {
         profileTableView.delegate = self
         profileTableView.dataSource = self
-        profileTableView.backgroundColor = .systemGroupedBackground
+        profileTableView.backgroundColor = UIColor.TableViewColors.tableViewBackgroundColor
         profileTableView.separatorColor = UIColor.TableViewColors.tableViewSeparatorColor
         profileTableView.separatorStyle = .singleLine
     }

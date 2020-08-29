@@ -61,6 +61,7 @@ extension DeleteVC {
         doneButton.tintColor = BasicProperties.color
         doneButton.setTitleColor(BasicProperties.color, for: .normal)
         doneButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+        doneButton.backgroundColor = UIColor.TableViewColors.tableViewBackgroundColor
     }
     
     private func setupDleteButton() {

@@ -16,7 +16,7 @@ public extension UIButton {
         setTitle(title, for: .normal)
         layer.cornerRadius = BasicProperties.cornerRadius
         alpha = 0
-        backgroundColor = .systemGroupedBackground
+        backgroundColor = UIColor.TableViewColors.tableViewBackgroundColor
         titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
     }
 }

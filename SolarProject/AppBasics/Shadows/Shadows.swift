@@ -29,7 +29,14 @@ extension UIView: ShadowSetupProtocol {
     }
     
     public func viewShadows() {
-        viewShadows(opacity: 1, color: UIColor(red: 223/255, green: 228/255, blue: 238/255, alpha: 0.5).cgColor, radius: 8, offset: CGSize(width: 0, height: 0.45))
+        viewShadows(opacity: 1,
+                    color: UIColor.tertiarySystemGroupedBackground.cgColor, // UIColor(red: 223/255,
+                                   //green: 228/255,
+                                   //blue: 238/255,
+                                   //alpha: 0.5).cgColor,
+                    radius: 8,
+                    offset: CGSize(width: 0,
+                                   height: 0.45))
     }
 }
 

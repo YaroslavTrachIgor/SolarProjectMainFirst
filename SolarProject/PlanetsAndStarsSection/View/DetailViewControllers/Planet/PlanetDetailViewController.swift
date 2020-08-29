@@ -20,10 +20,10 @@ protocol PlanetDetailViewControllerContentSetupProtocol {
 //MARK: - PlanetDetailViewControllerSetupProtocol protocol
 protocol PlanetDetailViewControllerProtocol: PlanetDetailViewControllerContentSetupProtocol {
     
-    // Setup Animations func
+    ///Setup Animations func
     func setupAnimation()
     
-    // Add View To Analytics func
+    ///Add View To Analytics func
     func addViewToAnalytics()
 }
 
@@ -94,6 +94,9 @@ final class PlanetDetailViewController: BasicViewController {
         setupAddBunner()
         setupTitleLabel()
         setupSubtitleLabel()
+        
+        ///Setup View
+        view.backgroundColor = .systemBackground
     }
 }
 
@@ -163,7 +166,8 @@ extension PlanetDetailViewController: PlanetDetailViewControllerProtocol {
     
     //MARK: Setup UI
     fileprivate func setupImageButton() {
-        imageButton.setupArticleDetailButton(title: "  Images  ")
+        let title = "  Images  "
+        imageButton.setupArticleDetailButton(title: title)
         imageButton.layer.cornerRadius = BasicProperties.cornerRadius
     }
     
@@ -189,21 +193,24 @@ extension PlanetDetailViewController: PlanetDetailViewControllerProtocol {
     
     //MARK: Private
     private func setupTitleLabel() {
-        planetTitleLabel.textColor = .black
+        let font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        planetTitleLabel.textColor = .label
         planetTitleLabel.alpha = 0
-        planetTitleLabel.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        planetTitleLabel.font = font
     }
     
     private func setupSubtitleLabel() {
-        contentTypeLabel.textColor = #colorLiteral(red: 0.6511782289, green: 0.6511782289, blue: 0.6511782289, alpha: 1)
+        let font = UIFont.systemFont(ofSize: 13.5, weight: .semibold)
+        contentTypeLabel.textColor = .secondaryLabel
         contentTypeLabel.alpha = 0
-        contentTypeLabel.font = UIFont.systemFont(ofSize: 13.5, weight: .semibold)
+        contentTypeLabel.font = font
     }
 
     fileprivate func setupSliderBack() {
+        let transform = CGAffineTransform(scaleX: 0, y: 0)
         sliderBack.isHidden = true
         sliderBack.alpha = 0
-        sliderBack.transform = CGAffineTransform(scaleX: 0, y: 0)
+        sliderBack.transform = transform
     }
     
     fileprivate func setupNavigationItem() {
